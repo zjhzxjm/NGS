@@ -283,13 +283,13 @@ sub findSeq {
 		$tag =1;
 		return 1;
 	}
-	unless($tag != 0){
-		my @catches1 = String::Approx::amatch($pri, ['I0 D0 S1'], $seq);
-		if(@catches1 !=0 ){
+#	unless($tag != 0){
+#		my @catches1 = String::Approx::amatch($pri, ['I0 D0 S1'], $seq);
+#		if(@catches1 !=0 ){
 #print "Mismatch 1bp:\t$pri\t",@catches1,"\n";
-			return 2;
-		}
-	}
+#			return 2;
+#		}
+#	}
 	return 0;
 }
 sub openFileGetHandle {
