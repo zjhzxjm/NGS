@@ -286,7 +286,7 @@ sub findSeq {
 #	unless($tag != 0){
 #		my @catches1 = String::Approx::amatch($pri, ['I0 D0 S1'], $seq);
 #		if(@catches1 !=0 ){
-#print "Mismatch 1bp:\t$pri\t",@catches1,"\n";
+##print "Mismatch 1bp:\t$pri\t",@catches1,"\n";
 #			return 2;
 #		}
 #	}
