@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 
 #####
-#Version:1.0.1 20150603
+#Version:1.0.0 20150603
 #####
 use File::Basename;
 use strict;
@@ -113,8 +113,7 @@ sub processPairedEndFiles {
 		my @isFWOPriAdas = split /-/,$isFWOPriAda;
 		my @isRWOPriAdas = split /-/,$isRWOPriAda;
 		my $twoBarcodeF = "F".$isFWOPriAdas[1]."+R".$isRWOPriAdas[1];
-		my $twoBarcodeR = "F".$isRWOPriAdas[1]."+R".$isFWOPriAdas[1];
-#print "$lineCount\t$twoBarcodeF\t$twoBarcodeR\n";
+#print "$lineCount\t$twoBarcodeF\n";
 
 		if($proSamName{$twoBarcodeF}){
 			my @proSam = split /&/,$proSamName{$twoBarcodeF};
@@ -132,24 +131,6 @@ print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]
 			print OF2 @rRead;
 			close (OF1);
 			close (OF2);
-		}elsif($proSamName{$twoBarcodeR}){
-			my @proSam = split /&/,$proSamName{$twoBarcodeR};
-			unless(-e "$outDir\/$proSam[0]\/$proSam[1]"){
-#`mkdir $proSam[0]` unless(-d $proSam[0]);
-#`mkdir $proSam[0]\/$proSam[1]`;
-				mkdir ("$outDir\/$proSam[0]") unless(-e "$outDir\/$proSam[0]");
-				mkdir ("$outDir\/$proSam[0]\/$proSam[1]");
-			}
-print "-Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]\n" if($isFWOPriAdas[0]>1 or $isRWOPriAdas[0]>1);
-			my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
-			my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
-			open OF1,">>$outFile1" or die "cant open $outFile1\n";
-			open OF2,">>$outFile2" or die "cant open $outFile2\n";
-			print OF1 @fRead;
-			print OF2 @rRead;
-			close (OF1);
-			close (OF2);
-			
 		}else{
 			unless(-e "$outDir\/Unalign"){
 				mkdir ("$outDir\/Unalign");
