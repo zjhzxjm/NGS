@@ -1,21 +1,18 @@
 #! /usr/bin/perl
 
-#####
-#Version:1.0.0 20150603
-#####
 use File::Basename;
 use strict;
 use IO::Zlib;
 use String::Approx;
 use Cwd 'abs_path';
 
-die "$0	<fq1><fq2><lORs barcode><sam_barcode>" unless @ARGV == 4;
+die "$0	<fq1><fq2><lORs barcode:1 or 0><sam_barcode>" unless @ARGV == 4;
 my @totalReads = (0, 0);
 my $nLines = 0;
 my %proSamName; 
 my $outDir = dirname(abs_path($ARGV[3]));
-my $ssubstrlen = 6;
-my $lsubstrlen = 12;
+my $ssubstrlen = 7;
+my $lsubstrlen = 6;
 
 open SAM,"$ARGV[3]" or die "cant open $ARGV[3]\n";
 while(<SAM>){
@@ -112,7 +109,12 @@ sub processPairedEndFiles {
 		my $isRWOPriAda = isWOPriAda($rSeqLine, $islORs);
 		my @isFWOPriAdas = split /-/,$isFWOPriAda;
 		my @isRWOPriAdas = split /-/,$isRWOPriAda;
-		my $twoBarcodeF = "F".$isFWOPriAdas[1]."+R".$isRWOPriAdas[1];
+		my $twoBarcodeF;
+		if($ARGV[2]){
+			$twoBarcodeF = "F".$isRWOPriAdas[1]."+R".$isFWOPriAdas[1];
+		}else{
+			$twoBarcodeF = "F".$isFWOPriAdas[1]."+R".$isRWOPriAdas[1];
+		}
 #print "$lineCount\t$twoBarcodeF\n";
 
 		if($proSamName{$twoBarcodeF}){
@@ -180,30 +182,30 @@ sub isWOPriAda {
 			"CTTGTA"
 			);
 	my @lBarcode = (
-			"CCTAAACTACGG",
-			"TGCAGATCCAAC",
-			"CCATCACATAGG",
-			"GTGGTATGGGAG",
-			"ACTTTAAGGGTG",
-			"GAGCAACATCCT",
-			"TGTTGCGTTTCT", 
-			"ATGTCCGACCAA", 
-			"AGGTACGCAATT", 
-			"GTTACGTGGTTG", 
-			"TACCGCCTCGGA", 
-			"CGTAAGATGCCT",
-			"ACAGCCACCCAT", 
-			"TGTCTCGCAAGC", 
-			"GAGGAGTAAAGC", 
-			"TACCGGCTTGCA", 
-			"ATCTAGTGGCAA", 
-			"CCAGGGACTTCT",
-			"CACCTTACCTTA", 
-			"ATAGTTAGGGCT", 
-			"GCACTTCATTTC", 
-			"TTAACTGGAAGC", 
-			"CGCGGTTACTAA", 
-			"GAGACTATATGC"
+			"CCTAAA",
+			"TGCAGA",
+			"CCATCA",
+			"GTGGTA",
+			"ACTTTA",
+			"GAGCAA",
+			"TGTTGC", 
+			"ATGTCC", 
+			"AGGTAC", 
+			"GTTACG", 
+			"TACCGC", 
+			"CGTAAG",
+			"ACAGCC", 
+			"TGTCTC", 
+			"GAGGAG", 
+			"TACCGG", 
+			"ATCTAG", 
+			"CCAGGG",
+			"CACCTT", 
+			"ATAGTT", 
+			"GCACTT", 
+			"TTAACT", 
+			"CGCGGT", 
+			"GAGACT"
 			);
 
 	my %tagPriStr = ();
@@ -214,7 +216,7 @@ sub isWOPriAda {
 		my $i = 0;
 		foreach my $barcode (@lBarcode){
 			$i++;
-			my $f = findSeq($barcode, $lsubstrlen, $seq );
+			my $f = findSeq($barcode, $lsubstrlen, $seq, $islORs );
 			if($f>0){
 				if(defined $tagPriStr{$f}){
 					$tagPriStr{$f} = 0;
@@ -229,7 +231,7 @@ sub isWOPriAda {
 		foreach my $barcode (@sBarcode){
 			$i++;
 #print "barcode:$i\t$barcode\n";
-			my $f = findSeq($barcode, $ssubstrlen, $seq );
+			my $f = findSeq($barcode, $ssubstrlen, $seq, $islORs );
 			if($f>0){
 #print "$barcode\t$seq\n";
 				if(defined $tagPriStr{$f}){
@@ -259,21 +261,27 @@ sub findSeq {
 	my $substrlen = $_[1];
 	my $seq = substr($_[2], 0, $substrlen);
 #print "substr $seq\n";
-	my $tag = 0;
 
-	my @catches0 = String::Approx::amatch($pri, ['I0 D0 S0'], $seq);
-	if(@catches0 !=0 ){
-#print "0\t$pri\t",@catches0,"\n";
-		$tag =1;
-		return 1;
-	}
-#	unless($tag != 0){
-#		my @catches1 = String::Approx::amatch($pri, ['I0 D0 S1'], $seq);
-#		if(@catches1 !=0 ){
+	if($_[3]){
+		my $loc = index($seq, $pri);
+		unless($loc < 0){
+			return 1
+		}
+	}else{
+		my $tag = 0;
+		my $loc = index($seq, $pri);
+		unless($loc < 0){
+			$tag = 1;
+			return 1;
+		}
+		unless($tag != 0){
+			my @catches1 = String::Approx::amatch($pri, $seq);
+			if(@catches1 !=0 ){
 ##print "Mismatch 1bp:\t$pri\t",@catches1,"\n";
-#			return 2;
-#		}
-#	}
+				return 2;
+			}
+		}
+	}
 	return 0;
 }
 sub openFileGetHandle {
