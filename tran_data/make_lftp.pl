@@ -43,7 +43,7 @@ while (<LIST>) {
 		EOF
 		echo 'done'";
 	close OUT;
-	print QSUB "sh $dir\/$_\/$_\_lftp.sh\n cd $dir\/$_\n md5sum -c *.md5 >md5.ck\nrm -f *.sh";
+	print QSUB "sh $dir\/$_\/$_\_lftp.sh\n cd $dir\/$_\n md5sum -c *.md5 >md5.ck\nrm -f *.sh\n";
 }
 close LIST;
 }
