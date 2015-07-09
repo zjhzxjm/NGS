@@ -27,18 +27,12 @@ while(<SAM>){
   unless(-e $a[0]){
 		mkdir("$outDir\/$a[0]");
 	}
-#else{
-#print "Warning: Exist $outDir\/$a[0]\n";
-#}
 	unless(-e "Unalign"){
 		mkdir ("$outDir\/Unalign");
 	}
-#else{
-#`rm -rf Unalign`;
-#}
 }
 
-#$nLines = checkFastQFormat($ARGV[0]);
+$nLines = checkFastQFormat($ARGV[0]);
 #if($nLines != checkFastQFormat($ARGV[1])) {
 #	prtErrorExit("Number of reads in paired end files are not same.\n\t\tFiles: $ARGV[0], $ARGV[1]");
 #}
@@ -99,7 +93,7 @@ sub processPairedEndFiles {
 		my @fRead = ();
 		my @rRead = ();
 		
-		for(my $i=0; $i<4; $i++) {
+    for(my $i=0; $i<4; $i++) {
 			$fRead[$i] = <F1>;
 			$rRead[$i] = <F2>;
 		}
@@ -143,13 +137,22 @@ sub processPairedEndFiles {
           print OF2 @rRead;
           close (OF1);
           close (OF2);
+        }else{
+          my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign";
+          my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign";
+          open OF1,">>$outFile1" or die "cant open $outFile1\n";
+          open OF2,">>$outFile2" or die "cant open $outFile2\n";
+          print OF1 @fRead;
+          print OF2 @rRead;
+          close (OF1);
+          close (OF2);
         }
       } 
     }else{
       die "ERR: wrong parameter for library";
     }
 #print "$lineCount\t$twoBarcodeF\n";
-
+    if($ARGV[2] == 0 or $ARGV[2] == 1){
 		if($proSamName{$twoBarcodeF}){
 			my @proSam = split /&/,$proSamName{$twoBarcodeF};
 #print "$proSam[0] $proSam[1]\n";
@@ -181,6 +184,7 @@ print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]
 			close (OF2);
 
 		}
+    }
 	
 		$lineCount += 4;
 	
@@ -206,6 +210,7 @@ print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]
 sub isWOPriAda {
 	my $seq = $_[0];
 	my $islORs = $_[1];
+
 	chomp($seq);
 
 	my @sBarcode = (
@@ -253,7 +258,7 @@ sub isWOPriAda {
 	my @priAdaSeqs = ();
 	
 
-	if($islORs){
+	if($islORs == 1){
 		my $i = 0;
 		foreach my $barcode (@lBarcode){
 			$i++;
@@ -267,7 +272,7 @@ sub isWOPriAda {
 				}
 			}
 		}
-	}else{
+	}elsif($islORs == 0) {
 		my $i = 0;
 		foreach my $barcode (@sBarcode){
 			$i++;
