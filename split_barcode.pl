@@ -14,6 +14,7 @@ my $outDir = dirname(abs_path($ARGV[3]));
 my $ssubstrlen = 7;
 my $lsubstrlen = 6;
 my %undeterComb;
+my $time=`date +"%Y-%m-%d %H:%M"`;
 
 open SAM,"$ARGV[3]" or die "cant open $ARGV[3]\n";
 while(<SAM>){
@@ -157,7 +158,7 @@ print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]
 		}
 		if($lineCount % (100000*4) == 0) {
 			my $tmpP = sprintf "%0.0f", ($lineCount/4/$totalReads[0]*100);
-			print "Number of reads processed: " . $lineCount/4 . "/$totalReads[0] ($tmpP\%)...\n";
+			print "Number of reads processed: " . $lineCount/4 . "/$totalReads[0] ($tmpP\%)...$time\n";
 		}
 	}
 	close (F2);
