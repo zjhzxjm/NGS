@@ -6,7 +6,8 @@ use IO::Zlib;
 use String::Approx;
 use Cwd 'abs_path';
 
-die "$0	<fq1><fq2><lORs barcode:1 or 0><sam_barcode>" unless @ARGV == 4;
+die "$0	<fq1><fq2><library:self,hxt,paird para:1,0,2><sam_barcode>" unless @ARGV == 4;
+
 my @totalReads = (0, 0);
 my $nLines = 0;
 my %proSamName; 
@@ -16,12 +17,14 @@ my $lsubstrlen = 6;
 my %undeterComb;
 my $time=`date +"%Y-%m-%d %H:%M"`;
 
+
+
 open SAM,"$ARGV[3]" or die "cant open $ARGV[3]\n";
 while(<SAM>){
-    chomp;
+  chomp;
 	my @a = split;
 	$proSamName{$a[2]} = "$a[0]&$a[1]";
-    unless(-e $a[0]){
+  unless(-e $a[0]){
 		mkdir("$outDir\/$a[0]");
 	}
 #else{
@@ -35,10 +38,10 @@ while(<SAM>){
 #}
 }
 
-$nLines = checkFastQFormat($ARGV[0]);
-if($nLines != checkFastQFormat($ARGV[1])) {
-	prtErrorExit("Number of reads in paired end files are not same.\n\t\tFiles: $ARGV[0], $ARGV[1]");
-}
+#$nLines = checkFastQFormat($ARGV[0]);
+#if($nLines != checkFastQFormat($ARGV[1])) {
+#	prtErrorExit("Number of reads in paired end files are not same.\n\t\tFiles: $ARGV[0], $ARGV[1]");
+#}
 
 processPairedEndFiles($ARGV[0],$ARGV[1],$ARGV[2]);
 
@@ -112,11 +115,39 @@ sub processPairedEndFiles {
 		my @isFWOPriAdas = split /-/,$isFWOPriAda;
 		my @isRWOPriAdas = split /-/,$isRWOPriAda;
 		my $twoBarcodeF;
-		if($ARGV[2]){
+    my $checkPairBar;
+
+		if($ARGV[2] == 1){
 			$twoBarcodeF = "F".$isRWOPriAdas[1]."+R".$isFWOPriAdas[1];
-		}else{
+		}elsif($ARGV[2] == 0){
 			$twoBarcodeF = "F".$isFWOPriAdas[1]."+R".$isRWOPriAdas[1];
-		}
+		}elsif($ARGV[2] == 2){
+      if($rRead[0] =~ /:([ATCG]{16})$/){
+        $checkPairBar = $1;
+      }
+      if($fRead[0]=~ /:([ATCG]{16})$/) {
+        unless($checkPairBar eq $1) {
+          print "Warning: not the same paired barcode\n";
+        }
+        if($proSamName{$1}) {
+          my @proSam = split /&/,$proSamName{$1};
+          unless(-e "$outDir\/$proSam[0]\/$proSam[1]"){
+            mkdir ("$outDir\/$proSam[0]") unless(-e "$outDir\/$proSam[0]");
+            mkdir ("$outDir\/$proSam[0]\/$proSam[1]");
+          }
+          my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
+          my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
+          open OF1,">>$outFile1" or die "cant open $outFile1\n";
+          open OF2,">>$outFile2" or die "cant open $outFile2\n";
+          print OF1 @fRead;
+          print OF2 @rRead;
+          close (OF1);
+          close (OF2);
+        }
+      } 
+    }else{
+      die "ERR: wrong parameter for library";
+    }
 #print "$lineCount\t$twoBarcodeF\n";
 
 		if($proSamName{$twoBarcodeF}){
