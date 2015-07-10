@@ -15,8 +15,7 @@ my $outDir = dirname(abs_path($ARGV[3]));
 my $ssubstrlen = 7;
 my $lsubstrlen = 6;
 my %undeterComb;
-my $time=`date +"%Y-%m-%d %H:%M"`;
-
+my %fileOpened;
 
 
 open SAM,"$ARGV[3]" or die "cant open $ARGV[3]\n";
@@ -131,21 +130,33 @@ sub processPairedEndFiles {
           }
           my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
           my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
-          open OF1,">>$outFile1" or die "cant open $outFile1\n";
-          open OF2,">>$outFile2" or die "cant open $outFile2\n";
-          print OF1 @fRead;
-          print OF2 @rRead;
-          close (OF1);
-          close (OF2);
+          unless($fileOpened{$outFile1}) {
+            my $fHw1 = openFileGetHandle($outFile1,"w");
+            $fileOpened{$outFile1} = $fHw1;
+          }
+          unless($fileOpened{$outFile2}) {
+            my $fHw2 = openFileGetHandle($outFile2,"w");
+            $fileOpened{$outFile2} = $fHw2;
+          }
+          *FW1 = $fileOpened{$outFile1};
+          *FW2 = $fileOpened{$outFile2};
+          print FW1 @fRead;
+          print FW2 @rRead;
         }else{
           my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign";
           my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign";
-          open OF1,">>$outFile1" or die "cant open $outFile1\n";
-          open OF2,">>$outFile2" or die "cant open $outFile2\n";
-          print OF1 @fRead;
-          print OF2 @rRead;
-          close (OF1);
-          close (OF2);
+          unless($fileOpened{$outFile1}){
+            my $fHw1 = openFileGetHandle($outFile1,"w");
+            $fileOpened{$outFile1} = $fHw1;
+          }
+          unless($fileOpened{$outFile2}){
+            my $fHw2 = openFileGetHandle($outFile2,"w");
+            $fileOpened{$outFile2} = $fHw2;
+          }
+          *FW1 = $fileOpened{$outFile1};
+          *FW2 = $fileOpened{$outFile2};
+          print FW1 @fRead;
+          print FW2 @rRead;
         }
       } 
     }else{
@@ -163,12 +174,18 @@ sub processPairedEndFiles {
 print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]\n" if($isFWOPriAdas[0]>1 or $isRWOPriAdas[0]>1);
 			my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
 			my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
-			open OF1,">>$outFile1" or die "cant open $outFile1\n";
-			open OF2,">>$outFile2" or die "cant open $outFile2\n";
-			print OF1 @fRead;
-			print OF2 @rRead;
-			close (OF1);
-			close (OF2);
+      unless($fileOpened{$outFile1}){
+        my $fHw1 = openFileGetHandle($outFile1,"w");
+        $fileOpened{$outFile1} = $fHw1;
+      }
+      unless($fileOpened{$outFile2}){
+        my $fHw2 = openFileGetHandle($outFile2,"w");
+        $fileOpened{$outFile2} = $fHw2;
+      }
+      *FW1 = $fileOpened{$outFile1};
+      *FW2 = $fileOpened{$outFile2};
+      print FW1 @fRead;
+      print FW2 @rRead;
 		}else{
 			$undeterComb{$twoBarcodeF} += 1;
 			unless(-e "$outDir\/Unalign"){
@@ -176,13 +193,18 @@ print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]
 			}
 			my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign";
 			my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign";
-			open OF1,">>$outFile1" or die "cant open $outFile1\n";
-			open OF2,">>$outFile2" or die "cant open $outFile2\n";
-			print OF1 @fRead;
-			print OF2 @rRead;
-			close (OF1);
-			close (OF2);
-
+      unless($fileOpened{$outFile1}){
+        my $fHw1 = openFileGetHandle($outFile1,"w");
+        $fileOpened{$outFile1} = $fHw1;
+      }
+      unless($fileOpened{$outFile2}){
+        my $fHw2 = openFileGetHandle($outFile2,"w");
+        $fileOpened{$outFile2} = $fHw2;
+      }
+      *FW1 = $fileOpened{$outFile1};
+      *FW2 = $fileOpened{$outFile2};
+      print FW1 @fRead;
+      print FW2 @rRead;
 		}
     }
 	
@@ -193,12 +215,18 @@ print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]
 		}
 		if($lineCount % (100000*4) == 0) {
 			my $tmpP = sprintf "%0.0f", ($lineCount/4/$totalReads[0]*100);
-			print "Number of reads processed: " . $lineCount/4 . "/$totalReads[0] ($tmpP\%)...$time\n";
+      my $time = `date +"%Y-%m-%d %H:%M"`;
+			print STDERR "Number of reads processed: " . $lineCount/4 . "/$totalReads[0] ($tmpP\%)...$time\n";
 		}
 	}
+######Close all fileHandle####
 	close (F2);
 	close (F1);
-	
+	foreach my $f (values %fileOpened){
+    *F = $f;
+    close(F);
+  }
+
 	my $logFile = "$outDir\/".basename($ARGV[3]).".log";
 	open LOG,">$logFile" or die "cant open $logFile\n";
 	foreach my $k (keys %undeterComb){
