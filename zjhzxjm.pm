@@ -1,6 +1,12 @@
 #! /usr/bin/perl
 
 package zjhzxjm;
+use File::Basename;
+use strict;
+use IO::Zlib;
+use String::Approx;
+use Cwd 'abs_path';
+
 
 sub prtErrorExit {
     my $errmsg = $_[0];
