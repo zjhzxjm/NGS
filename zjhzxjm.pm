@@ -4,7 +4,7 @@ package zjhzxjm;
 require Exporter;
 
 our @ISA = qw(Exporter);
-our @EXPORT = qw(prtErrorExit checkFastQFormat isWOPriAda findSeq openFileGetHandle);
+our @EXPORT = qw(prtErrorExit checkFastQFormat isWOPriAda findSeq openFileGetHandle prtTimeLog);
 our $VERSION = 1.00;
 
 use File::Basename;
@@ -169,6 +169,7 @@ sub findSeq {
 	}
 	return 0;
 }
+
 sub openFileGetHandle {
 	my ($file, $rOrw) = @_;
 	my $fh;
@@ -182,5 +183,11 @@ sub openFileGetHandle {
 		open($fh, ">$file") or die "Can not create file $file" if($rOrw eq "w");
 	}
 	return $fh;
+}
+
+sub prtTimeLog {
+  my $message = $_[0];
+  my $time = `date +"%Y-%m-%d %H:%M"`;
+  print STDERR "$message at $time\n";
 }
 1;

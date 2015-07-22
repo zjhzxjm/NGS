@@ -23,6 +23,7 @@ if($libType == 1){
   $substrlen = 7;
 }
 
+prtTimeLog("Start"); 
 open SAM,"$ARGV[3]" or die "cant open $ARGV[3]\n";
 while(<SAM>){
   chomp;
@@ -40,14 +41,11 @@ $nLines = checkFastQFormat($file1);
 #if($nLines != checkFastQFormat($ARGV[1])) {
 #	prtErrorExit("Number of reads in paired end files are not same.\n\t\tFiles: $ARGV[0], $ARGV[1]");
 #}
-
+prtTimeLog("Start Process paired end files");
 
 ###############################
 #Process paired end files
 ###############################
-my $file1 = $_[0];
-my $file2 = $_[1];
-my $libType = $_[2];
 $totalReads[0] = sprintf("%0.0f", $nLines/4);
 $totalReads[1] = sprintf("%0.0f", $nLines/4);
 
@@ -86,10 +84,10 @@ while(!$isEOF) {
 
   if($libType == 1){
     $twoBarcodeF = "F".$isRWOPriAdas[1]."+R".$isFWOPriAdas[1];
-    if($rRead[0] =~ /:([ATCG]{16})$/) {
+    if($rRead[0] =~ /:([ATCGN]{16})$/) {
       $checkPairBar = $1;
     }
-    if($fRead[0]=~ /:([ATCG]{16})$/) {
+    if($fRead[0]=~ /:([ATCGN]{16})$/) {
       unless($checkPairBar eq $1) {
         print "Warning: not the same paired barcode\n";
       }
@@ -113,7 +111,32 @@ while(!$isEOF) {
         *FW2 = $fileOpened{$outFile2};
         print FW1 @fRead;
         print FW2 @rRead;
+      }elsif($proSamName{$twoBarcodeF}){
+        my @proSam = split /&/,$proSamName{$twoBarcodeF};
+        unless(-e "$outDir\/$proSam[0]\/$proSam[1]"){
+          mkdir ("$outDir\/$proSam[0]") unless(-e "$outDir\/$proSam[0]");
+          mkdir ("$outDir\/$proSam[0]\/$proSam[1]");
+        }
+        print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]\n" if($isFWOPriAdas[0]>1 or $isRWOPriAdas[0]>1);
+        my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
+        my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
+        unless($fileOpened{$outFile1}){
+          my $fHw1 = openFileGetHandle($outFile1,"w");
+          $fileOpened{$outFile1} = $fHw1;
+        }
+        unless($fileOpened{$outFile2}){
+          my $fHw2 = openFileGetHandle($outFile2,"w");
+          $fileOpened{$outFile2} = $fHw2;
+        }
+        *FW1 = $fileOpened{$outFile1};
+        *FW2 = $fileOpened{$outFile2};
+        print FW1 @fRead;
+        print FW2 @rRead;
       }else{
+        $undeterComb{$twoBarcodeF} += 1;
+        unless(-e "$outDir\/Unalign"){
+          mkdir ("$outDir\/Unalign");
+        }
         my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign";
         my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign";
         unless($fileOpened{$outFile1}){
@@ -129,48 +152,8 @@ while(!$isEOF) {
         print FW1 @fRead;
         print FW2 @rRead;
       }
-    next;
-    }
-    if($proSamName{$twoBarcodeF}){
-      my @proSam = split /&/,$proSamName{$twoBarcodeF};
-      unless(-e "$outDir\/$proSam[0]\/$proSam[1]"){
-        mkdir ("$outDir\/$proSam[0]") unless(-e "$outDir\/$proSam[0]");
-        mkdir ("$outDir\/$proSam[0]\/$proSam[1]");
-      }
-      print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]\n" if($isFWOPriAdas[0]>1 or $isRWOPriAdas[0]>1);
-      my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
-      my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
-      unless($fileOpened{$outFile1}){
-        my $fHw1 = openFileGetHandle($outFile1,"w");
-        $fileOpened{$outFile1} = $fHw1;
-      }
-      unless($fileOpened{$outFile2}){
-        my $fHw2 = openFileGetHandle($outFile2,"w");
-        $fileOpened{$outFile2} = $fHw2;
-      }
-      *FW1 = $fileOpened{$outFile1};
-      *FW2 = $fileOpened{$outFile2};
-      print FW1 @fRead;
-      print FW2 @rRead;
     }else{
-      $undeterComb{$twoBarcodeF} += 1;
-      unless(-e "$outDir\/Unalign"){
-        mkdir ("$outDir\/Unalign");
-      }
-      my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign";
-      my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign";
-      unless($fileOpened{$outFile1}){
-        my $fHw1 = openFileGetHandle($outFile1,"w");
-        $fileOpened{$outFile1} = $fHw1;
-      }
-      unless($fileOpened{$outFile2}){
-        my $fHw2 = openFileGetHandle($outFile2,"w");
-        $fileOpened{$outFile2} = $fHw2;
-      }
-      *FW1 = $fileOpened{$outFile1};
-      *FW2 = $fileOpened{$outFile2};
-      print FW1 @fRead;
-      print FW2 @rRead;
+      die "There is not the standard"
     }
   }elsif($libType == 0){
     $twoBarcodeF = "F".$isFWOPriAdas[1]."+R".$isRWOPriAdas[1];
@@ -225,8 +208,8 @@ while(!$isEOF) {
   }
   if($lineCount % (100000*4) == 0) {
     my $tmpP = sprintf "%0.0f", ($lineCount/4/$totalReads[0]*100);
-    my $time = `date +"%Y-%m-%d %H:%M"`;
-    print STDERR "Number of reads processed: " . $lineCount/4 . "/$totalReads[0] ($tmpP\%)...$time\n";
+    my $message = "Number of reads processed:"  . $lineCount/4 . "/$totalReads[0] ($tmpP\%)...$time\n";
+    prtTimeLog($message);
   }
 }
 
