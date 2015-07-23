@@ -2,8 +2,7 @@ from __future__ import division
 import os
 import sys
 from Bio import SeqIO
-from tempelates import pandaseq_cmd
-from settings import get_primer,get_reads
+from settings import get_primer,get_reads,get_pandaseq_cmd
 
 class WorkPerSample(object):
 
@@ -42,8 +41,8 @@ class WorkPerSample(object):
     def pandaseq(self):
         self.result['pandaseq_log'] = '%s/pandaseq.log'%self.path['sample']
         self.result['pandaseq'] = '%s/pandaseq.fq'%self.path['sample']
-        dict = { 'read1':self.read1,'read2':self.read2,'f_primer':self.f_primer,'r_primer':self.r_primer,'log_file':self.result['pandaseq_log'],'out_file':self.result['pandaseq'] }
-        cmd = pandaseq_cmd.get(dict)
+        sample_dict = {'lib_method':self.lib_method,'read1':self.read1,'read2':self.read2,'f_primer':self.f_primer,'r_primer':self.r_primer,'log_file':self.result['pandaseq_log'],'out_file':self.result['pandaseq'] }
+        cmd = get_pandaseq_cmd(sample_dict)
         try:
             os.system(cmd)
         except:

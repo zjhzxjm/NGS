@@ -3,7 +3,7 @@ import re
 import sys
 from WorkPerSample import WorkPerSample
 from multiprocessing import Process,JoinableQueue,Queue
-from settings import get_lib_method
+from settings import get_lib_method,parse_sam_all
 
 class Pipeline(object):
 
@@ -24,8 +24,7 @@ class Pipeline(object):
             if lib_method == None:
                 continue
             sys.stdout.write('sam_barcode_file: %s          ... ok\n'%sam_barcode_file)
-            for line in open(sam_barcode_file):
-                (compact,sample_name,barcode_info,data_type) = re.split('\s+',line.strip())
+            for (compact,sample_name,barcode_info,data_type,lib_method,needed_data) in parse_sam_all(sam_barcode_file):
                 sample = WorkPerSample(self.work_path,compact,sample_name,lib_method,data_type)
                 yield sample
                 
