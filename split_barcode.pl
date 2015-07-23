@@ -67,7 +67,7 @@ while(!$isEOF) {
 
   for(my $i=0; $i<4; $i++) {
     $fRead[$i] = <F1>;
-    $fRead[$i] = <F2>;
+    $rRead[$i] = <F2>;
   }
   last if ($fRead[0]=~ /^\n$/);
   last if($rRead[0]=~ /^\n$/);
@@ -76,8 +76,8 @@ while(!$isEOF) {
   chomp(my $fSeqLine = $fRead[1]);
   chomp(my $rSeqLine = $rRead[1]);
 
-  my $isFWOPriAda = isWOPriAda($fSeqLine, $islORs, $substrlen);
-  my $isRWOPriAda = isWOPriAda($rSeqLine, $islORs, $substrlen);
+  my $isFWOPriAda = isWOPriAda($fSeqLine, $libType, $substrlen);
+  my $isRWOPriAda = isWOPriAda($rSeqLine, $libType, $substrlen);
   my @isFWOPriAdas = split /-/,$isFWOPriAda;
   my @isRWOPriAdas = split /-/,$isRWOPriAda;
   my $twoBarcodeF;
@@ -91,7 +91,7 @@ while(!$isEOF) {
     unless($checkPairBar eq $1) {
       print "Warning: not the same paired barcode\t$checkPairBar\t$1\t$lineCount\n";
     }
-    if($fRead[0]=~ /:([ATCG]{16})$/) {
+    if($fRead[0] =~ /:([ATCG]{16})$/) {
       if($proSamName{$1}) {
         my @proSam = split /&/,$proSamName{$1};
         unless(-e "$outDir\/$proSam[0]\/$proSam[1]"){
