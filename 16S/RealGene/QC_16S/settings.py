@@ -114,10 +114,10 @@ class MyTemplate(Template):
 
 def get_pandaseq_cmd(d):
     if d['lib_method'] == 'Small':
-        t = MyTemplate('pandaseq -F -f ${read1} -r ${read2} -w ${out_file} -g ${log_file} -l 220 -L 500')
+        t = MyTemplate('/data_center_01/home/NEOLINE/liangzebin/soft/pandaseq_rebuild/bin/pandaseq  -F -f ${read1} -r ${read2} -w ${out_file} -g ${log_file} -l 0 -L 600 -o 20')
         pandaseq_cmd = t.get(d)
     else:
-        t = MyTemplate('pandaseq -F -f ${read1} -r ${read2} -w ${out_file} -p ${f_primer} -q ${r_primer} -g ${log_file} -l 220 -L 500')
+        t = MyTemplate('/data_center_01/home/NEOLINE/liangzebin/soft/pandaseq_rebuild/bin/pandaseq -F -f ${read1} -r ${read2} -w ${out_file} -p ${f_primer} -q ${r_primer} -g ${log_file} -l 220 -L 500')
         pandaseq_cmd = t.get(d)
     return pandaseq_cmd
 
