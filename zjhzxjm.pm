@@ -180,7 +180,7 @@ sub openFileGetHandle {
 	}
 	else {
 		open($fh, "<$file") or die "Can not open file $file" if($rOrw eq "r");
-		open($fh, ">$file") or die "Can not create file $file" if($rOrw eq "w");
+		open($fh, ">>$file") or die "Can not create file $file" if($rOrw eq "w");
 	}
 	return $fh;
 }
