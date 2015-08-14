@@ -81,7 +81,7 @@ def get_primer(lib_method,data_type):
     return (primer[lib_method][data_type]['forward'],primer[lib_method][data_type]['reverse'])
 
 def get_reads(raw_path,lib_method):
-    return map( lambda s:s.strip(), os.popen('ls %s/*'%raw_path).readlines() )
+    return map( lambda s:s.strip(), os.popen('ls %s/*'%raw_paht).readlines() )
 
 def get_unaligned(path):
     ret = []
@@ -114,7 +114,7 @@ class MyTemplate(Template):
 
 def get_pandaseq_cmd(d):
     if d['lib_method'] == 'Small':
-        t = MyTemplate('/data_center_01/home/NEOLINE/liangzebin/soft/pandaseq_rebuild/bin/pandaseq  -F -f ${read1} -r ${read2} -w ${out_file} -g ${log_file} -l 0 -L 600 -o 20')
+        t = MyTemplate('/data_center_01/home/NEOLINE/liangzebin/soft/pandaseq_rebuild/bin/pandaseq -F -f ${read1} -r ${read2} -w ${out_file} -g ${log_file} -l 0 -L 600 -o 20')
         pandaseq_cmd = t.get(d)
     else:
         t = MyTemplate('/data_center_01/home/NEOLINE/liangzebin/soft/pandaseq_rebuild/bin/pandaseq -F -f ${read1} -r ${read2} -w ${out_file} -p ${f_primer} -q ${r_primer} -g ${log_file} -l 220 -L 500')

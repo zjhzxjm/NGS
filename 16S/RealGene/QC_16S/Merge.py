@@ -69,7 +69,7 @@ class Merge(object):
                 self.compact_data_type[compact] = data_type
                 self.needed_reads[compact] = {}
             elif self.compact_data_type[compact] != data_type:
-                sys.stderr.write('The compact %s has two diffrent data_type!'%compact)
+                stderr.write('The compact %s has two diffrent data_type!'%compact)
 
             self.needed_reads[compact][sample_name] = int( data_needed )
 

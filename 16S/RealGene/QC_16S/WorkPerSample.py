@@ -62,9 +62,20 @@ class WorkPerSample(object):
                 Q_sum += q
             Q_ave = Q_sum / len(self)
             return Q_ave
+    def __high_quality_count(self):
+        q20_count = 0
+        q30_count = 0
+        for qlist in self.letter_annotations.itervalues():
+            for q in qlist:
+                if q >= 20:
+                    q20_count += 1
+                if q >= 30:
+                    q30_count += 1
+        return q20_count,q30_count
     from Bio.SeqRecord import SeqRecord
     SeqRecord.Q_ave = __Q_ave
     SeqRecord.N_count = __N_count
+    SeqRecord.Q20_Q30 = __high_quality_count
     ###
 
     def QC(self):
@@ -75,16 +86,23 @@ class WorkPerSample(object):
 
         count = 0
         high_count = 0    
+        q20_count = 0
+        q30_count = 0
+        base_count = 0
         for record in SeqIO.parse(open(self.result['pandaseq']),'fastq'):
             count += 1
             if record.Q_ave() < 20:
                 continue
-            if len(record) < 220 or len(record) > 500:
-                continue
             out.write(record.format('fastq'))
             high_count += 1
+            base_count += len(record)
+            q20,q30 = record.Q20_Q30
+            q20_count += q20
+            q30_count += q30
         high_ratio = high_count / count * 100
-        out_stat.write('%s\t%s\t%s\t%2.2f%%\n'%(self.data_type,count,high_count,high_ratio))
+        q20_ratio = q20_count / base_count * 100
+        q30_ratio = q30_count / base_count * 100
+        out_stat.write('%s\t%s\t%s\t%2.2f%%\t%s\t%s\t%2.2f%%\t%s\t%2.2f%%\n'%(self.data_type,count,high_count,high_ratio,base_count,q20_count,q20_ratio,q30_count,q30_ratio))
 
         out_stat.close()
         out.close()

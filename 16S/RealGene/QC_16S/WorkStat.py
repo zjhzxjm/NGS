@@ -45,19 +45,19 @@ class WorkStat(object):
                 if lib_method not in sample_reads:
                     sample_reads[lib_method] = {}
                 sample_reads[lib_method][sample_name] = tabs
-        out.write('sample_name\tsample_type\tlib_method\traw_reads\tpandaseq_reads\tHQ_reads\tHQ_ratio\n')
+        out.write('sample_name\tlib_method\tsample_type\tpandaseq_reads\tHQ_reads\tHQ_ratio\tHQ_bases\tQ20_bases\tQ20_ratio\tQ30_bases\tQ30_ratio\n')
         for lib_method,subitem in sample_reads.iteritems():
             for sample_name,tabs in subitem.iteritems():
                 if len(tabs) < 4:
                     continue
-                (data_type,pandaseq_reads,HQ_reads,HQ_ratio) = tabs
+                (data_type,pandaseq_reads,HQ_reads,HQ_ratio,HQ_bases,Q20_bases,Q20_ratio,Q30_bases,Q30_ratio) = tabs
                 self.sample_struct[compact][data_type][lib_method][sample_name]={
                             'pandaseq_reads'     :   pandaseq_reads,
                             'HQ_reads'      :   HQ_reads,
                             'HQ_ratio'      :   HQ_ratio,
                         }
                 tabs = MyList(tabs)
-                out.write('%s\t%s\n'%(sample_name,str(tabs)))
+                out.write('%s\t%s\t%s\n'%(sample_name,lib_method,str(tabs)))
         out.close()
     ##
     @staticmethod
