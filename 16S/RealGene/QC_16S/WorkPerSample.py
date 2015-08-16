@@ -25,10 +25,15 @@ class WorkPerSample(object):
             self.check_path()
         except:
             sys.stderr.write('## Permisson ERROR!\t#some problem accured when create path!\n')
+            return False
 
         #get read
         raw_reads_path = '%s/%s/%s'%(self.path['split'],self.compact,self.sample_name)
-        (self.read1,self.read2) = get_reads(raw_reads_path,self.lib_method)
+        try:
+            (self.read1,self.read2) = get_reads(raw_reads_path,self.lib_method)
+        except:
+            sys.stderr.write('### row reads read failed! %s:%s\n'%(self.compact,self.sample_name))
+            return False
 
         #get primer
         self.f_primer,self.r_primer = get_primer(lib_method,data_type)
@@ -96,7 +101,7 @@ class WorkPerSample(object):
             out.write(record.format('fastq'))
             high_count += 1
             base_count += len(record)
-            q20,q30 = record.Q20_Q30
+            q20,q30 = record.Q20_Q30()
             q20_count += q20
             q30_count += q30
         high_ratio = high_count / count * 100

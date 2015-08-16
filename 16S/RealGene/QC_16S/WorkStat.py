@@ -41,6 +41,10 @@ class WorkStat(object):
         out = open('%s/reads_stat.xls'%compact_dir,'w')
         sample_reads = {}
         for stat_file,sample_name,lib_method in self.parse_stat_file(compact_dir):
+            try:
+                os.path.exists(stat_file)
+            except:
+                sys.stderr.write('%s:%s have not been worked\n'%(compact,sample_name))
             for tabs in self.parse_stat(stat_file):
                 if lib_method not in sample_reads:
                     sample_reads[lib_method] = {}
@@ -68,10 +72,14 @@ class WorkStat(object):
 
     def stat_raw_reads(self,compact,data_type,lib_method,sample_name):
         raw_path = '%s/%s/%s'%(self.path['split'],compact,sample_name)
-        (read_file,read_file2) = get_reads(raw_path,lib_method)
-        reads_num =  self.get_fq_num(read_file)
-        self.sample_struct[compact][data_type][lib_method][sample_name]['raw_reads'] = reads_num
-        self.total_reads[lib_method] += reads_num
+        try:
+            (read_file,read_file2) = get_reads(raw_path,lib_method)
+            reads_num =  self.get_fq_num(read_file)
+            self.sample_struct[compact][data_type][lib_method][sample_name]['raw_reads'] = reads_num
+            self.total_reads[lib_method] += reads_num
+        except:
+            sys.stderr.write('get raw data failed: %s:%s\n'%(compact,sample_name))
+            self.sample_struct[compact][data_type][lib_method][sample_name]['raw_reads'] = 0 
 
     def statAll(self):
         out = open('%s/reads_stat.xls'%self.path['QC'],'w')
@@ -96,7 +104,10 @@ class WorkStat(object):
                 out.write('%s\t%s\t%s\t%s\t%s\t%s\n'%(compact,sample_name,data_type,lib_method,'None'))
                 continue
             item = self.sample_struct[compact][data_type][lib_method][sample_name]
-            t_ratio = int(item['HQ_reads']) / int(item['raw_reads']) * 100
+            if int(item['raw_reads']) != 0:
+                t_ratio = int(item['HQ_reads']) / int(item['raw_reads']) * 100
+            else:
+                t_ratio = 0
             out_str = str(MyList((item['raw_reads'],item['pandaseq_reads'],item['HQ_reads'],item['HQ_ratio'])))
             need_to_reseq = int(needed_reads) - int(item['HQ_reads'])
             out.write('%s\t%s\t%s\t%s\t%s\t%2.2f%%\t%s\t%s\n'%(compact,sample_name,data_type,lib_method,out_str,t_ratio,needed_reads,need_to_reseq))

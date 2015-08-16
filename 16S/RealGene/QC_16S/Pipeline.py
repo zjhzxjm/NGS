@@ -26,6 +26,8 @@ class Pipeline(object):
             sys.stdout.write('sam_barcode_file: %s          ... ok\n'%sam_barcode_file)
             for (compact,sample_name,barcode_info,data_type,lib_method,needed_data) in parse_sam_all(sam_barcode_file):
                 sample = WorkPerSample(self.work_path,compact,sample_name,lib_method,data_type)
+                if not sample:
+                    continue
                 yield sample
                 
     def add_jobs(self):
@@ -52,9 +54,10 @@ class Pipeline(object):
                     sample.pandaseq()
                     sample.QC()
                     sys.stdout.write('Process %s is finished doing with compact:%s sample_name:%s\n'%(os.getpid(),sample.compact,sample.sample_name))
-                except:
+                except Exception,ex:
                     sample.work_times += 1
                     work_time = 5 - sample.work_times
+                    sys.stderr.write('%s:%s\n'%(Exception,ex))
                     if work_time > 0:
                         sys.stderr.write('Process %s is FIALED !!! %s/%s will be redo %s times!\n'%(os.getpid(),sample.compact,sample.sample_name,work_time))
                         self.jobs.put(sample)

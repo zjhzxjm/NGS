@@ -81,7 +81,7 @@ def get_primer(lib_method,data_type):
     return (primer[lib_method][data_type]['forward'],primer[lib_method][data_type]['reverse'])
 
 def get_reads(raw_path,lib_method):
-    return map( lambda s:s.strip(), os.popen('ls %s/*'%raw_paht).readlines() )
+    return map( lambda s:s.strip(), os.popen('ls %s/*'%raw_path).readlines() )
 
 def get_unaligned(path):
     ret = []
@@ -103,6 +103,8 @@ def rename(sample,data_type):
 def parse_sam_all(file):
     handle = open(file)
     for line in handle:
+        if re.search('^#',line):
+            continue
         ( compact,sample_name,barcode_info,data_type,lib_method,needed_reads )  = re.split('\s+',line.strip())
         yield  compact,sample_name,barcode_info,data_type,lib_method,needed_reads
     handle.close()

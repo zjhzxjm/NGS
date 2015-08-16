@@ -23,17 +23,20 @@ class MergePerCompact(object):
                 continue
             hq_file = '%s/%s/high_quality.fq'%(self.path,sample)
             sample,lib_method = re.search('(\S+)_(\S+)',sample).groups()
-            data_needed = self.get_needed_data(self.needed_reads[sample])
+#            data_needed = self.get_needed_data(self.needed_reads[sample])
             sample = rename(sample,self.data_type)
             if sample not in self.id:
                 self.id[sample] = 1
-            hq_handle = open(hq_file)
-            for record in SeqIO.parse(hq_handle,'fastq'):
-                self.handle.write('>%s_%s\n%s\n'%(sample,self.id[sample],str(record.seq)))
-                self.id[sample] += 1
-                if self.id[sample] > data_needed:
-                    break
-            hq_handle.close()
+            try:
+                hq_handle = open(hq_file)
+                for record in SeqIO.parse(hq_handle,'fastq'):
+                    self.handle.write('>%s_%s\n%s\n'%(sample,self.id[sample],str(record.seq)))
+                    self.id[sample] += 1
+     #               if self.id[sample] > data_needed:
+     #                   break
+                hq_handle.close()
+            except:
+                sys.stderr.write('read fq file failed  %s:%s\n'%(self.path,sample))
             
     @staticmethod 
     def get_needed_data(n):
