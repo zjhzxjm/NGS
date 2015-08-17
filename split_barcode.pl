@@ -37,7 +37,11 @@ while(<SAM>){
 	}
 }
 
-chomp($nLines = `gzip -cd $file1 |wc -l`);
+if($file1 =~ /\.gz$/i) {
+  chomp($nLines = `gzip -cd $file1 |wc -l`);
+}else{
+  chomp($nLines = `wc -l $file1`);
+}
 #$nLines = checkFastQFormat($file1);
 #if($nLines != checkFastQFormat($ARGV[1])) {
 #	prtErrorExit("Number of reads in paired end files are not same.\n\t\tFiles: $ARGV[0], $ARGV[1]");
