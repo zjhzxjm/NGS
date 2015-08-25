@@ -102,8 +102,8 @@ while(!$isEOF) {
           mkdir ("$outDir\/$proSam[0]") unless(-e "$outDir\/$proSam[0]");
           mkdir ("$outDir\/$proSam[0]\/$proSam[1]");
         }
-        my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
-        my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
+        my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd.gz";
+        my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd.gz";
         unless($fileOpened{$outFile1}) {
           my $fHw1 = openFileGetHandle($outFile1,"w");
           $fileOpened{$outFile1} = $fHw1;
@@ -146,8 +146,8 @@ while(!$isEOF) {
         mkdir ("$outDir\/$proSam[0]\/$proSam[1]");
       }
       print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]\n" if($isFWOPriAdas[0]>1 or $isRWOPriAdas[0]>1);
-      my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
-      my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
+      my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd.gz";
+      my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd.gz";
       unless($fileOpened{$outFile1}){
         my $fHw1 = openFileGetHandle($outFile1,"w");
         $fileOpened{$outFile1} = $fHw1;
@@ -165,8 +165,8 @@ while(!$isEOF) {
       unless(-e "$outDir\/Unalign"){
         mkdir ("$outDir\/Unalign");
       }
-      my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign";
-      my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign";
+      my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign.gz";
+      my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign.gz";
       unless($fileOpened{$outFile1}){
         my $fHw1 = openFileGetHandle($outFile1,"w");
         $fileOpened{$outFile1} = $fHw1;
@@ -189,8 +189,8 @@ while(!$isEOF) {
         mkdir ("$outDir\/$proSam[0]\/$proSam[1]");
       }
       print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]\n" if($isFWOPriAdas[0]>1 or $isRWOPriAdas[0]>1);
-      my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd";
-      my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd";
+      my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd.gz";
+      my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd.gz";
       unless($fileOpened{$outFile1}){
         my $fHw1 = openFileGetHandle($outFile1,"w");
         $fileOpened{$outFile1} = $fHw1;
@@ -208,8 +208,8 @@ while(!$isEOF) {
       unless(-e "$outDir\/Unalign"){
         mkdir ("$outDir\/Unalign");
       }
-      my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign";
-      my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign";
+      my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign.gz";
+      my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign.gz";
       unless($fileOpened{$outFile1}){
         my $fHw1 = openFileGetHandle($outFile1,"w");
         $fileOpened{$outFile1} = $fHw1;
