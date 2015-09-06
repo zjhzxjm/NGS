@@ -14,7 +14,7 @@ class MergePerCompact(object):
         self.path = compact_path
         self.data_type = data_type
         self.needed_reads = needed_reads
-        self.handle = open('%s/%s.together.fna'%(self.path,self.data_type),'w')
+        self.handle = open('%s/%s.together.fq'%(self.path,self.data_type),'w')
 
     def merge(self):
         for sample in os.listdir(self.path):
@@ -30,11 +30,14 @@ class MergePerCompact(object):
             try:
                 hq_handle = open(hq_file)
                 for record in SeqIO.parse(hq_handle,'fastq'):
-                    self.handle.write('>%s_%s\n%s\n'%(sample,self.id[sample],str(record.seq)))
+                    record.description = '%s_%s'%(sample,self.id[sample])
+                    self.handle.write(record.format('fastq'))
                     self.id[sample] += 1
-     #               if self.id[sample] > data_needed:
-     #                   break
                 hq_handle.close()
+                
+                if os.path.exists('%s.gz'%hq_file):
+                    os.system('rm %s.gz'%hq_file)
+                os.system('gzip %s'%hq_file)
             except:
                 sys.stderr.write('read fq file failed  %s:%s\n'%(self.path,sample))
             

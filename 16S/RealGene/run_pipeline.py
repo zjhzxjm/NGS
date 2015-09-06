@@ -23,6 +23,8 @@ def main(work_path,concurrency):
     stat = WorkStat(work_path,concurrency)
     stat.total()
 
+    os.system('echo "stat finished" | mail -s "miseq report" xujm@realbio.cn')
+
     merge = Merge(work_path,concurrency)
     merge.merge()
 

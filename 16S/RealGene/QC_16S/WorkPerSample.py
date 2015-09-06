@@ -3,6 +3,7 @@ import os
 import sys
 from Bio import SeqIO
 from settings import get_primer,get_reads,get_pandaseq_cmd
+from Samples import Reads
 
 class WorkPerSample(object):
 
@@ -25,15 +26,15 @@ class WorkPerSample(object):
             self.check_path()
         except:
             sys.stderr.write('## Permisson ERROR!\t#some problem accured when create path!\n')
-            return False
 
         #get read
         raw_reads_path = '%s/%s/%s'%(self.path['split'],self.compact,self.sample_name)
         try:
-            (self.read1,self.read2) = get_reads(raw_reads_path,self.lib_method)
-        except:
-            sys.stderr.write('### row reads read failed! %s:%s\n'%(self.compact,self.sample_name))
-            return False
+            read1,read2 = get_reads(raw_reads_path,self.lib_method)
+            self.read = Reads(read1,read2)
+        except Exception,ex:
+            sys.stderr.write('%s:%s\n'%(Exception,ex))
+#            sys.stderr.write('### row reads read failed! %s:%s\n'%(self.compact,self.sample_name))
 
         #get primer
         self.f_primer,self.r_primer = get_primer(lib_method,data_type)
@@ -46,7 +47,7 @@ class WorkPerSample(object):
     def pandaseq(self):
         self.result['pandaseq_log'] = '%s/pandaseq.log'%self.path['sample']
         self.result['pandaseq'] = '%s/pandaseq.fq'%self.path['sample']
-        sample_dict = {'lib_method':self.lib_method,'read1':self.read1,'read2':self.read2,'f_primer':self.f_primer,'r_primer':self.r_primer,'log_file':self.result['pandaseq_log'],'out_file':self.result['pandaseq'] }
+        sample_dict = {'lib_method':self.lib_method,'read1':self.read.file1,'read2':self.read.file2,'f_primer':self.f_primer,'r_primer':self.r_primer,'log_file':self.result['pandaseq_log'],'out_file':self.result['pandaseq'] }
         cmd = get_pandaseq_cmd(sample_dict)
         try:
             os.system(cmd)

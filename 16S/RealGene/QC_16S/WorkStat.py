@@ -3,6 +3,7 @@ import re
 import os
 import sys
 import threading
+from Samples import Reads
 from settings import get_lib_method,get_reads,get_unaligned,parse_sam_all
 
 class WorkStat(object):    
@@ -65,19 +66,24 @@ class WorkStat(object):
         out.close()
     ##
     @staticmethod
-    def get_fq_num(fq_file):
-        wc_out = os.popen('wc -l %s'%fq_file).read().strip()
+    def get_fq_num(fq_file,file_type):
+        if file_type == 'gz':
+            wc_out = os.popen('gunzip -cd %s | wc -l'%fq_file).read().strip()
+        else:
+            wc_out = os.popen('wc -l %s'%fq_file).read().strip()
         reads_num = int(re.search('^(\d+)',wc_out).group(1)) / 4
         return int(reads_num)
 
     def stat_raw_reads(self,compact,data_type,lib_method,sample_name):
         raw_path = '%s/%s/%s'%(self.path['split'],compact,sample_name)
         try:
-            (read_file,read_file2) = get_reads(raw_path,lib_method)
-            reads_num =  self.get_fq_num(read_file)
+            file1,file2 = get_reads(raw_path,lib_method)
+            read = Reads(file1,file2)
+            reads_num =  self.get_fq_num(read.file1,read.file_type)
             self.sample_struct[compact][data_type][lib_method][sample_name]['raw_reads'] = reads_num
             self.total_reads[lib_method] += reads_num
-        except:
+        except Exception,ex:
+            sys.stderr.write('%s:%s\n'%(Exception,ex))
             sys.stderr.write('get raw data failed: %s:%s\n'%(compact,sample_name))
             self.sample_struct[compact][data_type][lib_method][sample_name]['raw_reads'] = 0 
 
@@ -117,8 +123,9 @@ class WorkStat(object):
         out = open('%s/unaligned_stat.txt'%self.path['QC'],'w')
         out.write('Unaligned_file\treads_num\n')
         unalign_path = '%s/Unalign'%self.path['split']
-        for file_name,file in get_unaligned(unalign_path):
-            reads_num = self.get_fq_num(file)
+        for file_name,file,file2 in get_unaligned(unalign_path):
+            read = Reads(file,file2)
+            reads_num = self.get_fq_num(read.file1,read.file_type)
             out.write('%s\t%s\n'%(file_name,reads_num))
         out.write('\n\nlib_method\ttotal_reads\n')
         for lib_method,reads_num in self.total_reads.iteritems():

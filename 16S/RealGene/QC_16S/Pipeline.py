@@ -63,6 +63,8 @@ class Pipeline(object):
                         self.jobs.put(sample)
                     else:
                         sys.stderr.write('Process %s is FIALED !!! More Than 5 times Redo, %s/%s may be some problem!\n'%(os.getpid(),sample.compact,sample.sample_name))
+                finally:
+                    os.system('rm %s'%sample.result['pandaseq'])
             finally:
                 self.jobs.task_done()
 
