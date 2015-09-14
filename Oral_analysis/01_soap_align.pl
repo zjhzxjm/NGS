@@ -38,7 +38,7 @@ foreach my $m (keys %pe){#match file
 	if ($type=~/gzip/){
 		open IN,"gzip -cd $m|" or die;
 	}else{
-        	open IN,"$m" or die;
+    open IN,"$m" or die;
 	}
 	my @M = split /\.|\-/,$m;
 	my $string = $M[-3];	#the second word from terminal # prefix of the file with absolute path
