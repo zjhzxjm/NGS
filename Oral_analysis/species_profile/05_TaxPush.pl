@@ -3,7 +3,7 @@ use strict;
 
 die "perl $0 <SPECIES> <OT> <RANK> <W.tax>
 
-RAMK
+RANK
 5	phylum
 4	class
 3	order

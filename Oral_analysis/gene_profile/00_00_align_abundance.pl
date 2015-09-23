@@ -46,29 +46,31 @@ sub CH{
 }
 #
 sub Read{
-my $file = $_[0];
-chomp (my $gz=`file $file`);
-	if($gz=~/gzip/){open IN,"gzip -cd $file|" or die;}
-	else{open IN,"$file" || die $!};
-	while (<IN>){
-	chomp;
-	my @array = split /\t/;
-	my $reads = $array[0];
-	my $copy = $array[3];
-	my $tag = $_[1];
-	my $value;
-	$value = "$array[7]\t$copy\t$tag" if $tag eq "P";
-	$value = "$array[7]\t$copy\t$tag\t$array[8]\t$array[4]" if $tag eq "S";
-		if (exists $INF{$reads}){
-			unless ($INF{$reads} =~ "$value"){
-			$INF{$reads} = "$INF{$reads}\n$value";
-			}
-		}
-		else{
-		$INF{$reads} = $value; 
-		}
-	}
-	close (IN);
+  my $file = $_[0];
+  chomp (my $gz=`file $file`);
+  if($gz=~/gzip/){
+    open IN,"gzip -cd $file|" or die;
+  }else{
+    open IN,"$file" || die $!
+  };
+  while (<IN>){
+    chomp;
+    my @array = split /\t/;
+    my $reads = $array[0];
+    my $copy = $array[3];
+    my $tag = $_[1];
+    my $value;
+    $value = "$array[7]\t$copy\t$tag" if $tag eq "P";
+    $value = "$array[7]\t$copy\t$tag\t$array[8]\t$array[4]" if $tag eq "S";
+    if (exists $INF{$reads}){
+      unless ($INF{$reads} =~ "$value"){
+        $INF{$reads} = "$INF{$reads}\n$value";
+      }
+    }else{
+      $INF{$reads} = $value;
+    }
+  }
+  close (IN);
 }
 #
 sub OUTPUT_CA{

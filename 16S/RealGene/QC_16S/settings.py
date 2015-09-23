@@ -88,11 +88,11 @@ def get_reads(raw_path,lib_method):
 def get_unaligned(path):
     ret = []
     for file in os.popen('ls %s/*unalign*'%path):
-        file_name = re.search('(\S+)R\d.fastq',os.path.basename(file)).group(1)
+        file_name = re.search('(\S+)R\d.fastq',os.path.basename(file.strip())).group(1)
         if file_name in ret:
             continue
         ret.append(file_name)
-        file2 = re.sub('\S+R1.fastq.gz','\S+R2.fastq.gz',file)
+        file2 = re.sub('R1.fastq','R2.fastq',file)
         yield file_name,file,file2
 
 def rename(sample,data_type):

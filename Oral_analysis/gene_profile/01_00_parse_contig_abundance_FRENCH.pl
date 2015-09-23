@@ -8,11 +8,11 @@ $/ = ">";
 open IN,"$ARGV[0]" or die;
 <IN>;
 while (<IN>){
-chomp;
-my @array = split /\n/;
-my $query = shift @array;
-	my $sequence = join ("",@array);
-	$gene_length{$query} = length $sequence;
+  chomp;
+  my @array = split /\n/;
+  my $query = shift @array;
+  my $sequence = join ("",@array);
+  $gene_length{$query} = length $sequence;
 }
 close (IN);
 $/ = "\n";

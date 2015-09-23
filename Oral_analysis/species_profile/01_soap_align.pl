@@ -1,1 +1,1 @@
-../01_soap_align.pl
+../common/01_soap_align.pl

@@ -57,9 +57,9 @@ close SH3;
 close Single_list;
 print SH4 "perl $OralBin/gene_profile/02_mk_gene_profiling_table.pl $fna $outdir/2.profile/single_profile.list $outdir/result.txt";
 $run && do {
-	system "qsub-sge.pl --convert no --reqsub --resource vf=8g $outdir/SH/01.soap.sh";
-	system "qsub-sge.pl  --convert no --reqsub --resource vf=2g $outdir/SH/02.align_abundance.sh";
-	system "qsub-sge.pl  --convert no --reqsub --resource vf=3g $outdir/SH/03.get_abundance.sh";
+	system "qsub-sge.pl --convert no --reqsub --getmem --resource vf=8g $outdir/SH/01.soap.sh";
+	system "qsub-sge.pl  --convert no --reqsub ---getmem -resource vf=2g $outdir/SH/02.align_abundance.sh";
+	system "qsub-sge.pl  --convert no --reqsub ---getmem -resource vf=3g $outdir/SH/03.get_abundance.sh";
 	system " sh $outdir/SH/04.mk_table.sh";
 };
 sub help{

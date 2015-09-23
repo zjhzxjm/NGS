@@ -18,7 +18,7 @@ while (<TAX>){
 chomp;
 my @tax = split /\t/;
 $tax[1] eq "Bacteria" || next;
-   $TAX{$tax[0]} = $tax[-2];	#species information 
+   $TAX{$tax[0]} = $tax[-2];#species information
    $STRAINS{$tax[0]} = $tax[-1];#strain  information
    $SUPER{$tax[0]} = $tax[1];   #Bacterial or Archaea
 }
@@ -63,7 +63,7 @@ my $query = shift @array;	#query_id
 			my $Species_tem = $TAX{$chot[0]};	#spcies information
 			my $Strains_tem = $STRAINS{$chot[0]};	#strain information
 			
-			 unless(exists $TAX{$chot[0]}){print "gi:$chot[0]\n"; next;}		           
+			 unless(exists $TAX{$chot[0]}){print "gi:$chot[0]\n"; next;}
 			   $species_tem{$Species_tem} = 1;
 			   $strains_tem{$Strains_tem} = 1;
 			   $reads_gi{"G"} .= "$chot[0]\t";

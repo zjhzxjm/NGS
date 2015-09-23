@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 use strict;
-die "perl $0 <sample_list> <species_abundance> <OT>" unless (@ARGV == 3);
+die "perl $0 <sample_list> <species_abundance_list> <OT>" unless (@ARGV == 3);
 
 
 open OT,">$ARGV[2]" or die;
