@@ -22,8 +22,8 @@ if __name__ == '__main__':
     for row in IN:
         row_v = re.split('\t',row.strip())
         gene_name = row_v[0] + '\n'
-        A_gene_abun = row_v[1:25]
-        H_gene_abun = row_v[26:44]
+        A_gene_abun = row_v[1:26]
+        H_gene_abun = row_v[26:45]
         if IsExistGene(A_gene_abun,20):
             OT_A.write(gene_name)
         if IsExistGene(H_gene_abun,16):
