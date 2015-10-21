@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+print "usage:\nextract <profile> <pvalues> <enrich> <cutoff>\n" and exit unless scalar @ARGV == 4;
+$profile = $ARGV[0];
+$twoside = $ARGV[1];
+$enrich  = $ARGV[2];
+$cut_off = $ARGV[3];
+chomp $cut_off;
+open PRF,"$profile" or die;
+open TWO,"$twoside" or die;
+open ECH,"$enrich" or die;
+-d "fdr_$cut_off" or `mkdir "fdr_$cut_off"`;
+$head = <PRF>;
+while ($pro = <PRF>){
+	$two = <TWO>;
+	$ech = <ECH>;
+	chomp $ech;
+	chomp $two;
+	@_ = split /\t/,$two;
+	$gene = $_[0];
+	$q = $_[2];
+	if ($q <= $cut_off){
+		@enrich = split /\t/,$ech;
+		$hash{$enrich[1]} .= $pro;
+	}
+}
+close PRF;
+close TWO;
+close ECH;
+foreach (keys %hash){
+	open OT,">fdr_$cut_off/$_.profile";
+	print OT "$head";
+	print OT "$hash{$_}";
+	close OT;
+}

@@ -11,6 +11,7 @@ use Getopt::Long;
 use FindBin '$Bin';
 use File::Basename 'dirname';
 
+
 our ($fg, $bg, $koMap, $output, $help);
 
 GetOptions(
