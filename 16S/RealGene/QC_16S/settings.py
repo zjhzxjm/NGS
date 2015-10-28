@@ -34,6 +34,12 @@ class settings(object):
                 'reverse':'GACTACHVGGGTATCTAATCC',
             },
         },
+        'ZJM':{
+            '16S':{
+                'forward':'CCTACGGGNGGCWGCAG',
+                'reverse':'GACTACHVGGGTATCTAATCC',
+            },
+        },
     }
 
     barcode = {
@@ -67,6 +73,10 @@ def get_lib_method(file):
         lib_method = 'Pair'
     elif re.match('^sam_barcode.n$',file):
         lib_method = 'Small'
+    elif re.match('^sam_barcode.o$',file):
+        lib_method = 'Other'
+    elif re.match('^sam_barcode.z$',file):
+        lib_method = 'ZJM'
     else:
         lib_method = None
     return lib_method
@@ -120,6 +130,9 @@ class MyTemplate(Template):
 def get_pandaseq_cmd(d):
     if d['lib_method'] == 'Small':
         t = MyTemplate('/data_center_01/home/NEOLINE/liangzebin/soft/pandaseq_rebuild/bin/pandaseq -F -f ${read1} -r ${read2} -w ${out_file} -g ${log_file} -l 0 -L 600 -o 20')
+        pandaseq_cmd = t.get(d)
+    elif d['lib_method'] == 'Other':
+        t = MyTemplate('/data_center_01/home/NEOLINE/liangzebin/soft/pandaseq_rebuild/bin/pandaseq -F -f ${read1} -r ${read2} -w ${out_file} -g ${log_file} -l 220 -L 500')
         pandaseq_cmd = t.get(d)
     else:
         t = MyTemplate('/data_center_01/home/NEOLINE/liangzebin/soft/pandaseq_rebuild/bin/pandaseq -F -f ${read1} -r ${read2} -w ${out_file} -p ${f_primer} -q ${r_primer} -g ${log_file} -l 220 -L 500')

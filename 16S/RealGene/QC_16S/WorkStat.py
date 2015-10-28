@@ -68,9 +68,9 @@ class WorkStat(object):
     @staticmethod
     def get_fq_num(fq_file,file_type):
         if file_type == 'gz':
-            wc_out = os.popen('gunzip -cd %s | wc -l'%fq_file).read().strip()
+            wc_out = os.popen('gunzip -cd %s | wc -l'%fq_file.strip()).read().strip()
         else:
-            wc_out = os.popen('wc -l %s'%fq_file).read().strip()
+            wc_out = os.popen('wc -l %s'%fq_file.strip()).read().strip()
         reads_num = int(re.search('^(\d+)',wc_out).group(1)) / 4
         return int(reads_num)
 
