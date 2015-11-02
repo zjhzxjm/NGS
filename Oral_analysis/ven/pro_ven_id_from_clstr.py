@@ -35,7 +35,7 @@ def tran_name(fi_gene, cluster_dic):
         repeat_dic[gene_name] = 1
         if gene_name in list(cluster_dic):
             if cluster_dic[gene_name] in list(repeat_dic):
-                sys.stderr.write(fi_gene + " repeat gene:" + gene_name)
+                sys.stderr.write(fi_gene + " repeat gene:" + gene_name + "/n")
                 continue
             gene_id_file.write('{0}\n'.format(cluster_dic[gene_name]))
             repeat_dic[cluster_dic[gene_name]] = 1
