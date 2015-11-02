@@ -5,14 +5,14 @@ use zjhzxjm;
 use File::Basename;
 use Cwd 'abs_path';
 
-die "$0	<fq1><fq2><library:self(paired),hxt para:1,0><sam_barcode>" unless @ARGV == 4;
+die "$0	<R1.fastq(.gz)><R2.fasrq(.gz)><library:self(paired),hxt,Macrogen para:1,0,2><sam_barcode>" unless @ARGV == 4;
 
 my $file1 = $ARGV[0];
 my $file2 = $ARGV[1];
 my $libType = $ARGV[2];
 my @totalReads = (0, 0);
 my $nLines = 0;
-my %proSamName; 
+my %proSamName;
 my $outDir = dirname(abs_path($ARGV[3]));
 my $substrlen;
 my %undeterComb;
@@ -21,9 +21,11 @@ if($libType == 1){
   $substrlen = 6;
 }elsif($libType == 0) {
   $substrlen = 7;
+}elsif($libType == 2) {
+    $substrlen = 13;
 }
 
-prtTimeLog("Start"); 
+prtTimeLog("Start");
 open SAM,"$ARGV[3]" or die "cant open $ARGV[3]\n";
 while(<SAM>){
   chomp;
@@ -223,6 +225,59 @@ while(!$isEOF) {
       print FW1 @fRead;
       print FW2 @rRead;
     }
+  }elsif($libType == 2){
+    my $singBarcode;
+
+    if($isFWOPriAdas[1] and $isRWOPriAdas[1]){
+        print "Warning: two reads can all find barcode\n";
+    }elsif($isFWOPriAdas[1]){
+        $singBarcode = "M".$isFWOPriAdas[1];
+    }elsif($isRWOPriAdas[1]){
+        $singBarcode = "M".$isRWOPriAdas[1];
+    }
+
+    if($proSamName{$singBarcode}){
+      my @proSam = split /&/,$proSamName{$singBarcode};
+      unless(-e "$outDir\/$proSam[0]\/$proSam[1]"){
+        mkdir ("$outDir\/$proSam[0]") unless(-e "$outDir\/$proSam[0]");
+        mkdir ("$outDir\/$proSam[0]\/$proSam[1]");
+      }
+      print "+Find barcode $lineCount\tin match code $isFWOPriAdas[0]:$isRWOPriAdas[0]\n" if($isFWOPriAdas[0]>1 or $isRWOPriAdas[0]>1);
+      my $outFile1 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file1)."_filterd.gz";
+      my $outFile2 = "$outDir\/$proSam[0]\/$proSam[1]\/".basename($file2)."_filterd.gz";
+      unless($fileOpened{$outFile1}){
+        my $fHw1 = openFileGetHandle($outFile1,"w");
+        $fileOpened{$outFile1} = $fHw1;
+      }
+      unless($fileOpened{$outFile2}){
+        my $fHw2 = openFileGetHandle($outFile2,"w");
+        $fileOpened{$outFile2} = $fHw2;
+      }
+      *FW1 = $fileOpened{$outFile1};
+      *FW2 = $fileOpened{$outFile2};
+      print FW1 @fRead;
+      print FW2 @rRead;
+    }else{
+      $undeterComb{$singBarcode} += 1;
+      unless(-e "$outDir\/Unalign"){
+        mkdir ("$outDir\/Unalign");
+      }
+      my $outFile1 = "$outDir\/Unalign\/".basename($file1)."_unalign.gz";
+      my $outFile2 = "$outDir\/Unalign\/".basename($file2)."_unalign.gz";
+      unless($fileOpened{$outFile1}){
+        my $fHw1 = openFileGetHandle($outFile1,"w");
+        $fileOpened{$outFile1} = $fHw1;
+      }
+      unless($fileOpened{$outFile2}){
+        my $fHw2 = openFileGetHandle($outFile2,"w");
+        $fileOpened{$outFile2} = $fHw2;
+      }
+      *FW1 = $fileOpened{$outFile1};
+      *FW2 = $fileOpened{$outFile2};
+      print FW1 @fRead;
+      print FW2 @rRead;
+    }
+
   }else{
     die "ERR: Wrong parameter for library";
   }

@@ -46,9 +46,9 @@ sub checkFastQFormat {              # Takes FASTQ file as an input and if the fo
 
 
 sub isWOPriAda {
-	my $seq = $_[0];
-	my $islORs = $_[1];
-  my $substrlen = $_[2];
+    my $seq = $_[0];
+	my $libType = $_[1];
+    my $substrlen = $_[2];
 
 	chomp($seq);
 
@@ -92,16 +92,79 @@ sub isWOPriAda {
 			"CGCGGT", 
 			"GAGACT"
 			);
+    my @mBarcode = (
+        "ACGAGACTGATT",
+        "GCTGTACGGATT",
+        "ATCACCAGGTGT",
+        "TGGTCAACGATA",
+        "ATCGCACAGTAA",
+        "GTCGTGTAGCCT",
+        "AGCGGAGGTTAG",
+        "ATCCTTTGGTTC",
+        "TACAGCGCATAC",
+        "ACCGGTATGTAC",
+        "AATTGTGTCGGA",
+        "TGCATACACTGG",
+        "AGTCGAACGAGG",
+        "ACCAGTGACTCA",
+        "GAATACCAAGTC",
+        "GTAGATCGTGTA",
+        "TAACGTGTGTGC",
+        "CATTATGGCGTG",
+        "CCAATACGCCTG",
+        "GATCTGCGATCC",
+        "CAGCTCATCAGC",
+        "CAAACAACAGCT",
+        "GCAACACCATCC",
+        "GCGATATATCGC",
+        "CGAGCAATCCTA",
+        "AGTCGTGCACAT",
+        "GTATCTGCGCGT",
+        "CGAGGGAAAGTC",
+        "CAAATTCGGGAT",
+        "AGATTGACCAAC",
+        "AGTTACGAGCTA",
+        "GCATATGCACTG",
+        "CAACTCCCGTGA",
+        "TTGCGTTAGCAG",
+        "TACGAGCCCTAA",
+        "CACTACGCTAGA",
+        "TGCAGTCCTCGA",
+        "ACCATAGCTCCG",
+        "TCGACATCTCTT",
+        "GAACACTTTGGA",
+        "GAGCCATCTGTA",
+        "TTGGGTACACGT",
+        "AAGGCGCTCCTT",
+        "TAATACGGATCG",
+        "TCGGAATTAGAC",
+        "TGTGAATTCGGA",
+        "CATTCGTGGCGT",
+        "TACTACGTGGCC",
+        "GGCCAGTTCCTA",
+        "GATGTTCGCTAG",
+        "CTATCTCCTGTC",
+        "ACTCACAGGAAT",
+        "ATGATGAGCCTC",
+        "GTCGACAGAGGA",
+        "TGTCGCAAATAG",
+        "CATCCCTCTACT",
+        "TATACCGCTGCG",
+        "AGTTGAGGCATT",
+        "ACAATAGACACC",
+        "CGGTCAATTGAC",
+    );
 
 	my %tagPriStr = ();
 	my @priAdaSeqs = ();
 	
 
-	if($islORs == 1){
+	if($libType == 1){
 		my $i = 0;
+        my $misMatch = 0;
 		foreach my $barcode (@lBarcode){
 			$i++;
-			my $f = findSeq($barcode, $substrlen, $seq, $islORs );
+			my $f = findSeq($barcode, $substrlen, $seq, $misMatch );
 			if($f>0){
 				if(defined $tagPriStr{$f}){
 					$tagPriStr{$f} = 0;
@@ -111,12 +174,13 @@ sub isWOPriAda {
 				}
 			}
 		}
-	}elsif($islORs == 0) {
+	}elsif($libType == 0) {
 		my $i = 0;
+        my $misMatch = 1;
 		foreach my $barcode (@sBarcode){
 			$i++;
 #print "barcode:$i\t$barcode\n";
-			my $f = findSeq($barcode, $substrlen, $seq, $islORs );
+			my $f = findSeq($barcode, $substrlen, $seq, $misMatch );
 			if($f>0){
 #print "$barcode\t$seq\n";
 				if(defined $tagPriStr{$f}){
@@ -127,13 +191,32 @@ sub isWOPriAda {
 				}
 			}
 		}
-	}
+	}elsif($libType == 2) {
+        my $i = 0;
+        my $misMatch = 1;
+		foreach my $barcode (@mBarcode){
+			$i++;
+#print "barcode:$i\t$barcode\n";
+			my $f = findSeq($barcode, $substrlen, $seq, $misMatch );
+			if($f>0){
+#print "$barcode\t$seq\n";
+				if(defined $tagPriStr{$f}){
+					$tagPriStr{$f} = 0;
+#print "Match code $f: \t There is one more match\n";
+				}else{
+					$tagPriStr{$f} = $i;
+				}
+			}
+		}
+    }
 #print values %tagPriStr,"\n";
 	my $returnStr;
 	if($tagPriStr{1}){
+#exact match
 		$returnStr = "1-".$tagPriStr{1};
 		return $returnStr;
 	}elsif($tagPriStr{2}){
+#one mismatch
 		$returnStr = "2-".$tagPriStr{2};
 		return $returnStr;
 	}else{
@@ -145,14 +228,15 @@ sub findSeq {
 	my $pri = $_[0];
 	my $substrlen = $_[1];
 	my $seq = substr($_[2], 0, $substrlen);
+    my $misMatch = $_[3];
 #print "substr $seq\n";
 
-	if($_[3]){
+	if($misMatch == 0){
 		my $loc = index($seq, $pri);
 		unless($loc < 0){
 			return 1
 		}
-	}else{
+	}elsif($misMatch == 1){
 		my $tag = 0;
 		my $loc = index($seq, $pri);
 		unless($loc < 0){
