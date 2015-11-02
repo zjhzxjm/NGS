@@ -34,7 +34,9 @@ def tran_name(fi_gene, cluster_dic):
         gene_name = line.strip()
         repeat_dic[gene_name] = 1
         if gene_name in list(cluster_dic):
-            if cluster_dic[gene_name] in list(repeat_dic): continue
+            if cluster_dic[gene_name] in list(repeat_dic):
+                sys.stderr.write(fi_gene + " repeat gene:" + gene_name)
+                continue
             gene_id_file.write('{0}\n'.format(cluster_dic[gene_name]))
             repeat_dic[cluster_dic[gene_name]] = 1
         else:
@@ -48,8 +50,6 @@ if __name__ == '__main__':
 
     fi_clstr = sys.argv.pop(0)
     fi_gene_list = re.split(',', sys.argv.pop(0))
-    print(fi_gene_list)
-    #fo_list = 
 
     cluster_dic = cluster_dic(fi_clstr)
     for file in fi_gene_list:
