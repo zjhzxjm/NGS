@@ -47,7 +47,7 @@ def tran_name(fi_gene, cluster_dic):
     prt_process(cur_line, line_num)
     for line in gene_file:
         cur_line = cur_line + 1
-        if cur_line%100000 == 0: prt_process(cur_line, line_num)
+        if cur_line%1000000 == 0: prt_process(cur_line, line_num)
         gene_name = line.rstrip()
         repeat_dic[gene_name] = 1
         if cluster_dic.get(gene_name):
