@@ -46,6 +46,18 @@ class settings(object):
                 'reverse':'GGACTACHVGGGTWTCTAAT',
             },
         },
+        'Self2':{
+            '16S':{
+                'forward':'GGACTACVVGGGTATCTAATC',
+                'reverse':'CCTACGGGRSGCAGCAG',
+            },
+        },
+        'Self3':{
+            '16S':{
+                'forward':'GGACTACVVGGGTATCTAATC',
+                'reverse':'CCCTACGGGGYGCASCAG',
+            },
+        },
     }
 
     barcode = {
@@ -85,6 +97,10 @@ def get_lib_method(file):
         lib_method = 'ZJM'
     elif re.match('^sam_barcode.m$',file):
         lib_method = 'Macrogen'
+    elif re.match('^sam_barcode.l2$',file):
+        lib_method = 'Self2'
+    elif re.match('^sam_barcode.l3$',file):
+        lib_method = 'Self3'
     else:
         lib_method = None
     return lib_method
