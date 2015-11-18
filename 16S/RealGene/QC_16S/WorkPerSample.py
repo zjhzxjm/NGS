@@ -97,7 +97,7 @@ class WorkPerSample(object):
         base_count = 0
         for record in SeqIO.parse(open(self.result['pandaseq']),'fastq'):
             count += 1
-            if record.Q_ave() < 20:
+            if record.Q_ave() < 30:
                 continue
             out.write(record.format('fastq'))
             high_count += 1
