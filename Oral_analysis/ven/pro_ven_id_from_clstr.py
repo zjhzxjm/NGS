@@ -2,11 +2,56 @@
 Author: Junming Xu
 Contact: xujm@realbio.cn / zjhzxjm@gmail.com
 This script produce name list for ven.r script from cdhit clstr file
+This version can only stat three list file in 'stat_set' sub function
 
-$ ./pro_ven_id_from_clstr.py fna.clstr A.gene.list,B.gene.list...
+$ python2.6 ./pro_ven_id_from_clstr.py fna.clstr A.gene.list,B.gene.list...
 """
 
 import sys, os, itertools, re, time
+def stat_set(fi_gene_list):
+    fi_gene_list, dict_sets, fo_stat = re.split(',', fi_gene_list), {}, open('ven.stat', 'w')
+
+    for file in fi_gene_list:
+        file = file.rstrip()
+        gene_id_file = open('{0}.id'.format(file))
+
+        dict_sets[re.split('/', file)[-1]] = []
+        for gene_id in gene_id_file:
+            dict_sets[re.split('/', file)[-1]].append(gene_id.rstrip())
+
+    file1 = fi_gene_list[0]
+    file2 = fi_gene_list[1]
+    file3 = fi_gene_list[2]
+
+    num_file1 = len(set(dict_sets[re.split('/', file1)[-1]]))
+    num_file2 = len(set(dict_sets[re.split('/', file2)[-1]]))
+    num_file3 = len(set(dict_sets[re.split('/', file3)[-1]]))
+
+    num = len(set(dict_sets[re.split('/', file1)[-1]]) & set(dict_sets[re.split('/', file2)[-1]]))
+    name = re.split('/',file1)[-1] + ' and ' + re.split('/',file2)[-1]
+    rate_1 = '{0:5.2f}%'.format(num*100.0/num_file1)
+    rate_2 = '{0:5.2f}%'.format(num*100.0/num_file2)
+    fo_stat.write(name + ':' + str(num) + '\t' + str(rate_1) + '(' + str(num_file1)  + ')' + '\t' + str(rate_2) + '(' + str(num_file2)  + ')\n')
+
+    num = len(set(dict_sets[re.split('/', file1)[-1]]) & set(dict_sets[re.split('/', file3)[-1]]))
+    name = re.split('/',file1)[-1] + ' and ' + re.split('/',file3)[-1]
+    rate_1 = '{0:5.2f}%'.format(num*100.0/num_file1)
+    rate_2 = '{0:5.2f}%'.format(num*100.0/num_file3)
+    fo_stat.write(name + ':' + str(num) + '\t' + str(rate_1) + '(' + str(num_file1)  + ')' + '\t'  + str(rate_2) + '(' + str(num_file3)  + ')\n')
+
+    num = len(set(dict_sets[re.split('/', file2)[-1]]) & set(dict_sets[re.split('/', file3)[-1]]))
+    name = re.split('/',file2)[-1] + ' and ' + re.split('/',file3)[-1]
+    rate_1 = '{0:5.2f}%'.format(num*100.0/num_file2)
+    rate_2 = '{0:5.2f}%'.format(num*100.0/num_file3)
+    fo_stat.write(name + ':' + str(num) + '\t' + str(rate_1) + '(' + str(num_file2)  + ')' + '\t'  + str(rate_2) + '(' + str(num_file3)  + ')\n')
+
+    num = len(set(dict_sets[re.split('/', file1)[-1]]) & set(dict_sets[re.split('/', file2)[-1]]) & set(dict_sets[re.split('/', file3)[-1]]))
+    name = re.split('/',file1)[-1] + ' and ' + re.split('/',file2)[-1] + ' and ' + re.split('/',file3)[-1]
+    rate_1 = '{0:5.2f}%'.format(num*100.0/num_file1)
+    rate_2 = '{0:5.2f}%'.format(num*100.0/num_file2)
+    rate_3 = '{0:5.2f}%'.format(num*100.0/num_file3)
+    fo_stat.write(name + ':' + str(num) + '\t' + str(rate_1) + '(' + str(num_file1)  + ')' + '\t' + str(rate_2) + '(' + str(num_file2)  + ')' + '\t' + str(rate_3) + '(' + str(num_file3)  + ')\n')
+
 
 def get_file_line_num(file):
     wc_out = os.popen('wc -l {0}'.format(file)).read().strip()
@@ -66,7 +111,8 @@ if __name__ == '__main__':
     if len(sys.argv) < 2: sys.exit(sys.modules[__name__].__doc__)
 
     fi_clstr = sys.argv.pop(0)
-    fi_gene_list = re.split(',', sys.argv.pop(0))
+    list = sys.argv.pop(0)
+    fi_gene_list = re.split(',', list)
 
     sys.stderr.write('Start at ' + time.ctime(time.time()) + '\n')
 
@@ -76,4 +122,5 @@ if __name__ == '__main__':
         file = file.rstrip()
         tran_name(file, cluster_dic)
 
+    stat_set(list)
     sys.stderr.write('End at ' + time.ctime(time.time()) + '\n')
