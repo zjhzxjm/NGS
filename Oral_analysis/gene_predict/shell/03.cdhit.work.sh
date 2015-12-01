@@ -1,0 +1,1 @@
+perl ~/bin/.self/Oral_analysis/common/cd-hit-v4.5.7-2011-12-16/cd-hit-para.v3.pl -i /data_center_07/User/xujm/Oral_ZJU/data/gene_predict/Ass201511_predict.fna -o /data_center_07/User/xujm/Oral_ZJU/data/gene_predict/Ass201511_predict.nonredundant.fna --Q 80 --T SGE --S 80 --P cd-hit-est -G 0 -n 8 -aS 0.9 -c 0.95 -M 0 -g 0 -q all.q --l vf=3g -r 0 -d 0 -T 3

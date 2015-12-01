@@ -4,7 +4,7 @@ This script is create group bars from a list file which contains blat.best.resul
 the list file format:
 blat.result.anno.count file dirname\tgroup name
 
-$ ./histNOG.py blat.result.anno.count.list
+$envbio ./histNOG.py blat.result.anno.count.list
 """
 
 import sys

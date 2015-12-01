@@ -1,5 +1,6 @@
 """
 Parse KEGG www_bget file from Entry name list file
+Author:xujm@realbio.cn
 
 $ ./parseKEGGwww_bget.py gene_entry_name.list > out_file
 """
@@ -22,4 +23,7 @@ if __name__ == '__main__':
     IN_list = open(fi_gene_entry_name_list)
     for line in IN_list:
         m = getOtherDB(line.rstrip())
-        sys.stdout.write( line.rstrip() + "\t" + m.group('GI') + "\t" + m.group('GeneID') + "\n" )
+        try:
+            sys.stdout.write( line.rstrip() + "\t" + m.group('GI') + "\t" + m.group('GeneID') + "\n" )
+        except AttributeError:
+            sys.stdout.write( line.rstrip() + "\t-\t-\n" )

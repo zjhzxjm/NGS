@@ -1,5 +1,6 @@
 """
 This script is create group bars from a list file which contains pep.path.class
+Author:xujm@realbio.cn
 
 the list file format:
 pep.path.class file dirname\tgroup name

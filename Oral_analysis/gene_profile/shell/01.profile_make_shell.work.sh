@@ -1,0 +1,1 @@
+perl ~/bin/.self/Oral_analysis/gene_profile/geneabundance /data_center_07/User/xujm/Oral_ZJU/data/seqs/03.rmHost/rmHost.fq.list /data_center_07/User/xujm/Oral_ZJU/analysis/03.gene_profile/house_set151021/gene_catalog.list /data_center_07/User/xujm/Oral_ZJU/data/gene_predict/house_151021.nonredundant.fna.len 

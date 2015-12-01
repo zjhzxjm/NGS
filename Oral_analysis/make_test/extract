@@ -27,7 +27,7 @@ close PRF;
 close TWO;
 close ECH;
 foreach (keys %hash){
-	open OT,">fdr_$cut_off/$_.profile";
+	open OT,">fdr_$cut_off/$_.profile" or die;
 	print OT "$head";
 	print OT "$hash{$_}";
 	close OT;

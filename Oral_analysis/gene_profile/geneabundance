@@ -14,8 +14,8 @@ while (<DB>){
 	push @database,$_[1];
 }
 close DB;
-my $main	= "./gene_abundance/alignment_parse.pl";
-my $parse	= "./gene_abundance/gene_abundance_profiler.pl";
+my $main	= "/home/xujm/bin/.self/Oral_analysis/gene_profile/gene_abundance/alignment_parse.pl";
+my $parse	= "/home/xujm/bin/.self/Oral_analysis/gene_profile/gene_abundance/gene_abundance_profiler.pl";
 my $cwd = `pwd`;
 chomp $cwd;
 -e "alignment" or `mkdir alignment`;
