@@ -1,0 +1,1 @@
+perl /home/xujm/bin/.self/Oral_analysis/gene_anno/KEGG/05_blast2ko.pl -blastout /data_center_07/User/xujm/Oral_ZJU/analysis/05.gene_anno/KEGG/Caries_KEGG/house_set151113/best.m8 -output /data_center_07/User/xujm/Oral_ZJU/analysis/05.gene_anno/KEGG/Caries_KEGG/house_set151113/blast2ko -kegg /data_center_03/USER/lih/Pipeline/KEGG/Prokaryotes.faa

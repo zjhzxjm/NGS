@@ -1,0 +1,1 @@
+perl /home/xujm/bin/.self/Oral_analysis/gene_anno/KEGG/02_find_best_hit.pl /data_center_07/User/xujm/Oral_ZJU/analysis/05.gene_anno/KEGG/Caries_KEGG/house_set151113/blat/list /data_center_07/User/xujm/Oral_ZJU/analysis/05.gene_anno/KEGG/Caries_KEGG/house_set151113/best.m8
