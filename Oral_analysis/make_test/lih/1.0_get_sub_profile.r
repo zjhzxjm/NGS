@@ -52,7 +52,7 @@ if(args[6]=="two-tail"){
 	reduced_vector_2=apply(reduced_profile[,LD_sample_number], 1, median)
 	reduced_profile_1=reduced_profile[which(reduced_vector_1 > reduced_vector_2),]
 	reduced_profile_2=reduced_profile[which(reduced_vector_1 < reduced_vector_2),]
-	write.table(reduced_profile_1, paste(args[4], ".profile",sep=""), col.names=T,sep="\t", quote=F)
-	write.table(reduced_profile_2, paste(args[5], ".profile",sep=""), col.names=T,sep="\t", quote=F)
+	write.table(reduced_profile_1, paste(args[7],args[4], ".profile",sep=""), col.names=T,sep="\t", quote=F)
+	write.table(reduced_profile_2, paste(args[7],args[5], ".profile",sep=""), col.names=T,sep="\t", quote=F)
 }
 
