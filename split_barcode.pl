@@ -5,7 +5,7 @@ use zjhzxjm;
 use File::Basename;
 use Cwd 'abs_path';
 
-die "$0	<R1.fastq(.gz)><R2.fasrq(.gz)><library:self(paired),hxt,Macrogen para:1,0,2><sam_barcode>" unless @ARGV == 4;
+die "$0	<R1.fastq(.gz)><R2.fastq(.gz)><library:self(paired),hxt,Macrogen,self3[gujun] para:1,0,2,3><sam_barcode>" unless @ARGV == 4;
 
 my $file1 = $ARGV[0];
 my $file2 = $ARGV[1];
@@ -17,7 +17,7 @@ my $outDir = dirname(abs_path($ARGV[3]));
 my $substrlen;
 my %undeterComb;
 my %fileOpened;
-if($libType == 1){
+if($libType == 1 or $libType == 3){
   $substrlen = 6;
 }elsif($libType == 0) {
   $substrlen = 7;
@@ -89,7 +89,7 @@ while(!$isEOF) {
   my $twoBarcodeF;
   my $checkPairBar;
 
-  if($libType == 1){
+  if($libType == 1 or $libType == 3){
     $twoBarcodeF = "F".$isRWOPriAdas[1]."+R".$isFWOPriAdas[1];
     if($rRead[0] =~ /:([ATCG]{16})$/) {
       $checkPairBar = $1;

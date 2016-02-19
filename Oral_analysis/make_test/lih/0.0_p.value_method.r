@@ -1,10 +1,10 @@
 # $1: profile file : reduced_LF_1000.profile
-# $2: health sample prefix : A for A[0-9]*
-# $3: patient sample prefix : H for H[0-9]*
+# $2: health sample prefix : H for H[0-9]*
+# $3: patient sample prefix : A for A[0-9]*
 args <- commandArgs("T")
 library(qvalue)
-if(length(args)!=6){
-  stop("argument number error: $0 <profile file> <health sample prefix> <patient sample prefix> <q_value|BH> <one-tail|two-tail> <outprefix>")
+if(length(args)!=7){
+  stop("argument number error: $0 <profile file> <health sample prefix> <patient sample prefix> <q_value|BH> <one-tail|two-tail> <outprefix><enrich_method:p_values or fdr>")
 }
 cutoff_vector=c(0.05,0.06,0.07,0.075,0.08,0.09,0.1)
 profile_name=args[1]
@@ -57,13 +57,21 @@ if (args[5]=="two-tail"){
 	for(cutoff in cutoff_vector){
 		p_num=length(which(p_values<cutoff))
 		fdr_num=length(which(fdr<cutoff))
-		reduced_profile=profile_table[which(fdr< cutoff),]
+
+        if(args[7]=="p_values"){
+            enrich = p_values
+        }else{
+            enrich = fdr
+        }
+		reduced_profile=profile_table[which(enrich< cutoff),]
 		reduced_vector_1=apply(reduced_profile[,HD_sample_number], 1, median)
 		reduced_vector_2=apply(reduced_profile[,LD_sample_number], 1, median)
 		reduced_profile_1=reduced_profile[which(reduced_vector_1 > reduced_vector_2),]
 		reduced_profile_2=reduced_profile[which(reduced_vector_1 < reduced_vector_2),]
 		num1=nrow(reduced_profile_1)
 		num2=nrow(reduced_profile_2)
+
+
 		p.value_method_result[which(cutoff_vector == cutoff),]=c(cutoff,p_num,fdr_num,num1,num2)
 		
 	}

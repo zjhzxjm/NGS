@@ -17,10 +17,19 @@ if __name__ == '__main__':
     fo_fasta = sys.argv.pop(0)
     IN_id_list = open(fi_id_list, 'rt')
     OT = open(fo_fasta, 'wt')
-    genes = re.split('\n', IN_id_list.read().strip())
+    d_gene = {}
+    for row in IN_id_list:
+        gene = row.strip()
+        d_gene[gene] = 1
+    # genes = re.split('\n', IN_id_list.read().strip())
     IN_id_list.close()
     for seq_record in SeqIO.parse(fi_fasta, "fasta"):
-        if seq_record.id in genes:
-            out = '>' + seq_record.id + '\n' + str(seq_record.seq) + '\n'
-            OT.write(out)
+        # if seq_record.id in genes:
+        try:
+            if d_gene[seq_record.id]:
+                out = '>' + seq_record.id + '\n' + str(seq_record.seq) + '\n'
+                OT.write(out)
+        except KeyError:
+            # print(seq_record.id)
+            continue
     OT.close()

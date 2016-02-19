@@ -154,6 +154,32 @@ sub isWOPriAda {
         "ACAATAGACACC",
         "CGGTCAATTGAC",
     );
+	my @gBarcode = (
+			"CCTAAA",
+			"TGCAGA",
+			"CCATCA",
+			"GTGGTA",
+			"ACTTTA",
+			"GAGCAA",
+			"TGTTGC", 
+			"ATGTCC", 
+			"AGGTAC", 
+			"ACAGCC", 
+			"TGTCTC", 
+			"GAGGAG",
+			"GTTACG", 
+			"TACCGC", 
+			"CGTAAG", 
+			"TACCGG", 
+			"ATCTAG", 
+			"CCAGGG",
+			"CACCTT", 
+			"ATAGTT", 
+			"GCACTT", 
+			"TTAACT", 
+			"CGCGGT", 
+			"GAGACT"
+			);
 
 	my %tagPriStr = ();
 	my @priAdaSeqs = ();
@@ -208,7 +234,23 @@ sub isWOPriAda {
 				}
 			}
 		}
+    }elsif($libType == 3) {
+		my $i = 0;
+        my $misMatch = 0;
+		foreach my $barcode (@gBarcode){
+			$i++;
+			my $f = findSeq($barcode, $substrlen, $seq, $misMatch );
+			if($f>0){
+				if(defined $tagPriStr{$f}){
+					$tagPriStr{$f} = 0;
+#print "Match code $f: \t There is one more match\n";
+				}else{
+					$tagPriStr{$f} = $i;
+				}
+			}
+		}
     }
+
 #print values %tagPriStr,"\n";
 	my $returnStr;
 	if($tagPriStr{1}){

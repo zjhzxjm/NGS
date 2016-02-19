@@ -41,9 +41,9 @@ for line in F_best_m8:
     l_line = line.split("\t")
     gi = re.findall(r'gi\|(\d+)', l_line[1])
     try:
-        prt_line = l_line[0] + "\t" + d_tax[gi[0]] + "\n"
+        prt_line = l_line[0] + "\t" + gi[0] + "\t" + d_tax[gi[0]] + "\n"
     except KeyError:
-        prt_line = l_line[0] + "\t" + "-" + "\n"
+        prt_line = l_line[0] + "\t" + gi[0] + "\t" + "-" + "\n"
     O_out.write(prt_line)
 
 # d_tax = {}
