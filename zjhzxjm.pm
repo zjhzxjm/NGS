@@ -67,94 +67,33 @@ sub isWOPriAda {
 			"CTTGTA"
 			);
 	my @lBarcode = (
-			"CCTAAA",
+            "CCTAAA",
 			"TGCAGA",
 			"CCATCA",
 			"GTGGTA",
 			"ACTTTA",
 			"GAGCAA",
-			"TGTTGC", 
-			"ATGTCC", 
-			"AGGTAC", 
-			"GTTACG", 
-			"TACCGC", 
+			"TGTTGC",
+			"ATGTCC",
+			"AGGTAC",
+			"GTTACG",
+			"TACCGC",
 			"CGTAAG",
-			"ACAGCC", 
-			"TGTCTC", 
-			"GAGGAG", 
-			"TACCGG", 
-			"ATCTAG", 
+			"ACAGCC",
+			"TGTCTC",
+			"GAGGAG",
+			"TACCGG",
+			"ATCTAG",
 			"CCAGGG",
-			"CACCTT", 
-			"ATAGTT", 
-			"GCACTT", 
-			"TTAACT", 
-			"CGCGGT", 
+			"CACCTT",
+			"ATAGTT",
+			"GCACTT",
+			"TTAACT",
+			"CGCGGT",
 			"GAGACT"
 			);
-    my @mBarcode = (
-        "ACGAGACTGATT",
-        "GCTGTACGGATT",
-        "ATCACCAGGTGT",
-        "TGGTCAACGATA",
-        "ATCGCACAGTAA",
-        "GTCGTGTAGCCT",
-        "AGCGGAGGTTAG",
-        "ATCCTTTGGTTC",
-        "TACAGCGCATAC",
-        "ACCGGTATGTAC",
-        "AATTGTGTCGGA",
-        "TGCATACACTGG",
-        "AGTCGAACGAGG",
-        "ACCAGTGACTCA",
-        "GAATACCAAGTC",
-        "GTAGATCGTGTA",
-        "TAACGTGTGTGC",
-        "CATTATGGCGTG",
-        "CCAATACGCCTG",
-        "GATCTGCGATCC",
-        "CAGCTCATCAGC",
-        "CAAACAACAGCT",
-        "GCAACACCATCC",
-        "GCGATATATCGC",
-        "CGAGCAATCCTA",
-        "AGTCGTGCACAT",
-        "GTATCTGCGCGT",
-        "CGAGGGAAAGTC",
-        "CAAATTCGGGAT",
-        "AGATTGACCAAC",
-        "AGTTACGAGCTA",
-        "GCATATGCACTG",
-        "CAACTCCCGTGA",
-        "TTGCGTTAGCAG",
-        "TACGAGCCCTAA",
-        "CACTACGCTAGA",
-        "TGCAGTCCTCGA",
-        "ACCATAGCTCCG",
-        "TCGACATCTCTT",
-        "GAACACTTTGGA",
-        "GAGCCATCTGTA",
-        "TTGGGTACACGT",
-        "AAGGCGCTCCTT",
-        "TAATACGGATCG",
-        "TCGGAATTAGAC",
-        "TGTGAATTCGGA",
-        "CATTCGTGGCGT",
-        "TACTACGTGGCC",
-        "GGCCAGTTCCTA",
-        "GATGTTCGCTAG",
-        "CTATCTCCTGTC",
-        "ACTCACAGGAAT",
-        "ATGATGAGCCTC",
-        "GTCGACAGAGGA",
-        "TGTCGCAAATAG",
-        "CATCCCTCTACT",
-        "TATACCGCTGCG",
-        "AGTTGAGGCATT",
-        "ACAATAGACACC",
-        "CGGTCAATTGAC",
-    );
-	my @gBarcode = (
+	#MiSeq新的barcode，较lBarcode只变更了10-15
+	my @l23Barcode = (
 			"CCTAAA",
 			"TGCAGA",
 			"CCATCA",
@@ -164,12 +103,12 @@ sub isWOPriAda {
 			"TGTTGC", 
 			"ATGTCC", 
 			"AGGTAC", 
-			"ACAGCC", 
+			"ACAGCC",
 			"TGTCTC", 
 			"GAGGAG",
 			"GTTACG", 
 			"TACCGC", 
-			"CGTAAG", 
+			"CGTAAG",
 			"TACCGG", 
 			"ATCTAG", 
 			"CCAGGG",
@@ -180,7 +119,38 @@ sub isWOPriAda {
 			"CGCGGT", 
 			"GAGACT"
 			);
-
+	my @l4Barcode = (
+			"ATCACG",
+            "CGATGT",
+            "TTAGGC",
+            "TGACCA",
+            "ACAGTG",
+            "GCCAAT",
+            "CAGATC",
+            "ACTTGA",
+            "GATCAG",
+            "TAGCTT",
+            "GGCTAC",
+            "CTTGTA",
+            "AGTCAA",
+            "AGTTCC",
+            "ATGTCA",
+            "CCGTCC",
+            "GTAGAG",
+            "GTCCGC",
+            "GTGAAA",
+            "GTGGCC",
+            "GTTTCG",
+            "CGTACG",
+            "GAGTGG",
+            "GGTAGC",
+            "ACTGAT",
+            "ATGAGC",
+            "ATTCCT",
+            "CAAAAG",
+            "CAACTA",
+            "CACCGG"
+			);
 	my %tagPriStr = ();
 	my @priAdaSeqs = ();
 	
@@ -217,15 +187,13 @@ sub isWOPriAda {
 				}
 			}
 		}
-	}elsif($libType == 2) {
-        my $i = 0;
-        my $misMatch = 1;
-		foreach my $barcode (@mBarcode){
+	}elsif($libType == 3) {
+		my $i = 0;
+        my $misMatch = 0;
+		foreach my $barcode (@l23Barcode){
 			$i++;
-#print "barcode:$i\t$barcode\n";
 			my $f = findSeq($barcode, $substrlen, $seq, $misMatch );
 			if($f>0){
-#print "$barcode\t$seq\n";
 				if(defined $tagPriStr{$f}){
 					$tagPriStr{$f} = 0;
 #print "Match code $f: \t There is one more match\n";
@@ -234,10 +202,10 @@ sub isWOPriAda {
 				}
 			}
 		}
-    }elsif($libType == 3) {
+    }elsif($libType == 4){
 		my $i = 0;
         my $misMatch = 0;
-		foreach my $barcode (@gBarcode){
+		foreach my $barcode (@l4Barcode){
 			$i++;
 			my $f = findSeq($barcode, $substrlen, $seq, $misMatch );
 			if($f>0){

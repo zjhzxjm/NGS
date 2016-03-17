@@ -58,6 +58,12 @@ class settings(object):
                 'reverse':'CCCTACGGGGYGCASCAG',
             },
         },
+        'Self4':{
+            '16S':{
+                'forward':'GGACTACVVGGGTATCTAATC',
+                'reverse':'CCTACGGGRSGCAGCAG',
+            },
+        },
     }
 
     barcode = {
@@ -101,6 +107,8 @@ def get_lib_method(file):
         lib_method = 'Self2'
     elif re.match('^sam_barcode.l3$',file):
         lib_method = 'Self3'
+    elif re.match('^sam_barcode.l4$',file):
+        lib_method = 'Self4'
     else:
         lib_method = None
     return lib_method
