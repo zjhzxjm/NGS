@@ -1,0 +1,54 @@
+# Method: BLAST
+# Summary:	34 succeed, 16 fail
+
+# query	ko_id:rank:evalue:score:identity:ko_definition
+11_gene_id_6546	K00790|1|6.0e-185|643.0|hpr:PARA_11310|UDP-N-acetylglucosamine 1-carboxyvinyltransferase [EC:2.5.1.7] (A)
+17_gene_id_51470	
+18_gene_id_57082	K16092|1|9.3e-33|138.0|btra:F544_6190|vitamin B12 transporter (A)
+19_gene_id_1769	
+19_gene_id_17751	K00523|1|6.7e-42|168.0|nmm:NMBM01240149_0796|CDP-4-dehydro-6-deoxyglucose reductase [EC:1.17.1.1] (A)
+19_gene_id_47361	K03639|1|1.7e-125|446.0|vpr:Vpar_1285|cyclic pyranopterin phosphate synthase [EC:4.1.99.18] (A)
+1_gene_id_53667	
+20_gene_id_23967	K03572|1|3.2e-69|259.0|spnn:T308_00795|DNA mismatch repair protein MutL (A)
+20_gene_id_67263	K01873|1|7.6e-164|573.0|nmq:NMBM04240196_0181|valyl-tRNA synthetase [EC:6.1.1.9] (A)
+24_gene_id_15581	K01409|1|6.6e-180|627.0|nla:NLA_17380|O-sialoglycoprotein endopeptidase [EC:3.4.24.57] (A)
+24_gene_id_28519	
+28_gene_id_60141	
+29_gene_id_49169	K00390|1|3.3e-39|159.0|apa:APP7_1933|phosphoadenosine phosphosulfate reductase [EC:1.8.4.8] (A)
+2_gene_id_15714	K13787|1|3.2e-226|781.0|rmu:RMDY18_13640|geranylgeranyl diphosphate synthase, type I [EC:2.5.1.1 2.5.1.10 2.5.1.29] (A)
+2_gene_id_59270	K02357|1|1.5e-62|237.0|rum:CK1_04830|elongation factor Ts (A)
+30_gene_id_44951	K03578|1|2.6e-166|582.0|nla:NLA_19520|ATP-dependent helicase HrpA [EC:3.6.4.13] (A)
+31_gene_id_2460	
+33_gene_id_20764	K04072|1|7.5e-126|447.0|rob:CK5_15330|acetaldehyde dehydrogenase / alcohol dehydrogenase [EC:1.2.1.10 1.1.1.1] (A)
+34_gene_id_35983	K01869|1|1.5e-232|802.0|nmi:NMO_0273|leucyl-tRNA synthetase [EC:6.1.1.4] (A)
+34_gene_id_8426	K01955|1|1.6e-87|320.0|nmh:NMBH4476_1799|carbamoyl-phosphate synthase large subunit [EC:6.3.5.5] (A)
+38_gene_id_59613	
+3_gene_id_61399	
+40_gene_id_33339	K03546|1|7.2e-173|603.0|vpr:Vpar_1374|exonuclease SbcC (A)
+42_gene_id_20437	K01734|1|1.1e-58|224.0|cso:CLS_12110|methylglyoxal synthase [EC:4.2.3.3] (A)
+46_gene_id_57069	K04043|1|2.6e-79|293.0|csh:Closa_0882|molecular chaperone DnaK (A)
+47_gene_id_5724	
+4_gene_id_31452	K00014|1|1.4e-133|473.0|ngk:NGK_1905|shikimate dehydrogenase [EC:1.1.1.25] (A)
+5_gene_id_17664	K01880|1|7.0e-31|132.0|pah:Poras_0223|glycyl-tRNA synthetase [EC:6.1.1.14] (A)
+6_gene_id_63037	K00956|1|1.1e-73|274.0|asu:Asuc_1688|sulfate adenylyltransferase subunit 1 [EC:2.7.7.4] (A)
+7_gene_id_29037	K00789|1|5.8e-77|285.0|bsa:Bacsa_2308|S-adenosylmethionine synthetase [EC:2.5.1.6] (A)
+7_gene_id_56019	K01919|1|8.9e-201|696.0|nmz:NMBNZ0533_1238|glutamate--cysteine ligase [EC:6.3.2.2] (A)
+7_gene_id_6593	K09155|1|6.0e-98|354.0|pah:Poras_1392|hypothetical protein (A)
+8_gene_id_28737	
+8_gene_id_62179	K07322|1|2.0e-43|173.0|med:MELS_2012|regulator of cell morphogenesis and NO signaling (A)
+9_gene_id_22858	K00004|1|2.6e-94|342.0|nmw:NMAA_0457|(R,R)-butanediol dehydrogenase / meso-butanediol dehydrogenase / diacetyl reductase [EC:1.1.1.4 1.1.1.- 1.1.1.303] (A)
+NCBIACEO_c_13_2062	
+NCBIACEO_c_2_630	K03529|1|3.5e-185|644.0|nmc:NMC0484|chromosome segregation protein (A)
+cgin_c_2_377	K02527|1|2.2e-40|163.0|coc:Coch_0689|3-deoxy-D-manno-octulosonic-acid transferase [EC:2.4.99.12 2.4.99.13 2.4.99.14 2.4.99.15] (A)
+cgin_c_6_1270	K07387|1|1.1e-118|423.0|coc:Coch_2098|putative metalloprotease [EC:3.4.24.-] (A)
+cgin_c_9_1629	
+chom_c_5_426	K01265|1|2.0e-94|343.0|eba:ebA5984|methionyl aminopeptidase [EC:3.4.11.18] (A)
+gi|161594571|gb|CP000381.1|:1434281-1436026	K01887|1|0.0e+00|1150.0|nmn:NMCC_1411|arginyl-tRNA synthetase [EC:6.1.1.19] (A)
+gi|241321320|gb|ACQV01000003.1|:25503-26312	K07090|1|3.3e-54|209.0|ngt:NGTW08_1038|(A)
+gi|307618219|gb|AEDT01000009.1|:32605-33462	
+gi|383347418|gb|AICR01000002.1|:c14686-13994	K01992|1|2.1e-117|419.0|soi:I872_08275|ABC-2 type transport system permease protein (A)
+hpar1239_c_1_748	
+nelo_c_5_769	
+nmen1276_c_1_1046	
+vot158_c_6_1539	K00796|1|2.4e-152|535.0|vpr:Vpar_0494|dihydropteroate synthase [EC:2.5.1.15] (A)
+vot158_c_6_1549	K15582|1|1.0e-163|573.0|vpr:Vpar_0485|oligopeptide transport system permease protein (A)

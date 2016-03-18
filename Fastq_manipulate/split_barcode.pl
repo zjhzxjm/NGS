@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 
-use lib "/home/xujm/bin/.self/";
+use lib "/home/xujm/bin/.self/Fastq_manipulate";
 use zjhzxjm;
 use File::Basename;
 use Cwd 'abs_path';

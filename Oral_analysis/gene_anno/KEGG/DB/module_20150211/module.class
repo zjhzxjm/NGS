@@ -1,0 +1,689 @@
+Module_ID	class_level1	class_level2	class_level3	Module_Name
+M00001	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+M00002	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Glycolysis, core module involving three-carbon compounds
+M00003	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Gluconeogenesis, oxaloacetate => fructose-6P
+M00004	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Pentose phosphate pathway (Pentose phosphate cycle)
+M00005	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	PRPP biosynthesis, ribose 5P => PRPP
+M00006	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P
+M00007	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P
+M00008	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Entner-Doudoroff pathway, glucose-6P => glyceraldehyde-3P + pyruvate
+M00009	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Citrate cycle (TCA cycle, Krebs cycle)
+M00010	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
+M00011	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+M00012	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	Glyoxylate cycle
+M00013	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	Malonate semialdehyde pathway, propanoyl-CoA => Acetyl-CoA
+M00014	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	Glucuronate pathway (uronate pathway)
+M00015	Pathway module	Nucleotide and amino acid metabolism	Arginine and proline metabolism	Proline biosynthesis, glutamate => proline
+M00016	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	Lysine biosynthesis, succinyl-DAP pathway, aspartate => lysine
+M00017	Pathway module	Nucleotide and amino acid metabolism	Cysteine and methionine metabolism	Methionine biosynthesis, apartate => homoserine => methionine
+M00018	Pathway module	Nucleotide and amino acid metabolism	Serine and threonine metabolism	Threonine biosynthesis, aspartate => homoserine => threonine
+M00019	Pathway module	Nucleotide and amino acid metabolism	Branched-chain amino acid metabolism	Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine
+M00020	Pathway module	Nucleotide and amino acid metabolism	Serine and threonine metabolism	Serine biosynthesis, glycerate-3P => serine
+M00021	Pathway module	Nucleotide and amino acid metabolism	Cysteine and methionine metabolism	Cysteine biosynthesis, serine => cysteine
+M00022	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Shikimate pathway, phosphoenolpyruvate + erythrose-4P => chorismate
+M00023	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Tryptophan biosynthesis, chorismate => tryptophan
+M00024	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Phenylalanine biosynthesis, chorismate => phenylalanine
+M00025	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Tyrosine biosynthesis, chorismate => tyrosine
+M00026	Pathway module	Nucleotide and amino acid metabolism	Histidine metabolism	Histidine biosynthesis, PRPP => histidine
+M00027	Pathway module	Nucleotide and amino acid metabolism	Other amino acid metabolism	GABA (gamma-Aminobutyrate) shunt
+M00028	Pathway module	Nucleotide and amino acid metabolism	Arginine and proline metabolism	Ornithine biosynthesis, glutamate => ornithine
+M00029	Pathway module	Nucleotide and amino acid metabolism	Arginine and proline metabolism	Urea cycle
+M00030	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
+M00031	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	Lysine biosynthesis, 2-aminoadipate => lysine
+M00032	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	Lysine degradation, lysine => saccharopine => acetoacetyl-CoA
+M00033	Pathway module	Nucleotide and amino acid metabolism	Other amino acid metabolism	Ectoine biosynthesis, aspartate => ectoine
+M00034	Pathway module	Nucleotide and amino acid metabolism	Cysteine and methionine metabolism	Methionine salvage pathway
+M00035	Pathway module	Nucleotide and amino acid metabolism	Cysteine and methionine metabolism	Methionine degradation
+M00036	Pathway module	Nucleotide and amino acid metabolism	Branched-chain amino acid metabolism	Leucine degradation, leucine => acetoacetate + acetyl-CoA
+M00037	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Melatonin biosynthesis, tryptophan => serotonin => melatonin
+M00038	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Tryptophan metabolism, tryptophan => kynurenine => 2-aminomuconate
+M00039	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Monolignol biosynthesis, phenylalanine/tyrosine&nbsp;&nbsp;=> monolignol
+M00040	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Tyrosine biosynthesis, prephanate => pretyrosine => tyrosine
+M00042	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Catecholamine biosynthesis, tyrosine => dopamine => noradrenaline => adrenaline
+M00043	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Thyroid hormone biosynthesis, tyrosine => triiodothyronine/thyroxine
+M00044	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Tyrosine degradation, tyrosine => homogentisate
+M00045	Pathway module	Nucleotide and amino acid metabolism	Histidine metabolism	Histidine degradation, histidine => N-formiminoglutamate => glutamate
+M00046	Pathway module	Nucleotide and amino acid metabolism	Pyrimidine metabolism	Pyrimidine degradation, uracil => beta-alanine, thymine => 3-aminoisobutanoate
+M00047	Pathway module	Nucleotide and amino acid metabolism	Other amino acid metabolism	Creatine pathway
+M00048	Pathway module	Nucleotide and amino acid metabolism	Purine metabolism	Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
+M00049	Pathway module	Nucleotide and amino acid metabolism	Purine metabolism	Adenine ribonucleotide biosynthesis, IMP => ADP,ATP
+M00050	Pathway module	Nucleotide and amino acid metabolism	Purine metabolism	Guanine ribonucleotide biosynthesis IMP => GDP,GTP
+M00051	Pathway module	Nucleotide and amino acid metabolism	Pyrimidine metabolism	Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP
+M00052	Pathway module	Nucleotide and amino acid metabolism	Pyrimidine metabolism	Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP
+M00053	Pathway module	Nucleotide and amino acid metabolism	Pyrimidine metabolism	Pyrimidine deoxyribonuleotide biosynthesis, CDP/CTP => dCDP/dCTP,dTDP/dTTP
+M00055	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	N-glycan precursor biosynthesis
+M00056	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	O-glycan biosynthesis, mucin type core
+M00057	Pathway module	Carbohydrate and lipid metabolism	Glycosaminoglycan metabolism	Glycosaminoglycan biosynthesis, linkage tetrasaccharide
+M00058	Pathway module	Carbohydrate and lipid metabolism	Glycosaminoglycan metabolism	Glycosaminoglycan biosynthesis, chondroitin sulfate backbone
+M00059	Pathway module	Carbohydrate and lipid metabolism	Glycosaminoglycan metabolism	Glycosaminoglycan biosynthesis, heparan sulfate backbone
+M00060	Pathway module	Carbohydrate and lipid metabolism	Lipopolysaccharide metabolism	Lipopolysaccharide biosynthesis, KDO2-lipid A
+M00061	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	D-Glucuronate degradation, D-glucuronate => pyruvate + D-glyceraldehyde 3P
+M00063	Pathway module	Carbohydrate and lipid metabolism	Lipopolysaccharide metabolism	CMP-KDO biosynthesis
+M00064	Pathway module	Carbohydrate and lipid metabolism	Lipopolysaccharide metabolism	ADP-L-glycero-D-manno-heptose biosynthesis
+M00065	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	GPI-anchor biosynthesis, core oligosaccharide
+M00066	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Lactosylceramide biosynthesis
+M00067	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Sulfoglycolipids biosynthesis, ceramide/1-alkyl-2-acylglycerol => sulfatide/seminolipid
+M00068	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	Glycosphingolipid biosynthesis, globo-series, LacCer => Gb4Cer
+M00069	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	Glycosphingolipid biosynthesis, ganglio series, LacCer => GT3
+M00070	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	Glycosphingolipid biosynthesis, lacto-series, LacCer => Lc4Cer
+M00071	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	Glycosphingolipid biosynthesis, neolacto-series, LacCer => nLc4Cer
+M00072	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	N-glycosylation by oligosaccharyltransferase
+M00073	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	N-glycan precursor trimming
+M00074	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	N-glycan biosynthesis, high-mannose type
+M00075	Pathway module	Carbohydrate and lipid metabolism	Glycan metabolism	N-glycan biosynthesis, complex type
+M00076	Pathway module	Carbohydrate and lipid metabolism	Glycosaminoglycan metabolism	Dermatan sulfate degradation
+M00077	Pathway module	Carbohydrate and lipid metabolism	Glycosaminoglycan metabolism	Chondroitin sulfate degradation
+M00078	Pathway module	Carbohydrate and lipid metabolism	Glycosaminoglycan metabolism	Heparan sulfate degradation
+M00079	Pathway module	Carbohydrate and lipid metabolism	Glycosaminoglycan metabolism	Keratan sulfate degradation
+M00080	Pathway module	Carbohydrate and lipid metabolism	Lipopolysaccharide metabolism	Lipopolysaccharide biosynthesis, inner core => outer core => O-antigen
+M00081	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	Pectin degradation
+M00082	Pathway module	Carbohydrate and lipid metabolism	Fatty acid metabolism	Fatty acid biosynthesis, initiation
+M00083	Pathway module	Carbohydrate and lipid metabolism	Fatty acid metabolism	Fatty acid biosynthesis, elongation
+M00085	Pathway module	Carbohydrate and lipid metabolism	Fatty acid metabolism	Fatty acid biosynthesis, elongation, mitochondria
+M00086	Pathway module	Carbohydrate and lipid metabolism	Fatty acid metabolism	beta-Oxidation, acyl-CoA synthesis
+M00087	Pathway module	Carbohydrate and lipid metabolism	Fatty acid metabolism	beta-Oxidation
+M00088	Pathway module	Carbohydrate and lipid metabolism	Fatty acid metabolism	Ketone body biosynthesis, acetyl-CoA => acetoacetate/3-hydroxybutyrate/acetone
+M00089	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Triacylglycerol biosynthesis
+M00090	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Phosphatidylcholine (PC) biosynthesis, choline => PC
+M00091	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Phosphatidylcholine (PC) biosynthesis, PE => PC
+M00092	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Phosphatidylethanolamine (PE) biosynthesis, ethanolamine => PE
+M00093	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE
+M00094	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Ceramide biosynthesis
+M00095	Pathway module	Carbohydrate and lipid metabolism	Terpenoid backbone biosynthesis	C5 isoprenoid biosynthesis, mevalonate pathway
+M00096	Pathway module	Carbohydrate and lipid metabolism	Terpenoid backbone biosynthesis	C5 isoprenoid biosynthesis, non-mevalonate pathway
+M00097	Pathway module	Carbohydrate and lipid metabolism	Other terpenoid biosynthesis	beta-Carotene biosynthesis, GGAP => beta-carotene
+M00098	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Acylglycerol degradation
+M00099	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Sphingosine biosynthesis
+M00100	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Sphingosine degradation
+M00101	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	Cholesterol biosynthesis, squalene 2,3-epoxide => cholesterol
+M00102	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	Ergocalciferol biosynthesis
+M00103	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	Cholecalciferol biosynthesis
+M00104	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	Bile acid biosynthesis, cholesterol => cholate/chenodeoxycholate
+M00106	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	Conjugated bile acid biosynthesis, cholate => taurocholate/glycocholate
+M00107	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	Steroid hormone biosynthesis, cholesterol => prognenolone => progesterone
+M00108	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	C21-Steroid hormone biosynthesis, progesterone => corticosterone/aldosterone
+M00109	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	C21-Steroid hormone biosynthesis, progesterone => cortisol/cortisone
+M00110	Pathway module	Carbohydrate and lipid metabolism	Sterol biosynthesis	C19/C18-Steroid hormone biosynthesis, pregnenolone => androstenedione => estrone
+M00112	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Tocopherol/tocotorienol biosynthesis
+M00113	Pathway module	Carbohydrate and lipid metabolism	Fatty acid metabolism	Jasmonic acid biosynthesis
+M00114	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Ascorbate biosynthesis, plants, glucose-6P => ascorbate
+M00115	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	NAD biosynthesis, aspartate => NAD
+M00116	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Menaquinone biosynthesis, chorismate => menaquinone
+M00117	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Ubiquinone biosynthesis, prokaryotes, chorismate => ubiquinone
+M00118	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Glutathione biosynthesis, glutamate => glutathione
+M00119	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Pantothenate biosynthesis, valine/L-aspartate => pantothenate
+M00120	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Coenzyme A biosynthesis, pantothenate => CoA
+M00121	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Heme biosynthesis, glutamate => protoheme/siroheme
+M00122	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Cobalamin biosynthesis, cobinamide => cobalamin
+M00123	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Biotin biosynthesis, pimeloyl-ACP/CoA => biotin
+M00124	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Pyridoxal biosynthesis, erythrose-4P => pyridoxal-5P
+M00125	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Riboflavin biosynthesis, GTP => riboflavin/FMN/FAD
+M00126	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Tetrahydrofolate biosynthesis, GTP => THF
+M00127	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Thiamine biosynthesis, AIR => thiamine-P/thiamine-2P
+M00128	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Ubiquinone biosynthesis, eukaryotes, 4-hydroxybenzoate => ubiquinone
+M00129	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Ascorbate biosynthesis, animals, glucose-1P => ascorbate
+M00130	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Inositol phosphate metabolism, PI=> PIP2 => Ins(1,4,5)P3 => Ins(1,3,4,5)P4
+M00131	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Inositol phosphate metabolism, Ins(1,3,4,5)P4 => Ins(1,3,4)P3 => myo-inositol
+M00132	Pathway module	Carbohydrate and lipid metabolism	Lipid metabolism	Inositol phosphate metabolism, Ins(1,3,4)P3 => phytate
+M00133	Pathway module	Nucleotide and amino acid metabolism	Polyamine biosynthesis	Polyamine biosynthesis, arginine => agmatine => putrescine => spermidine
+M00134	Pathway module	Nucleotide and amino acid metabolism	Polyamine biosynthesis	Polyamine biosynthesis, arginine => ornithine => putrescine
+M00135	Pathway module	Nucleotide and amino acid metabolism	Polyamine biosynthesis	GABA biosynthesis, eukaryotes, putrescine => GABA
+M00136	Pathway module	Nucleotide and amino acid metabolism	Polyamine biosynthesis	GABA biosynthesis, prokaryotes, putrescine => GABA
+M00137	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Flavanone biosynthesis, phenylalanine => naringenin
+M00138	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Flavonoid biosynthesis, naringenin => pelargonidin
+M00140	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	C1-unit interconversion, prokaryotes
+M00141	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	C1-unit interconversion, eukaryotes
+M00142	Structural complex	Energy metabolism	ATP synthesis	NADH:ubiquinone oxidoreductase, mitochondria
+M00143	Structural complex	Energy metabolism	ATP synthesis	NADH dehydrogenase (ubiquinone) Fe-S protein/flavoprotein complex, mitochondria
+M00144	Structural complex	Energy metabolism	ATP synthesis	NADH:quinone oxidoreductase, prokaryotes
+M00145	Structural complex	Energy metabolism	ATP synthesis	NAD(P)H:quinone oxidoreductase, chloroplasts and cyanobacteria
+M00146	Structural complex	Energy metabolism	ATP synthesis	NADH dehydrogenase (ubiquinone) 1 alpha subcomplex
+M00147	Structural complex	Energy metabolism	ATP synthesis	NADH dehydrogenase (ubiquinone) 1 beta subcomplex
+M00148	Structural complex	Energy metabolism	ATP synthesis	Succinate dehydrogenase (ubiquinone)
+M00149	Structural complex	Energy metabolism	ATP synthesis	Succinate dehydrogenase, prokaryotes
+M00150	Structural complex	Energy metabolism	ATP synthesis	Fumarate reductase, prokaryotes
+M00151	Structural complex	Energy metabolism	ATP synthesis	Cytochrome bc1 complex respiratory unit
+M00152	Structural complex	Energy metabolism	ATP synthesis	Cytochrome bc1 complex
+M00153	Structural complex	Energy metabolism	ATP synthesis	Cytochrome d ubiquinol oxidase
+M00154	Structural complex	Energy metabolism	ATP synthesis	Cytochrome c oxidase
+M00155	Structural complex	Energy metabolism	ATP synthesis	Cytochrome c oxidase, prokaryotes
+M00156	Structural complex	Energy metabolism	ATP synthesis	Cytochrome c oxidase, cbb3-type
+M00157	Structural complex	Energy metabolism	ATP synthesis	F-type ATPase, prokaryotes and chloroplasts
+M00158	Structural complex	Energy metabolism	ATP synthesis	F-type ATPase, eukaryotes
+M00159	Structural complex	Energy metabolism	ATP synthesis	V/A-type ATPase, prokaryotes
+M00160	Structural complex	Energy metabolism	ATP synthesis	V-type ATPase, eukaryotes
+M00161	Structural complex	Energy metabolism	Photosynthesis	Photosystem II
+M00161	Signature module	Gene set	Metabolic capacity	Photosystem II
+M00162	Structural complex	Energy metabolism	ATP synthesis	Cytochrome b6f complex
+M00163	Structural complex	Energy metabolism	Photosynthesis	Photosystem I
+M00163	Signature module	Gene set	Metabolic capacity	Photosystem I
+M00165	Pathway module	Energy metabolism	Carbon fixation	Reductive pentose phosphate cycle (Calvin cycle)
+M00165	Signature module	Gene set	Metabolic capacity	Reductive pentose phosphate cycle (Calvin cycle)
+M00165	Signature module	Gene set	Metabolic capacity	Reductive pentose phosphate cycle (Calvin cycle)
+M00166	Pathway module	Energy metabolism	Carbon fixation	Reductive pentose phosphate cycle, ribulose-5P => glyceraldehyde-3P
+M00167	Pathway module	Energy metabolism	Carbon fixation	Reductive pentose phosphate cycle, glyceraldehyde-3P => ribulose-5P
+M00168	Pathway module	Energy metabolism	Carbon fixation	CAM (Crassulacean acid metabolism), dark
+M00169	Pathway module	Energy metabolism	Carbon fixation	CAM (Crassulacean acid metabolism), light
+M00170	Pathway module	Energy metabolism	Carbon fixation	C4-dicarboxylic acid cycle, phosphoenolpyruvate carboxykinase type
+M00171	Pathway module	Energy metabolism	Carbon fixation	C4-dicarboxylic acid cycle, NAD - malic enzyme type
+M00172	Pathway module	Energy metabolism	Carbon fixation	C4-dicarboxylic acid cycle, NADP - malic enzyme type
+M00173	Pathway module	Energy metabolism	Carbon fixation	Reductive citrate cycle (Arnon-Buchanan cycle)
+M00173	Signature module	Gene set	Metabolic capacity	Reductive citrate cycle (Arnon-Buchanan cycle)
+M00174	Pathway module	Energy metabolism	Methane metabolism	Methane oxidation, methanotroph, methane => formaldehyde
+M00175	Pathway module	Energy metabolism	Nitrogen metabolism	Nitrogen fixation, nitrogen => ammonia
+M00176	Pathway module	Energy metabolism	Sulfur metabolism	Assimilatory sulfate reduction, sulfate => H2S
+M00176	Signature module	Gene set	Metabolic capacity	Assimilatory sulfate reduction, sulfate => H2S
+M00177	Structural complex	Genetic information processing	Ribosome	Ribosome, eukaryotes
+M00178	Structural complex	Genetic information processing	Ribosome	Ribosome, bacteria
+M00179	Structural complex	Genetic information processing	Ribosome	Ribosome, archaea
+M00180	Structural complex	Genetic information processing	RNA polymerase	RNA polymerase II, eukaryotes
+M00181	Structural complex	Genetic information processing	RNA polymerase	RNA polymerase III, eukaryotes
+M00182	Structural complex	Genetic information processing	RNA polymerase	RNA polymerase I, eukaryotes
+M00183	Structural complex	Genetic information processing	RNA polymerase	RNA polymerase, bacteria
+M00184	Structural complex	Genetic information processing	RNA polymerase	RNA polymerase, archaea
+M00185	Structural complex	Environmental information processing	Mineral and organic ion transport system	Sulfate transport system
+M00185	Signature module	Gene set	Metabolic capacity	Sulfate transport system
+M00186	Structural complex	Environmental information processing	Mineral and organic ion transport system	Tungstate transport system
+M00188	Structural complex	Environmental information processing	Mineral and organic ion transport system	NitT/TauT family transport system
+M00189	Structural complex	Environmental information processing	Mineral and organic ion transport system	Molybdate transport system
+M00190	Structural complex	Environmental information processing	Mineral and organic ion transport system	Iron(III) transport system
+M00191	Structural complex	Environmental information processing	Mineral and organic ion transport system	Thiamine transport system
+M00192	Structural complex	Environmental information processing	Mineral and organic ion transport system	Putative thiamine transport system
+M00193	Structural complex	Environmental information processing	Mineral and organic ion transport system	Putative spermidine/putrescine transport system
+M00194	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Maltose/maltodextrin transport system
+M00196	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Raffinose/stachyose/melibiose transport system
+M00197	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative fructooligosaccharide transport system
+M00198	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative sn-glycerol-phosphate transport system
+M00199	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	L-Arabinose/lactose transport system
+M00200	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative sorbitol/mannitol transport system
+M00201	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	alpha-Glucoside transport system
+M00202	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Oligogalacturonide transport system
+M00203	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Glucose/arabinose transport system
+M00204	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Trehalose/maltose transport system
+M00205	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	N-Acetylglucosamine transport system
+M00206	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Cellobiose transport system
+M00207	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative multiple sugar transport system
+M00208	Structural complex	Environmental information processing	Mineral and organic ion transport system	Glycine betaine/proline transport system
+M00209	Structural complex	Environmental information processing	Mineral and organic ion transport system	Osmoprotectant transport system
+M00210	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Phospholipid transport system
+M00211	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative ABC transport system
+M00212	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Ribose transport system
+M00213	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	L-Arabinose transport system
+M00214	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Methyl-galactoside transport system
+M00215	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	D-Xylose transport system
+M00216	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Multiple sugar transport system
+M00217	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	D-Allose transport system
+M00218	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Fructose transport system
+M00219	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	AI-2 transport system
+M00220	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Rhamnose transport system
+M00221	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative simple sugar transport system
+M00222	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Phosphate transport system
+M00223	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Phosphonate transport system
+M00224	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Fluoroquinolones transport system
+M00225	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Lysine/arginine/ornithine transport system
+M00226	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Histidine transport system
+M00227	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Glutamine transport system
+M00228	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Putative glutamine transport system
+M00229	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Arginine transport system
+M00230	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Glutamate/aspartate transport system
+M00231	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Octopine/nopaline transport system
+M00232	Structural complex	Environmental information processing	Phosphate and amino acid transport system	General L-amino acid transport system
+M00233	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Glutamate transport system
+M00234	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Cystine transport system
+M00235	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Arginine/ornithine transport system
+M00236	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Putative polar amino acid transport system
+M00237	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Branched-chain amino acid transport system
+M00238	Structural complex	Environmental information processing	Phosphate and amino acid transport system	D-Methionine transport system
+M00239	Structural complex	Environmental information processing	Peptide and nickel transport system	Peptides/nickel transport system
+M00240	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Iron complex transport system
+M00241	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Vitamin B12 transport system
+M00242	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Zinc transport system
+M00243	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Manganese/iron transport system
+M00244	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Putative zinc/manganese transport system
+M00245	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Cobalt/nickel transport system
+M00246	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Nickel transport system
+M00247	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Putative ABC transport system
+M00249	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Capsular polysaccharide transport system
+M00250	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Lipopolysaccharide transport system
+M00251	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Teichoic acid transport system
+M00252	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Lipooligosaccharide transport system
+M00253	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Sodium transport system
+M00254	Structural complex	Environmental information processing	ABC-2 type and other transport systems	ABC-2 type transport system
+M00255	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Lipoprotein-releasing system
+M00256	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Cell division transport system
+M00257	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Hemin transport system
+M00258	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Putative ABC transport system
+M00259	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Heme transport system
+M00260	Structural complex	Genetic information processing	DNA polymerase	DNA polymerase III complex, bacteria
+M00261	Structural complex	Genetic information processing	DNA polymerase	DNA polymerase alpha / primase complex
+M00262	Structural complex	Genetic information processing	DNA polymerase	DNA polymerase delta complex
+M00263	Structural complex	Genetic information processing	DNA polymerase	DNA polymerase epsilon complex
+M00264	Structural complex	Genetic information processing	DNA polymerase	DNA polymerase II complex, archaea
+M00265	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, glucose-specific II component
+M00266	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, maltose and glucose-specific II component
+M00267	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, N-acetylglucosamine-specific II component
+M00268	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, arbutin-like II component
+M00269	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, sucrose-specific II component
+M00270	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, trehalose-specific II component
+M00271	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, beta-glucosides-specific II component
+M00272	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, arbutin-, cellobiose-, and salicin-specific II component
+M00273	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, fructose-specific II component
+M00274	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, mannitol-specific II component
+M00275	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, cellobiose-specific II component
+M00276	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, mannose-specific II component
+M00277	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, N-acetylgalactosamine-specific II component
+M00278	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, sorbose-specific II component
+M00279	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, galactitol-specific II component
+M00280	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, glucitol/sorbitol-specific II component
+M00281	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, lactose-specific II component
+M00282	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, D-glucosamine-specific II component
+M00283	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, ascorbate-specific II component
+M00284	Structural complex	Genetic information processing	Replication system	Origin recognition complex
+M00285	Structural complex	Genetic information processing	Replication system	MCM complex
+M00286	Structural complex	Genetic information processing	Replication system	GINS complex
+M00287	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, galactosamine-specific II component
+M00288	Structural complex	Genetic information processing	Replication system	RPA complex
+M00289	Structural complex	Genetic information processing	Replication system	RF-C complex
+M00290	Structural complex	Genetic information processing	Repair system	Holo-TFIIH complex
+M00291	Structural complex	Genetic information processing	Repair system	MRN complex
+M00292	Structural complex	Genetic information processing	Repair system	MRX complex
+M00293	Structural complex	Genetic information processing	DNA polymerase	DNA polymerase zeta&nbsp;&nbsp;complex
+M00294	Structural complex	Genetic information processing	DNA polymerase	DNA polymerase gamma complex
+M00295	Structural complex	Genetic information processing	Repair system	BRCA1-associated genome surveillance complex (BASC)
+M00296	Structural complex	Genetic information processing	Repair system	BER complex
+M00297	Structural complex	Genetic information processing	Repair system	DNA-PK complex
+M00298	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Multidrug/hemolysin transport system
+M00299	Structural complex	Environmental information processing	Mineral and organic ion transport system	Spermidine/putrescine transport system
+M00300	Structural complex	Environmental information processing	Mineral and organic ion transport system	Putrescine transport system
+M00301	Structural complex	Environmental information processing	Mineral and organic ion transport system	Mannopine transport system
+M00302	Structural complex	Environmental information processing	Mineral and organic ion transport system	2-Aminoethylphosphonate transport system
+M00303	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, N-acetylmuramic acid-specific II component
+M00304	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, fructose-specific II component
+M00305	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, 2-O-A-mannosyl-D-glycerate-specific II component
+M00306	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, fructose-specific II-like component
+M00307	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Pyruvate oxidation, pyruvate => acetyl-CoA
+M00308	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Semi-phosphorylative Entner-Doudoroff pathway, gluconate => glycerate-3P
+M00309	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Non-phosphorylative Entner-Doudoroff pathway, gluconate/galactonate => glycerate
+M00314	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Bacitracin transport system
+M00315	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Uncharacterized ABC transport system
+M00316	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Manganese transport system
+M00317	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Manganese/iron transport system
+M00318	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Iron/zinc/copper transport system
+M00319	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Manganese/zinc/iron transport system
+M00320	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Lipopolysaccharide export system
+M00321	Structural complex	Environmental information processing	Mineral and organic ion transport system	Bicarbonate transport system
+M00322	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Neutral amino acid transport system
+M00323	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Urea transport system
+M00324	Structural complex	Environmental information processing	Peptide and nickel transport system	Dipeptide transport system
+M00325	Structural complex	Environmental information processing	Bacterial secretion system	alpha-Hemolysin/cyclolysin transport system
+M00326	Structural complex	Environmental information processing	Bacterial secretion system	RTX toxin transport system
+M00327	Structural complex	Environmental information processing	Bacterial secretion system	S-Layer protein transport system
+M00328	Structural complex	Environmental information processing	Bacterial secretion system	Hemophore/metalloprotease transport system
+M00329	Structural complex	Environmental information processing	Bacterial secretion system	Multiple protein transport system
+M00330	Structural complex	Environmental information processing	Bacterial secretion system	Adhesin protein transport system
+M00331	Structural complex	Environmental information processing	Bacterial secretion system	Type II general secretion pathway
+M00332	Structural complex	Environmental information processing	Bacterial secretion system	Type III secretion system
+M00333	Structural complex	Environmental information processing	Bacterial secretion system	Type IV secretion system
+M00334	Structural complex	Environmental information processing	Bacterial secretion system	Type VI secretion system
+M00335	Structural complex	Environmental information processing	Bacterial secretion system	Sec (secretion) system
+M00336	Structural complex	Environmental information processing	Bacterial secretion system	Twin-arginine translocation (Tat) system
+M00337	Structural complex	Genetic information processing	Proteasome	Immunoproteasome
+M00338	Pathway module	Nucleotide and amino acid metabolism	Cysteine and methionine metabolism	Cysteine biosynthesis, homocysteine + serine => cysteine
+M00339	Structural complex	Environmental information processing	Bacterial secretion system	RaxAB-RaxC type I secretion system
+M00340	Structural complex	Genetic information processing	Proteasome	Proteasome, 20S core particle
+M00341	Structural complex	Genetic information processing	Proteasome	Proteasome, 19S regulatory particle (PA700)
+M00342	Structural complex	Genetic information processing	Proteasome	Bacterial proteasome
+M00343	Structural complex	Genetic information processing	Proteasome	Archaeal proteasome
+M00344	Pathway module	Energy metabolism	Methane metabolism	Formaldehyde assimilation, xylulose monophosphate pathway
+M00345	Pathway module	Energy metabolism	Methane metabolism	Formaldehyde assimilation, ribulose monophosphate pathway
+M00346	Pathway module	Energy metabolism	Methane metabolism	Formaldehyde assimilation, serine pathway
+M00348	Structural complex	Environmental information processing	Peptide and nickel transport system	Glutathione transport system
+M00349	Structural complex	Environmental information processing	Peptide and nickel transport system	Microcin C transport system
+M00350	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Capsaicin biosynthesis, L-Phenylalanine => Capsaicin
+M00351	Structural complex	Genetic information processing	Spliceosome	Spliceosome, U1-snRNP
+M00352	Structural complex	Genetic information processing	Spliceosome	Spliceosome, U2-snRNP
+M00353	Structural complex	Genetic information processing	Spliceosome	Spliceosome, Prp19/CDC5L complex
+M00354	Structural complex	Genetic information processing	Spliceosome	Spliceosome, U4/U6.U5 tri-snRNP
+M00355	Structural complex	Genetic information processing	Spliceosome	Spliceosome, 35S U5-snRNP
+M00356	Pathway module	Energy metabolism	Methane metabolism	Methanogenesis, methanol => methane
+M00356	Signature module	Gene set	Metabolic capacity	Methanogenesis, methanol => methane
+M00357	Pathway module	Energy metabolism	Methane metabolism	Methanogenesis, acetate => methane
+M00357	Signature module	Gene set	Metabolic capacity	Methanogenesis, acetate => methane
+M00358	Pathway module	Energy metabolism	Methane metabolism	Coenzyme M biosynthesis
+M00359	Functional set	Metabolism	Aminoacyl tRNA	Aminoacyl-tRNA biosynthesis, eukaryotes
+M00360	Functional set	Metabolism	Aminoacyl tRNA	Aminoacyl-tRNA biosynthesis, prokaryotes
+M00361	Functional set	Metabolism	Nucleotide sugar	Nucleotide sugar biosynthesis, eukaryotes
+M00362	Functional set	Metabolism	Nucleotide sugar	Nucleotide sugar biosynthesis, prokaryotes
+M00363	Signature module	Gene set	Pathogenicity	EHEC pathogenicity signature, Shiga toxin
+M00364	Pathway module	Carbohydrate and lipid metabolism	Terpenoid backbone biosynthesis	C10-C20 isoprenoid biosynthesis, bacteria
+M00365	Pathway module	Carbohydrate and lipid metabolism	Terpenoid backbone biosynthesis	C10-C20 isoprenoid biosynthesis, archaea
+M00366	Pathway module	Carbohydrate and lipid metabolism	Terpenoid backbone biosynthesis	C10-C20 isoprenoid biosynthesis, plants
+M00367	Pathway module	Carbohydrate and lipid metabolism	Terpenoid backbone biosynthesis	C10-C20 isoprenoid biosynthesis, non-plant eukaryotes
+M00368	Pathway module	Nucleotide and amino acid metabolism	Cysteine and methionine metabolism	Ethylene biosynthesis, methionine => ethylene
+M00369	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Cyanogenic glycoside biosynthesis, tyrosine => dhurrin
+M00370	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Glucosinolate biosynthesis, tryptophan => glucobrassicin
+M00371	Pathway module	Carbohydrate and lipid metabolism	Other terpenoid biosynthesis	Castasterone biosynthesis, campesterol => castasterone
+M00373	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	Ethylmalonyl pathway
+M00374	Pathway module	Energy metabolism	Carbon fixation	Dicarboxylate-hydroxybutyrate cycle
+M00375	Pathway module	Energy metabolism	Carbon fixation	Hydroxypropionate-hydroxybutylate cycle
+M00376	Pathway module	Energy metabolism	Carbon fixation	3-Hydroxypropionate bi-cycle
+M00376	Signature module	Gene set	Metabolic capacity	3-Hydroxypropionate bi-cycle
+M00377	Pathway module	Energy metabolism	Carbon fixation	Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway)
+M00377	Signature module	Gene set	Metabolic capacity	Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway)
+M00378	Pathway module	Energy metabolism	Methane metabolism	F420 biosynthesis
+M00379	Structural complex	Genetic information processing	Ubiquitin system	SCF-MET30 complex
+M00380	Structural complex	Genetic information processing	Ubiquitin system	SCF-BTRC complex
+M00381	Structural complex	Genetic information processing	Ubiquitin system	SCF-SKP2 complex
+M00382	Structural complex	Genetic information processing	Ubiquitin system	SCF-FBS complex
+M00383	Structural complex	Genetic information processing	Ubiquitin system	ECV complex
+M00384	Structural complex	Genetic information processing	Ubiquitin system	Cul3-SPOP complex
+M00385	Structural complex	Genetic information processing	Ubiquitin system	Cul4-DDB1-DDB2 complex
+M00386	Structural complex	Genetic information processing	Ubiquitin system	Cul4-DDB1-CSA complex
+M00387	Structural complex	Genetic information processing	Ubiquitin system	SCF-FBW7 complex
+M00388	Structural complex	Genetic information processing	Ubiquitin system	ECS complex
+M00389	Structural complex	Genetic information processing	Ubiquitin system	APC/C complex
+M00390	Structural complex	Genetic information processing	RNA processing	Exosome, archaea
+M00391	Structural complex	Genetic information processing	RNA processing	Exosome, eukaryotes
+M00392	Structural complex	Genetic information processing	RNA processing	Ski complex
+M00393	Structural complex	Genetic information processing	RNA processing	TRAMP complex
+M00394	Structural complex	Genetic information processing	RNA processing	RNA degradosome
+M00395	Structural complex	Genetic information processing	RNA processing	Decapping complex
+M00396	Structural complex	Genetic information processing	Spliceosome	Lsm 2-8 complex
+M00397	Structural complex	Genetic information processing	Spliceosome	Lsm 1-7 complex
+M00398	Structural complex	Genetic information processing	Spliceosome	Sm core complex
+M00399	Structural complex	Genetic information processing	Spliceosome	Cap binding complex
+M00400	Structural complex	Genetic information processing	Protein processing	p97-Ufd1-Npl4 complex
+M00401	Structural complex	Genetic information processing	Protein processing	Sec61 complex
+M00402	Structural complex	Genetic information processing	Protein processing	Translocon-associated protein (TRAP) complex
+M00403	Structural complex	Genetic information processing	Protein processing	HRD1/SEL1 ERAD complex
+M00404	Structural complex	Genetic information processing	Protein processing	COPII complex
+M00405	Structural complex	Genetic information processing	RNA processing	THC complex
+M00406	Structural complex	Genetic information processing	RNA processing	TREX complex
+M00407	Structural complex	Genetic information processing	Ubiquitin system	SCF-CDC4 complex
+M00408	Structural complex	Genetic information processing	Protein processing	ESCRT-0 complex
+M00409	Structural complex	Genetic information processing	Protein processing	ESCRT-I complex
+M00410	Structural complex	Genetic information processing	Protein processing	ESCRT-II complex
+M00411	Structural complex	Genetic information processing	Ubiquitin system	SCF-GRR1 complex
+M00412	Structural complex	Genetic information processing	Protein processing	ESCRT-III complex
+M00413	Structural complex	Genetic information processing	Repair system	FA core complex
+M00414	Structural complex	Genetic information processing	Repair system	Bloom's syndrome complex
+M00415	Pathway module	Carbohydrate and lipid metabolism	Fatty acid metabolism	Fatty acid biosynthesis, elongation, endoplasmic reticulum
+M00416	Structural complex	Energy metabolism	ATP synthesis	Cytochrome aa3-600 menaquinol oxidase
+M00417	Structural complex	Energy metabolism	ATP synthesis	Cytochrome o ubiquinol oxidase
+M00418	Pathway module	Secondary metabolism	Aromatics degradation	Toluene degradation, anaerobic, toluene => benzoyl-CoA
+M00419	Pathway module	Secondary metabolism	Aromatics degradation	Cymene degradation, p-cymene => p-cumate
+M00422	Pathway module	Energy metabolism	Methane metabolism	Acetyl-CoA pathway, CO2 => acetyl-CoA
+M00423	Structural complex	Environmental information processing	Mineral and organic ion transport system	Molybdate/tungstate transport system
+M00424	Structural complex	Genetic information processing	Replication system	Shelterin complex
+M00425	Structural complex	Genetic information processing	RNA processing	H/ACA ribonucleoprotein complex
+M00426	Structural complex	Genetic information processing	RNA processing	Survival motor neuron (SMN) complex
+M00427	Structural complex	Genetic information processing	RNA processing	Nuclear pore complex
+M00428	Structural complex	Genetic information processing	RNA processing	eIF4F complex
+M00429	Structural complex	Environmental information processing	Bacterial secretion system	Competence-related DNA transformation transporter
+M00430	Structural complex	Genetic information processing	RNA processing	Exon junction complex (EJC)
+M00432	Pathway module	Nucleotide and amino acid metabolism	Branched-chain amino acid metabolism	Leucine biosynthesis, 2-oxoisovalerate => 2-oxoisocaproate
+M00433	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	Lysine biosynthesis, 2-oxoglutarate => 2-oxoadipate
+M00434	Functional set	Environmental information processing	Two-component regulatory system	PhoR-PhoB (phosphate starvation response) two-component regulatory system
+M00435	Structural complex	Environmental information processing	Mineral and organic ion transport system	Taurine transport system
+M00436	Structural complex	Environmental information processing	Mineral and organic ion transport system	Sulfonate transport system
+M00437	Structural complex	Environmental information processing	Mineral and organic ion transport system	Phthalate transport system
+M00438	Structural complex	Environmental information processing	Mineral and organic ion transport system	Nitrate/nitrite transport system
+M00438	Signature module	Gene set	Metabolic capacity	Nitrate/nitrite transport system
+M00439	Structural complex	Environmental information processing	Peptide and nickel transport system	Oligopeptide transport system
+M00440	Structural complex	Environmental information processing	Peptide and nickel transport system	Nickel transport system
+M00442	Structural complex	Environmental information processing	Mineral and organic ion transport system	Putative hydroxymethylpyrimidine transport system
+M00443	Functional set	Environmental information processing	Two-component regulatory system	SenX3-RegX3 (phosphate starvation response) two-component regulatory system
+M00444	Functional set	Environmental information processing	Two-component regulatory system	PhoQ-PhoP (magnesium transport) two-component regulatory system
+M00445	Functional set	Environmental information processing	Two-component regulatory system	EnvZ-OmpR (osmotic stress response) two-component regulatory system
+M00446	Functional set	Environmental information processing	Two-component regulatory system	RstB-RstA two-component regulatory system
+M00447	Functional set	Environmental information processing	Two-component regulatory system	CpxA-CpxR (envelope stress response) two-component regulatory system
+M00448	Functional set	Environmental information processing	Two-component regulatory system	CssS-CssR (secretion stress response) two-component regulatory system
+M00449	Functional set	Environmental information processing	Two-component regulatory system	CreC-CreB (phosphate regulation) two-component regulatory system
+M00450	Functional set	Environmental information processing	Two-component regulatory system	BaeS-BaeR (envelope stress response) two-component regulatory system
+M00451	Functional set	Environmental information processing	Two-component regulatory system	BasS-BasR (antimicrobial peptide resistance) two-component regulatory system
+M00452	Functional set	Environmental information processing	Two-component regulatory system	CusS-CusR (copper tolerance) two-component regulatory system
+M00453	Functional set	Environmental information processing	Two-component regulatory system	QseC-QseB (quorum sensing) two-component regulatory system
+M00454	Functional set	Environmental information processing	Two-component regulatory system	KdpD-KdpE (potassium transport) two-component regulatory system
+M00455	Functional set	Environmental information processing	Two-component regulatory system	TorS-TorR (TMAO respiration) two-component regulatory system
+M00456	Functional set	Environmental information processing	Two-component regulatory system	ArcB-ArcA (anoxic redox control) two-component regulatory system
+M00457	Functional set	Environmental information processing	Two-component regulatory system	TctE-TctD (tricarboxylic acid transport) two-component regulatory system
+M00458	Functional set	Environmental information processing	Two-component regulatory system	ResE-ResD (aerobic and anaerobic respiration) two-component regulatory system
+M00459	Functional set	Environmental information processing	Two-component regulatory system	VicK-VicR (cell wall metabolism) two-component regulatory system
+M00460	Functional set	Environmental information processing	Two-component regulatory system	MprB-MprA (maintenance of persistent infection) two-component regulatory system
+M00461	Functional set	Environmental information processing	Two-component regulatory system	MtrB-MtrA (osmotic stress response) two-component regulatory system
+M00462	Functional set	Environmental information processing	Two-component regulatory system	PrrB-PrrA (intracellular multiplication) two-component regulatory system
+M00463	Functional set	Environmental information processing	Two-component regulatory system	TrcS-TrcR two-component regulatory system
+M00464	Functional set	Environmental information processing	Two-component regulatory system	NrsS-NrsR (nickel tolerance) two-component regulatory system
+M00465	Functional set	Environmental information processing	Two-component regulatory system	ManS-ManR (manganese homeostasis) two-component regulatory system
+M00466	Functional set	Environmental information processing	Two-component regulatory system	NblS-NblR (photosynthesis) two-component regulatory system
+M00467	Functional set	Environmental information processing	Two-component regulatory system	SasA-RpaAB (circadian timing mediating) two-component regulatory system
+M00468	Functional set	Environmental information processing	Two-component regulatory system	SaeS-SaeR (staphylococcal virulence regulation) two-component regulatory system
+M00469	Functional set	Environmental information processing	Two-component regulatory system	BceS-BceR (bacitracin transport) two-component regulatory system
+M00470	Functional set	Environmental information processing	Two-component regulatory system	YxdK-YxdJ (antimicrobial peptide response) two-component regulatory system
+M00471	Functional set	Environmental information processing	Two-component regulatory system	NarX-NarL (nitrate respiration) two-component regulatory system
+M00472	Functional set	Environmental information processing	Two-component regulatory system	NarQ-NarP (nitrate respiration) two-component regulatory system
+M00473	Functional set	Environmental information processing	Two-component regulatory system	UhpB-UhpA (hexose phosphates uptake) two-component regulatory system
+M00474	Functional set	Environmental information processing	Two-component regulatory system	RcsC-RcsD-RcsB (capsule synthesis) two-component regulatory system
+M00475	Functional set	Environmental information processing	Two-component regulatory system	BarA-UvrY (central carbon metabolism) two-component regulatory system
+M00476	Functional set	Environmental information processing	Two-component regulatory system	ComP-ComA (competence) two-component regulatory system
+M00477	Functional set	Environmental information processing	Two-component regulatory system	EvgS-EvgA (acid and drug tolerance) two-component regulatory system
+M00478	Functional set	Environmental information processing	Two-component regulatory system	DegS-DegU (multicellular behavior control) two-component regulatory system
+M00479	Functional set	Environmental information processing	Two-component regulatory system	DesK-DesR (membrane lipid fluidity regulation) two-component regulatory system
+M00480	Functional set	Environmental information processing	Two-component regulatory system	VraS-VraR (cell-wall peptidoglycan synthesis) two-component regulatory system
+M00481	Functional set	Environmental information processing	Two-component regulatory system	LiaS-LiaR (cell wall stress response) two-component regulatory system
+M00482	Functional set	Environmental information processing	Two-component regulatory system	DevS-DevR (redox response) two-component regulatory system
+M00483	Functional set	Environmental information processing	Two-component regulatory system	NreB-NreC (dissimilatory nitrate/nitrite reduction) two-component regulatory system
+M00484	Functional set	Environmental information processing	Two-component regulatory system	YdfH-YdfI two-component regulatory system
+M00485	Functional set	Environmental information processing	Two-component regulatory system	KinABCDE-Spo0FA (sporulation control) two-component regulatory system
+M00486	Functional set	Environmental information processing	Two-component regulatory system	CitA-CitB (citrate fermentation) two-component regulatory system
+M00487	Functional set	Environmental information processing	Two-component regulatory system	CitS-CitT (magnesium-citrate transport) two-component regulatory system
+M00488	Functional set	Environmental information processing	Two-component regulatory system	DcuS-DcuR (C4-dicarboxylate metabolism) two-component regulatory system
+M00489	Functional set	Environmental information processing	Two-component regulatory system	DctS-DctR (C4-dicarboxylate transport) two-component regulatory system
+M00490	Functional set	Environmental information processing	Two-component regulatory system	MalK-MalR (malate transport) two-component regulatory system
+M00491	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	arabinogalactan oligomer/maltooligosaccharide transport system
+M00492	Functional set	Environmental information processing	Two-component regulatory system	LytS-LytR two-component regulatory system
+M00493	Functional set	Environmental information processing	Two-component regulatory system	AlgZ-AlgR (alginate production) two-component regulatory system
+M00494	Functional set	Environmental information processing	Two-component regulatory system	NatK-NatR (sodium extrusion) two-component regulatory system
+M00495	Functional set	Environmental information processing	Two-component regulatory system	AgrC-AgrA (exoprotein synthesis) two-component regulatory system
+M00496	Functional set	Environmental information processing	Two-component regulatory system	ComD-ComE (competence) two-component regulatory system
+M00497	Functional set	Environmental information processing	Two-component regulatory system	GlnL-GlnG (nitrogen regulation) two-component regulatory system
+M00498	Functional set	Environmental information processing	Two-component regulatory system	NtrY-NtrX (nitrogen regulation) two-component regulatory system
+M00499	Functional set	Environmental information processing	Two-component regulatory system	HydH-HydG (metal tolerance) two-component regulatory system
+M00500	Functional set	Environmental information processing	Two-component regulatory system	AtoS-AtoC (cPHB biosynthesis) two-component regulatory system
+M00501	Functional set	Environmental information processing	Two-component regulatory system	PilS-PilR (type 4 fimbriae synthesis) two-component regulatory system
+M00502	Functional set	Environmental information processing	Two-component regulatory system	GlrK-GlrR (amino sugar metabolism) two-component regulatory system
+M00503	Functional set	Environmental information processing	Two-component regulatory system	PgtB-PgtA (phosphoglycerate transport) two-component regulatory system
+M00504	Functional set	Environmental information processing	Two-component regulatory system	DctB-DctD (C4-dicarboxylate transport) two-component regulatory system
+M00505	Functional set	Environmental information processing	Two-component regulatory system	KinB-AlgB (alginate production) two-component regulatory system
+M00506	Functional set	Environmental information processing	Two-component regulatory system	CheA-CheYBV (chemotaxis) two-component regulatory system
+M00507	Functional set	Environmental information processing	Two-component regulatory system	ChpA-ChpB/PilGH (chemosensory) two-component regulatory system
+M00508	Functional set	Environmental information processing	Two-component regulatory system	PixL-PixGH (positive phototaxis) two-component regulatory system
+M00509	Functional set	Environmental information processing	Two-component regulatory system	WspE-WspRF (chemosensory) two-component regulatory system
+M00510	Functional set	Environmental information processing	Two-component regulatory system	Cph1-Rcp1 (light response) two-component regulatory system
+M00511	Functional set	Environmental information processing	Two-component regulatory system	PleC-PleD (cell fate control) two-component regulatory system
+M00512	Functional set	Environmental information processing	Two-component regulatory system	CckA-CtrA/CpdR (cell cycle control) two-component regulatory system
+M00513	Functional set	Environmental information processing	Two-component regulatory system	LuxQN/CqsS-LuxU-LuxO (quorum sensing) two-component regulatory system
+M00514	Functional set	Environmental information processing	Two-component regulatory system	TtrS-TtrR (tetrathionate respiration) two-component regulatory system
+M00515	Functional set	Environmental information processing	Two-component regulatory system	FlrB-FlrC (polar flagellar synthesis) two-component regulatory system
+M00516	Functional set	Environmental information processing	Two-component regulatory system	SLN1-YPD1-SSK1/SKN7 (osmosensing) two-component regulatory system
+M00517	Functional set	Environmental information processing	Two-component regulatory system	RpfC-RpfG (cell-to-cell signaling) two-component regulatory system
+M00518	Functional set	Environmental information processing	Two-component regulatory system	GlnK-GlnL (glutamine utilization) two-component regulatory system
+M00519	Functional set	Environmental information processing	Two-component regulatory system	YesM-YesN two-component regulatory system
+M00520	Functional set	Environmental information processing	Two-component regulatory system	ChvG-ChvI (acidity sensing) two-component regulatory system
+M00521	Functional set	Environmental information processing	Two-component regulatory system	CiaH-CiaR two-component regulatory system
+M00522	Functional set	Environmental information processing	Two-component regulatory system	SalK-SalR two-component regulatory system
+M00523	Functional set	Environmental information processing	Two-component regulatory system	RegB-RegA (redox response) two-component regulatory system
+M00524	Functional set	Environmental information processing	Two-component regulatory system	FixL-FixJ (nitrogen fixation) two-component regulatory system
+M00525	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	Lysine biosynthesis, acetyl-DAP pathway, aspartate => lysine
+M00526	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	Lysine biosynthesis, DAP dehydrogenase pathway, aspartate => lysine
+M00527	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	Lysine biosynthesis, DAP aminotransferase pathway, aspartate => lysine
+M00528	Pathway module	Energy metabolism	Nitrogen metabolism	Nitrification, ammonia => nitrite
+M00529	Pathway module	Energy metabolism	Nitrogen metabolism	Denitrification, nitrate => nitrogen
+M00530	Pathway module	Energy metabolism	Nitrogen metabolism	Dissimilatory nitrate reduction, nitrate => ammonia
+M00531	Pathway module	Energy metabolism	Nitrogen metabolism	Assimilatory nitrate reduction, nitrate => ammonia
+M00531	Signature module	Gene set	Metabolic capacity	Assimilatory nitrate reduction, nitrate => ammonia
+M00532	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	Photorespiration
+M00533	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Homoprotocatechuate degradation, homoprotocatechuate => 2-oxohept-3-enedioate
+M00534	Pathway module	Secondary metabolism	Aromatics degradation	Naphthalene degradation, naphthalene => salicylate
+M00535	Pathway module	Nucleotide and amino acid metabolism	Branched-chain amino acid metabolism	Isoleucine biosynthesis, pyruvate => 2-oxobutanoate
+M00537	Pathway module	Secondary metabolism	Aromatics degradation	Xylene degradation, xylene => methylbenzoate
+M00538	Pathway module	Secondary metabolism	Aromatics degradation	Toluene degradation, toluene => benzoate
+M00539	Pathway module	Secondary metabolism	Aromatics degradation	Cumate degradation, p-cumate => 2-oxopent-4-enoate + 2-methylpropanoate
+M00540	Pathway module	Secondary metabolism	Aromatics degradation	Benzoate degradation, cyclohexanecarboxylic acid =>pimeloyl-CoA
+M00541	Pathway module	Secondary metabolism	Aromatics degradation	Benzoyl-CoA degradation, benzoyl-CoA => 3-hydroxypimeloyl-CoA
+M00542	Signature module	Gene set	Pathogenicity	EHEC/EPEC pathogenicity signature, T3SS and effectors
+M00543	Pathway module	Secondary metabolism	Aromatics degradation	Biphenyl degradation, biphenyl => 2-oxopent-4-enoate + benzoate
+M00544	Pathway module	Secondary metabolism	Aromatics degradation	Carbazole degradation, carbazole => 2-oxopent-4-enoate + anthranilate
+M00545	Pathway module	Nucleotide and amino acid metabolism	Aromatic amino acid metabolism	Trans-cinnamate degradation, trans-cinnamate => acetyl-CoA
+M00546	Pathway module	Nucleotide and amino acid metabolism	Purine metabolism	Purine degradation, xanthine => urea
+M00547	Pathway module	Secondary metabolism	Aromatics degradation	Benzene/toluene degradation, benzene => catechol / toluene => 3-methylcatechol
+M00548	Pathway module	Secondary metabolism	Aromatics degradation	Benzene degradation, benzene => catechol
+M00549	Pathway module	Carbohydrate and lipid metabolism	Sugar metabolism	Nucleotide sugar biosynthesis, glucose => UDP-glucose
+M00550	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Ascorbate degradation, ascorbate => D-xylulose-5P
+M00551	Pathway module	Secondary metabolism	Aromatics degradation	Benzoate degradation, benzoate => catechol / methylbenzoate => methylcatechol
+M00552	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	D-galactonate degradation, De Ley-Doudoroff pathway, D-galactonate => glycerate-3P
+M00554	Pathway module	Carbohydrate and lipid metabolism	Sugar metabolism	Nucleotide sugar biosynthesis, galactose => UDP-galactose
+M00555	Pathway module	Nucleotide and amino acid metabolism	Serine and threonine metabolism	Betaine biosynthesis, choline => betaine
+M00563	Pathway module	Energy metabolism	Methane metabolism	Methanogenesis, methylamine/dimethylamine/trimethylamine => methane
+M00563	Signature module	Gene set	Metabolic capacity	Methanogenesis, methylamine/dimethylamine/trimethylamine => methane
+M00564	Signature module	Gene set	Pathogenicity	Helicobacter pylori pathogenicity signature, cagA pathogenicity island
+M00565	Pathway module	Carbohydrate and lipid metabolism	Sugar metabolism	Trehalose biosynthesis, D-glucose 1P => trehalose
+M00566	Structural complex	Environmental information processing	Peptide and nickel transport system	Dipeptide transport system, Firmicutes
+M00567	Pathway module	Energy metabolism	Methane metabolism	Methanogenesis, CO2 => methane
+M00567	Signature module	Gene set	Metabolic capacity	Methanogenesis, CO2 => methane
+M00568	Pathway module	Secondary metabolism	Aromatics degradation	Catechol ortho-cleavage, catechol => 3-oxoadipate
+M00569	Pathway module	Secondary metabolism	Aromatics degradation	Catechol meta-cleavage, catechol => acetyl-CoA / 4-methylcatechol => propanoyl-CoA
+M00570	Pathway module	Nucleotide and amino acid metabolism	Branched-chain amino acid metabolism	Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine
+M00571	Structural complex	Environmental information processing	Bacterial secretion system	AlgE-type Mannuronan C-5-Epimerase transport system
+M00572	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Pimeloyl-ACP biosynthesis, BioC-BioH pathway, malonyl-ACP => pimeloyl-ACP
+M00573	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Biotin biosynthesis, BioI pathway, long-chain-acyl-ACP => pimeloyl-ACP => biotin
+M00574	Signature module	Gene set	Pathogenicity	Pertussis pathogenicity signature 1, pertussis toxin
+M00575	Signature module	Gene set	Pathogenicity	Pertussis pathogenicity signature 2, T1SS
+M00577	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Biotin biosynthesis, BioW pathway, pimelate => pimeloyl-CoA => biotin
+M00579	Pathway module	Energy metabolism	Carbon fixation	Phosphate acetyltransferase-acetate kinase pathway, acetyl-CoA => acetate
+M00579	Signature module	Gene set	Metabolic capacity	Phosphate acetyltransferase-acetate kinase pathway, acetyl-CoA => acetate
+M00580	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Pentose phosphate pathway, archaea, fructose 6P => ribose 5P
+M00581	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Biotin transport system
+M00582	Structural complex	Environmental information processing	Metallic cation, iron-siderophore and vitamin B12 transport system	Energy-coupling factor transport system
+M00583	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Putative peptide transport system
+M00584	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Acetoin utilization transport system
+M00585	Structural complex	Environmental information processing	Phosphate and amino acid transport system	L-Cystine transport system
+M00586	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Putative amino-acid transport system
+M00587	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Arginine/lysine/histidine/glutamine transport system
+M00589	Structural complex	Environmental information processing	Phosphate and amino acid transport system	Putative lysine transport system
+M00590	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Erythritol transport system
+M00591	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative xylitol transport system
+M00592	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Inositol transport system
+M00593	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Inositol transport system
+M00595	Pathway module	Energy metabolism	Sulfur metabolism	Thiosulfate oxidation by SOX complex, thiosulfate => sulfate
+M00596	Pathway module	Energy metabolism	Sulfur metabolism	Dissimilatory sulfate reduction, sulfate => H2S
+M00597	Structural complex	Energy metabolism	Photosynthesis	Anoxygenic photosystem II
+M00597	Signature module	Gene set	Metabolic capacity	Anoxygenic photosystem II
+M00597	Signature module	Gene set	Metabolic capacity	Anoxygenic photosystem II
+M00598	Structural complex	Energy metabolism	Photosynthesis	Anoxygenic photosystem I
+M00598	Signature module	Gene set	Metabolic capacity	Anoxygenic photosystem I
+M00599	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Inositol-phosphate transport system
+M00600	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	alpha-1,4-Digalacturonate transport system
+M00601	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative chitobiose transport system
+M00602	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Arabinosaccharide transport system
+M00603	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Putative aldouronate transport system
+M00604	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Trehalose transport system
+M00605	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Glucose/mannose transport system
+M00606	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	N,N'-Diacetylchitobiose transport system
+M00607	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Glycerol transport system
+M00608	Pathway module	Nucleotide and amino acid metabolism	Lysine metabolism	2-Oxocarboxylic acid chain extension, 2-oxoglutarate => 2-oxoadipate => 2-oxopimelate => 2-oxosuberate
+M00609	Pathway module	Nucleotide and amino acid metabolism	Cysteine and methionine metabolism	Cysteine biosynthesis, methionine => cysteine
+M00610	Structural complex	Environmental information processing	Phosphotransferase system (PTS)	PTS system, D-glucosaminate-specific II component
+M00611	Signature module	Gene set	Metabolic capacity	Oxygenic photosynthesis in plants and cyanobacteria
+M00612	Signature module	Gene set	Metabolic capacity	Anoxygenic photosynthesis in purple bacteria
+M00613	Signature module	Gene set	Metabolic capacity	Anoxygenic photosynthesis in green nonsulfur bacteria
+M00614	Signature module	Gene set	Metabolic capacity	Anoxygenic photosynthesis in green sulfur bacteria
+M00615	Signature module	Gene set	Metabolic capacity	Nitrate assimilation
+M00616	Signature module	Gene set	Metabolic capacity	Sulfate-sulfur assimilation
+M00617	Signature module	Gene set	Metabolic capacity	Methanogen
+M00618	Signature module	Gene set	Metabolic capacity	Acetogen
+M00619	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Xylobiose transport system
+M00620	Pathway module	Energy metabolism	Carbon fixation	Incomplete reductive citrate cycle, acetyl-CoA => oxoglutarate
+M00622	Pathway module	Nucleotide and amino acid metabolism	Cofactor and vitamin biosynthesis	Nicotinate degradation, nicotinate => fumarate
+M00623	Pathway module	Secondary metabolism	Aromatics degradation	Phthalate degradation, phthalate => protocatechuate
+M00624	Pathway module	Secondary metabolism	Aromatics degradation	Terephthalate degradation, terephthalate => 3,4-dihydroxybenzoate
+M00625	Signature module	Gene set	Drug resistance	Methicillin resistance
+M00627	Signature module	Gene set	Drug resistance	beta-Lactam resistance, Bla system
+M00628	Signature module	Gene set	Drug resistance	beta-Lactam resistance, AmpC system
+M00630	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	D-Galacturonate degradation (fungi), D-galacturonate => glycerol
+M00631	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	D-Galacturonate degradation (bacteria), D-galacturonate => pyruvate + D-glyceraldehyde 3P
+M00632	Pathway module	Carbohydrate and lipid metabolism	Other carbohydrate metabolism	Galactose degradation, Leloir pathway, galactose => alpha-D-glucose-1P
+M00633	Pathway module	Carbohydrate and lipid metabolism	Central carbohydrate metabolism	Semi-phosphorylative Entner-Doudoroff pathway, gluconate/galactonate => glycerate-3P
+M00634	Structural complex	Environmental information processing	ABC-2 type and other transport systems	Oleandomycin transport system
+M00635	Signature module	Gene set	Drug resistance	Tetracycline resistance, TetAB(46) transporter
+M00636	Pathway module	Secondary metabolism	Aromatics degradation	Phthalate degradation, phthalate => protocatechuate
+M00637	Pathway module	Secondary metabolism	Aromatics degradation	Anthranilate degradation, anthranilate => catechol
+M00638	Pathway module	Secondary metabolism	Aromatics degradation	Salicylate degradation, salicylate => gentisate
+M00639	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MexCD-OprJ
+M00640	Signature module	Gene set	Drug resistance	Aminoglycoside antibiotics resistance
+M00641	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MexEF-OprN
+M00642	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MexJK-OprM
+M00643	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MexXY-OprM
+M00644	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MexGHI-OpmD
+M00645	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump SmeABC
+M00646	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump AcrAD-TolC
+M00647	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MexAB-OprM/SmeDEF/AcrAB-TolC
+M00648	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MdtABC
+M00649	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump AdeABC
+M00651	Signature module	Gene set	Drug resistance	Vancomycin resistance, D-Ala-D-Lac type
+M00652	Signature module	Gene set	Drug resistance	Vancomycin resistance, D-Ala-D-Ser type
+M00653	Functional set	Environmental information processing	Two-component regulatory system	AauS-AauR (acidic amino acids utilization) two-component regulatory system
+M00654	Functional set	Environmental information processing	Two-component regulatory system	ParS-ParR (polymyxin-adaptive resistance) two-component regulatory system
+M00655	Functional set	Environmental information processing	Two-component regulatory system	AdeS-AdeR two-component regulatory system
+M00656	Functional set	Environmental information processing	Two-component regulatory system	VanS-VanR (VanB type vancomycin resistance) two-component regulatory system
+M00657	Functional set	Environmental information processing	Two-component regulatory system	VanS-VanR (VanE type vancomycin resistance) two-component regulatory system
+M00658	Functional set	Environmental information processing	Two-component regulatory system	VanS-VanR (actinomycete type vancomycin resistance) two-component regulatory system
+M00660	Signature module	Gene set	Plant pathogenicity	Xanthomonas spp. pathogenicity signature, T3SS and effectors
+M00661	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Paspaline biosynthesis, geranylgeranyl-PP + indoleglycerol phosphate => paspaline
+M00662	Functional set	Environmental information processing	Two-component regulatory system	Hk1-Rrp1 (glycerol uptake and utilization) two-component regulatory system
+M00663	Functional set	Environmental information processing	Two-component regulatory system	SsrA-SsrB two-component regulatory system
+M00664	Signature module	Gene set	Symbiosis	Nodulation
+M00667	Signature module	Gene set	Drug resistance	Tetracycline resistance, efflux pump
+M00668	Signature module	Gene set	Drug resistance	Tetracycline resistance, TetA transporter
+M00669	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	gamma-Hexachlorocyclohexane transport system
+M00670	Structural complex	Environmental information processing	Saccharide, polyol, and lipid transport system	Mce transport system
+M00672	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Penicillin biosynthesis, aminoadipate + cycteine + valine => penicillin
+M00673	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Cephamycin C biosynthesis, aminoadipate + cycteine + valine => cephamycin C
+M00674	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Clavaminate biosynthesis, arginine + glyceraldehyde-3P => clavaminate
+M00675	Pathway module	Secondary metabolism	Biosynthesis of secondary metabolites	Carbapenem-3-carboxylate biosynthesis, pyrroline-5-carboxylate + malonyl-CoA => carbapenem-3-carboxylate
+M00676	Functional set	Cellular processes	Cell signaling	PI3K-Akt signaling
+M00677	Functional set	Cellular processes	Cell signaling	Wnt signaling
+M00678	Functional set	Cellular processes	Cell signaling	Hedgehog signaling
+M00679	Functional set	Cellular processes	Cell signaling	BMP signaling
+M00680	Functional set	Cellular processes	Cell signaling	TGF-beta signaling
+M00681	Functional set	Cellular processes	Cell signaling	Activin signaling
+M00682	Functional set	Cellular processes	Cell signaling	Notch signaling
+M00683	Functional set	Cellular processes	Cell signaling	Hippo signaling
+M00684	Functional set	Cellular processes	Cell signaling	JAK-STAT signaling
+M00685	Functional set	Cellular processes	Cell signaling	Apoptotic machinery
+M00686	Functional set	Cellular processes	Cell signaling	Toll-like receptor signaling
+M00687	Functional set	Cellular processes	Cell signaling	MAPK (ERK1/2) signaling
+M00688	Functional set	Cellular processes	Cell signaling	MAPK (JNK) signaling
+M00689	Functional set	Cellular processes	Cell signaling	MAPK (p38) signaling
+M00690	Functional set	Cellular processes	Cell signaling	MAPK (ERK5) signaling
+M00691	Functional set	Cellular processes	Cell signaling	DNA damage-induced cell cycle checkpoints
+M00692	Functional set	Cellular processes	Cell signaling	Cell cycle - G1/S transition
+M00693	Functional set	Cellular processes	Cell signaling	Cell cycle - G2/M transition
+M00694	Functional set	Cellular processes	Cell signaling	cGMP signaling
+M00695	Functional set	Cellular processes	Cell signaling	cAMP signaling
+M00696	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump AcrEF-TolC
+M00697	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MdtEF-TolC
+M00698	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump BpeEF-OprC
+M00699	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump AmeABC
+M00700	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump AbcA
+M00701	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump EmrAB
+M00702	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump NorB
+M00704	Signature module	Gene set	Drug resistance	Tetracycline resistance, efflux pump Tet38
+M00705	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MepA
+M00706	Signature module	Gene set	Drug resistance	Multidrug resistance, EfrAB transporter
+M00707	Signature module	Gene set	Drug resistance	Multidrug resistance, SmdAB/MdlAB transporter
+M00708	Signature module	Gene set	Drug resistance	Multidrug resistance, PatAB transporter
+M00709	Signature module	Gene set	Drug resistance	Macrolide resistance, MacAB-TolC transporter
+M00710	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump EbrAB
+M00711	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump MdtIJ
+M00712	Signature module	Gene set	Drug resistance	Multidrug resistance, efflux pump YkkCD
