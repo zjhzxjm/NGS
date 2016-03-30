@@ -160,10 +160,10 @@ while(!$isEOF) {
     }elsif($libType == 4){
         $twoBarcodeF = "F".$isFWOPriAdas[1]."+R".$isRWOPriAdas[1];
         # 考虑外barcode，允许一个错配
-        if($fRead[0] =~ /:([ATCG]{6})$/) {
+        if($fRead[0] =~ /:([ATCG]{6})/) {
             $f = findSeq($out_barcode, 6, $1, 1)
         }
-        if($rRead[0] =~ /:([ATCG]{6})$/) {
+        if($rRead[0] =~ /:([ATCG]{6})/) {
             $r = findSeq($out_barcode, 6, $1, 1)
         }
         if($proSamName{$twoBarcodeF} and $f>0 and $r>0){
