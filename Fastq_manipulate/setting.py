@@ -9,7 +9,11 @@ class SeqIndex():
     def __init__(self):
         pass
 
-    out_barcode = 'ATCTCG'
+    out_barcode = {
+        'hiseq': 'ATCTCG',
+        'XTen': '',
+        'Test': 'AGACAA'
+    }
 
     primer = {
         'Self4': {
