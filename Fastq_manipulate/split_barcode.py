@@ -18,6 +18,7 @@ parser.add_argument('-a', '--fq1', type=str, dest='fq1', help='Read1 fastq file'
 parser.add_argument('-b', '--fq2', type=str, dest='fq2', help='Read2 fastq file', required=True)
 parser.add_argument('-s', '--sampleConfig', type=str, dest='sample_config', help='Sample barcode configuration info',
                     required=True)
+parser.add_argument('-w', '--workDir', type=str, dest='work_dir', help='work directory, default is ./')
 parser.add_argument('-v', '--verbose', action='store_true', dest='verbose', help='Enable debug info')
 
 
@@ -62,16 +63,17 @@ class RawFastqPairInfo:
 
 
 class Sample:
-    def __init__(self, sam_barcode):
+    def __init__(self, sam_barcode, work_dir='.'):
         d_dir = {}
         with open(sam_barcode) as f:
             for line in f:
                 (project, sample, barcode) = line.strip().split()[:3]
-                code = subprocess.call(['mkdir', '-p', project+"/"+sample])
+                code = subprocess.call(['mkdir', '-p', work_dir + "/" + project +"/"+sample])
                 if code:
-                    logging.error("Can't make filefoder: %s/%s" % (project, sample))
-                d_dir[barcode] = project + "/" + sample
+                    logging.error("Can't make filefoder: %s/%s/%s" % (work_dir, project, sample))
+                d_dir[barcode] = work_dir + "/" +  project + "/" + sample
         logging.debug(d_dir)
+        subprocess.call(['mkdir', '-p', work_dir + '/Unalign'])
         self.d_dir = d_dir
 
 
@@ -93,7 +95,13 @@ if __name__ == '__main__':
 
     fq1 = args.fq1
     fq2 = args.fq2
-    class_sample = Sample(args.sample_config)
+    fq1_name = fq1.split('/')[-1]
+    fq2_name = fq2.split('/')[-1]
+    try:
+        work_path = args.work_dir
+    except NameError:
+        work_path = '.'
+    class_sample = Sample(args.sample_config, work_path)
     out_barcode = setting.SeqIndex.out_barcode['hiseq']
 
     if re.findall(r'gz', fq1):
@@ -108,8 +116,10 @@ if __name__ == '__main__':
     O_fq1 = {}
     O_fq2 = {}
     for (k, v) in class_sample.d_dir.items():
-        O_fq1[k] = open(v + "/R1.fastq_filterd", "w")
-        O_fq2[k] = open(v + "/R2.fastq_filterd", "w")
+        O_fq1[k] = open(v + "/" + fq1_name + "_filterd", "w")
+        O_fq2[k] = open(v + "/" + fq2_name + "_filterd", "w")
+    O_unalign_fq1 = open(work_path + "/Unalign/" + fq1_name + "_unalign", "w")
+    O_unalign_fq2 = open(work_path + "/Unalign/" + fq2_name + "_unalign", "w")
 
     fq1_iter = SeqIO.parse(F_fq1, "fastq")
     fq2_iter = SeqIO.parse(F_fq2, "fastq")
@@ -143,6 +153,8 @@ if __name__ == '__main__':
                         except KeyError:
                             d_count[barcode_pair] = 1
                 else:
+                    O_unalign_fq1.write(record_fq1.format("fastq"))
+                    O_unalign_fq2.write(record_fq2.format("fastq"))
 
         except StopIteration:
             break
