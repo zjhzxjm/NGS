@@ -63,6 +63,14 @@ class settings(object):
                 'forward':'GGACTACVVGGGTATCTAATC',
                 'reverse':'CCTACGGGRSGCAGCAG',
             },
+            'ITS':{
+                'forward':'TCCTCCGCTTATTGATATGC',
+                'reverse':'GCATCGATGAAGAACGCAGC',
+            },
+            'ARCH':{
+                'forward':'GGACTACVVGGGTATCTAATC',
+                'reverse':'CCTACGGGGYGCASCAG',
+            },
         },
     }
 
@@ -143,6 +151,8 @@ def rename(sample,data_type):
         sample = 'S%s'%sample
     if data_type == 'ITS':
         sample = 'ITS%s'%sample
+    if data_type == 'ARCH':
+        sample = 'ARCH%s'%sample
     return sample
 
 def parse_sam_all(file):
