@@ -68,10 +68,10 @@ class Sample:
         with open(sam_barcode) as f:
             for line in f:
                 (project, sample, barcode) = line.strip().split()[:3]
-                code = subprocess.call(['mkdir', '-p', work_dir + "/" + project +"/"+sample])
+                code = subprocess.call(['mkdir', '-p', work_dir + "/" + project + "/" + sample])
                 if code:
                     logging.error("Can't make filefoder: %s/%s/%s" % (work_dir, project, sample))
-                d_dir[barcode] = work_dir + "/" +  project + "/" + sample
+                d_dir[barcode] = work_dir + "/" + project + "/" + sample
         logging.debug(d_dir)
         subprocess.call(['mkdir', '-p', work_dir + '/Unalign'])
         self.d_dir = d_dir
