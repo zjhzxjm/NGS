@@ -12,6 +12,7 @@ import re
 import fuzzysearch
 import setting
 import subprocess
+import os
 
 parser = argparse.ArgumentParser(description="Split samples from Illumina sequencing")
 parser.add_argument('-a', '--fq1', type=str, dest='fq1', help='Read1 fastq file', required=True)
@@ -79,17 +80,21 @@ class Sample:
 
 if __name__ == '__main__':
     args = parser.parse_args()
+    try:
+        work_path = os.path.abspath(args.work_dir)
+    except NameError:
+        work_path = os.path.abspath(".")
     if args.verbose:
         logging.basicConfig(
             level=logging.DEBUG,
             format="[%(asctime)s]%(name)s:%(levelname)s:%(message)s",
-            filename='debug.log'
+            filename=work_path + "/debug.log"
         )
     else:
         logging.basicConfig(
             level=logging.INFO,
             format="[%(asctime)s]%(name)s:%(levelname)s:%(message)s",
-            filename='info.log'
+            filename=work_path + "/info.log"
         )
     logging.info("Start running")
 
@@ -97,10 +102,7 @@ if __name__ == '__main__':
     fq2 = args.fq2
     fq1_name = fq1.split('/')[-1]
     fq2_name = fq2.split('/')[-1]
-    try:
-        work_path = args.work_dir
-    except NameError:
-        work_path = '.'
+
     class_sample = Sample(args.sample_config, work_path)
     out_barcode = setting.SeqIndex.out_barcode['hiseq']
 
@@ -116,10 +118,10 @@ if __name__ == '__main__':
     O_fq1 = {}
     O_fq2 = {}
     for (k, v) in class_sample.d_dir.items():
-        O_fq1[k] = open(v + "/" + fq1_name + "_filterd", "w")
-        O_fq2[k] = open(v + "/" + fq2_name + "_filterd", "w")
-    O_unalign_fq1 = open(work_path + "/Unalign/" + fq1_name + "_unalign", "w")
-    O_unalign_fq2 = open(work_path + "/Unalign/" + fq2_name + "_unalign", "w")
+        O_fq1[k] = open(v + "/" + fq1_name + ".filtered", "w")
+        O_fq2[k] = open(v + "/" + fq2_name + ".filtered", "w")
+    O_unalign_fq1 = open(work_path + "/Unalign/" + fq1_name + ".unalign", "w")
+    O_unalign_fq2 = open(work_path + "/Unalign/" + fq2_name + ".unalign", "w")
 
     fq1_iter = SeqIO.parse(F_fq1, "fastq")
     fq2_iter = SeqIO.parse(F_fq2, "fastq")
@@ -159,7 +161,7 @@ if __name__ == '__main__':
         except StopIteration:
             break
 
-    for k in class_sample.d_dir.iterkeys():
+    for k in class_sample.d_dir.keys():
         O_fq1[k].close()
         O_fq2[k].close()
 
