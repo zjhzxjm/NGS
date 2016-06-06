@@ -1,0 +1,60 @@
+import glob
+localrules: split_fq
+
+SPLIT_LINES = "1000"
+LIBRARY = "H16A28P250-1"
+SAM_BARCODE_INFO = "sam_barcode.all"
+
+CONTRACTS = []
+SAMPLES = []
+DIRS = []
+SUFFIX = ["ab"]
+with open(SAM_BARCODE_INFO) as in_handle:
+    for line in in_handle:
+        CONTRACTS.append(line.split()[0])
+        SAMPLES.append(line.split()[1])
+        DIRS.append(line.split()[0] + "/" + line.split()[1])
+
+rule all:
+    input:
+        expand("split/Split/{dir}/" + LIBRARY + ".R1.fastq", dir = DIRS)
+        #"split/Split/Unalign/" + LIBRARY + ".R1.fastq.aa.unalign"
+
+rule merge_split:
+    input:
+        expand("split/Split/Unalign/" + LIBRARY + ".R1.fastq.{suffix}.unalign",
+            suffix = 'aa ab'.split())
+    params:
+        prefix = "split/Split/{contract}/{sample}/" + LIBRARY + ".{pair}.fastq"
+    output:
+        "split/Split/{contract}/{sample}/" + LIBRARY + ".{pair}.fastq"
+    run:
+        shell("cat {params.prefix}.*.filtered > {output[0]}")
+        print(SUFFIX)
+
+rule split_barcode:
+    input:
+         expand("split/split_fq.{pair}.done", pair = ["R1", "R2"]),"sam_barcode.all"
+    params:
+        read1 = "split/" + LIBRARY + ".R1.fastq.{suffix}",
+        read2 = "split/" + LIBRARY + ".R2.fastq.{suffix}"
+    output:
+        "split/Split/Unalign/" + LIBRARY + ".R1.fastq.{suffix}.unalign",
+    shell:
+        "python ~/bin/.self/Fastq_manipulate/split_barcode.py -a {params.read1} -b {params.read2} -s {input[2]} "
+        "-w split/Split"
+
+
+rule split_fq:
+    input:
+        LIBRARY + ".{pair}.fastq.gz"
+    params:
+        prefix = "split/" + LIBRARY + ".{pair}.fastq.",
+        split_lines = SPLIT_LINES
+    output:
+        touch("split/split_fq.{pair}.done"),
+    run:
+        shell("gzip -dc {input} | split -l {params.split_lines} - {params.prefix}")
+        SUFFIX, = glob_wildcards("split/" + LIBRARY + ".R1.fastq.{suffix}")
+        print(SUFFIX)
+        SUFFIX = ["aa"]
