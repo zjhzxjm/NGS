@@ -80,6 +80,12 @@ class Sample:
 
 if __name__ == '__main__':
     args = parser.parse_args()
+    fq1 = args.fq1
+    fq2 = args.fq2
+
+    fq1_name = fq1.split('/')[-1]
+    fq2_name = fq2.split('/')[-1]
+
     try:
         work_path = os.path.abspath(args.work_dir)
     except NameError:
@@ -94,14 +100,11 @@ if __name__ == '__main__':
         logging.basicConfig(
             level=logging.INFO,
             format="[%(asctime)s]%(name)s:%(levelname)s:%(message)s",
-            filename=work_path + "/info.log"
+            filename=work_path + "/" + fq1_name.replace("R1.", "") + ".info.log"
         )
     logging.info("Start running")
 
-    fq1 = args.fq1
-    fq2 = args.fq2
-    fq1_name = fq1.split('/')[-1]
-    fq2_name = fq2.split('/')[-1]
+
 
     class_sample = Sample(args.sample_config, work_path)
     out_barcode = setting.SeqIndex.out_barcode['hiseq']

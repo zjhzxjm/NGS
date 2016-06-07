@@ -1,0 +1,70 @@
+import glob
+from Bio import SeqIO
+from string import ascii_lowercase
+import itertools
+import os
+import math
+
+CONTRACTS = []
+SAMPLES = []
+DIRS = []
+SUFFIX = []
+
+
+with open(SAM_BARCODE_INFO) as in_handle:
+    for line in in_handle:
+        CONTRACTS.append(line.split()[0])
+        SAMPLES.append(line.split()[1])
+        DIRS.append(line.split()[0] + "/" + line.split()[1])
+
+
+def iter_all_strings():
+    size=2
+    while True:
+        for s in itertools.product(ascii_lowercase, repeat=size):
+            yield "".join(s)
+        size += 1
+
+
+for s in iter_all_strings():
+    SUFFIX.append(s)
+    if len(SUFFIX) == SPLIT_FILES_NUM:
+        break
+
+
+rule merge_split:
+    input:
+        expand("split/Split/split_barcode.{suffix}.done", suffix = SUFFIX)
+    params:
+        prefix = "split/Split/{dir}/" + LIBRARY + ".{pair}.fastq"
+    output:
+        "Split/{dir}/" + LIBRARY + ".{pair}.fastq"
+    run:
+        shell("cat {params.prefix}.* > {output}")
+
+
+rule split_barcode:
+    input:
+         expand("split/split_fq.{pair}.done", pair = ["R1", "R2"]),"sam_barcode.all"
+    params:
+        read1 = "split/" + LIBRARY + ".R1.fastq.{suffix}",
+        read2 = "split/" + LIBRARY + ".R2.fastq.{suffix}"
+    output:
+        touch("split/Split/split_barcode.{suffix}.done")
+    shell:
+        "/home/xujm/soft/Anaconda/anaconda3/envs/snakemake/bin/python ~/bin/.self/Fastq_manipulate/split_barcode.py -a {params.read1} -b {params.read2} -s {input[2]} "
+        "-w split/Split"
+
+
+rule split_fq:
+    input:
+        LIBRARY + ".{pair}.fastq.gz"
+    params:
+        prefix = "split/" + LIBRARY + ".{pair}.fastq.",
+        split_files = SPLIT_FILES_NUM
+    output:
+        touch("split/split_fq.{pair}.done"),
+    run:
+        wc_out = os.popen("gzip -dc %s | wc -l" % (LIBRARY + ".R1.fastq.gz")).read().strip()
+        split_lines = math.ceil(int(wc_out)//4/params.split_files)*4
+        shell("gzip -dc {input} | split -l {split_lines} - {params.prefix}")
