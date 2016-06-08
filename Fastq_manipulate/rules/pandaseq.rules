@@ -13,7 +13,7 @@ rule run_pandaseq:
         "QC/{dir}/pandaseq.fq"
     params:
         f_primer = F_PRIMER,
-        r_primer = R_PRIMER
+        r_primer = R_PRIMER,
     threads:
         1
     log:

@@ -64,7 +64,10 @@ rule split_fq:
         LIBRARY + ".{pair}.fastq.gz"
     params:
         prefix = "split/" + LIBRARY + ".{pair}.fastq.",
-        split_files = SPLIT_FILES_NUM
+        split_files = SPLIT_FILES_NUM,
+        jobname = "sp_fq{jobid}"
+    resources:
+        vf = "vf=100M"
     output:
         touch("split/split_fq.{pair}.done"),
     run:
