@@ -1,0 +1,37 @@
+import subprocess
+import setting
+import os
+F_PRIMER = setting.SeqIndex.primer[LIB_TYPE][DATA_TYPE]['forward']
+R_PRIMER = setting.SeqIndex.primer[LIB_TYPE][DATA_TYPE]['reverse']
+
+
+rule run_pandaseq:
+    input:
+        "Split/{dir}/" + LIBRARY + ".R1.fastq",
+        "Split/{dir}/" + LIBRARY + ".R2.fastq"
+    output:
+        "QC/{dir}/pandaseq.fq"
+    params:
+        f_primer = F_PRIMER,
+        r_primer = R_PRIMER
+    threads:
+        1
+    log:
+        "QC/{dir}/pandaseq.log"
+    run:
+        if os.stat(input[0]).st_size and os.stat(input[1]).st_size:
+            cmd = " ".join(
+            ["-T {threads}",
+            "-F",
+            "-f {input[0]}",
+            "-r {input[1]}",
+            "-p {params.f_primer}",
+            "-q {params.r_primer}",
+            "-w {output}",
+            "-l 220",
+            "-L 500",
+            "-g {log}"])
+            shell(PANDASEQ + " " + cmd)
+        else:
+            shell("touch {output}")
+            shell("echo 'No reads in this sample.' > {log}")

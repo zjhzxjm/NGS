@@ -52,8 +52,11 @@ rule split_barcode:
     output:
         touch("split/Split/split_barcode.{suffix}.done")
     shell:
-        "/home/xujm/soft/Anaconda/anaconda3/envs/snakemake/bin/python ~/bin/.self/Fastq_manipulate/split_barcode.py -a {params.read1} -b {params.read2} -s {input[2]} "
-        "-w split/Split"
+        PYTHON_BIN + " ~/bin/.self/Fastq_manipulate/split_barcode.py"
+        " -a {params.read1}"
+        " -b {params.read2}"
+        " -s {input[2]}"
+        " -w split/Split"
 
 
 rule split_fq:

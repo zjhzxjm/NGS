@@ -1,0 +1,19 @@
+from Bio import SeqIO
+from numpy import mean
+import os
+
+rule run_fastqfilter:
+    """
+    Filter by average quality score
+    """
+    input:
+        "QC/{dir}/pandaseq.fq"
+    output:
+        "QC/{dir}/high_quality.fq"
+    params:
+        qmin = QUA_MIN
+    shell:
+        PYTHON_BIN + " /home/xujm/bin/.self/Fastq_manipulate/rules/fastqfilter.py"
+         " -i {input}"
+         " -o {output}"
+         " -q {params.qmin}"

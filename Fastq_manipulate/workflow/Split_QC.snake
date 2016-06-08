@@ -4,15 +4,19 @@ LIBRARY = "H16A28P250-1"
 LIB_TYPE = "hiseq"
 DATA_TYPE = "16S"
 SAM_BARCODE_INFO = "sam_barcode.all"
+QUA_MIN = 20
 
 include_prefix = "/home/xujm/bin/.self/Fastq_manipulate"
+include:
+    include_prefix + "/workflow/config.py"
 include:
     include_prefix + "/rules/split_barcode.rules"
 include:
     include_prefix + "/rules/pandaseq.rules"
-
+include:
+    include_prefix + "/rules/fastqfilter.rules"
 
 rule all:
     input:
         expand("Split/Unalign/" + LIBRARY + ".{pair}.fastq", pair = ["R1", "R2"]),
-        expand("QC/{dir}/pandaseq.fasta", dir  = DIRS)
+        expand("QC/{dir}/high_quality.fq", dir  = DIRS)
