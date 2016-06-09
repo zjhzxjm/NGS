@@ -14,6 +14,8 @@ rule run_pandaseq:
     params:
         f_primer = F_PRIMER,
         r_primer = R_PRIMER,
+        job_name = "Pand",
+        cluster = "-cwd -l vf=1G -e logs/ -o logs/"
     threads:
         1
     log:

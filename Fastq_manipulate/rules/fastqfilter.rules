@@ -11,7 +11,9 @@ rule run_fastqfilter:
     output:
         "QC/{dir}/high_quality.fq"
     params:
-        qmin = QUA_MIN
+        qmin = QUA_MIN,
+        job_name = "FaFi",
+        cluster = "-cwd -l vf=500M -e logs/ -o logs/"
     shell:
         PYTHON_BIN + " /home/xujm/bin/.self/Fastq_manipulate/rules/fastqfilter.py"
          " -i {input}"

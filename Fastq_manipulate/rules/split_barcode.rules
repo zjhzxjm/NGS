@@ -36,7 +36,9 @@ rule merge_split:
     input:
         expand("split/Split/split_barcode.{suffix}.done", suffix = SUFFIX)
     params:
-        prefix = "split/Split/{dir}/" + LIBRARY + ".{pair}.fastq"
+        prefix = "split/Split/{dir}/" + LIBRARY + ".{pair}.fastq",
+        job_name = "MeSp",
+        cluster = "-cwd -l vf=500M -e logs/ -o logs/"
     output:
         "Split/{dir}/" + LIBRARY + ".{pair}.fastq"
     run:
@@ -48,7 +50,9 @@ rule split_barcode:
          expand("split/split_fq.{pair}.done", pair = ["R1", "R2"]),"sam_barcode.all"
     params:
         read1 = "split/" + LIBRARY + ".R1.fastq.{suffix}",
-        read2 = "split/" + LIBRARY + ".R2.fastq.{suffix}"
+        read2 = "split/" + LIBRARY + ".R2.fastq.{suffix}",
+        job_name = "SpBa",
+        cluster = "-cwd -l vf=500M -e logs/ -o logs/"
     output:
         touch("split/Split/split_barcode.{suffix}.done")
     shell:
@@ -65,9 +69,8 @@ rule split_fq:
     params:
         prefix = "split/" + LIBRARY + ".{pair}.fastq.",
         split_files = SPLIT_FILES_NUM,
-        jobname = "sp_fq{jobid}"
-    resources:
-        vf = "vf=100M"
+        job_name = "SpFq",
+        cluster = "-cwd -l vf=500M -e logs/ -o logs/"
     output:
         touch("split/split_fq.{pair}.done"),
     run:

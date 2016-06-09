@@ -1,0 +1,21 @@
+from snakemake.utils import report
+import os
+
+rule stat_pandaseq:
+    input:
+        raw_data = "Split/{contract}/{sample}/" + LIBRARY + ".R1.fastq",
+        panda_data = "QC/{contract}/{sample}/pandaseq.fq",
+        clean_data = "QC/{contract}/{sample}/high_quality.fq"
+    output:
+        "QC/{contract}/{sample}/stat"
+    run:
+        wc_raw_data = int(os.popen("wc -l {0}".format(input.raw_data)).read().strip()[0])
+        wc_panda_data = int(os.popen("wc -l {0}".format(input.panda_data)).read().strip()[0])
+        wc_clean_data = int(os.popen("wc -l {0}".format(input.clean_data)).read().strip()[0])
+        stat_line = "{c:20s} {s:20s} {r_n:20d} {p_n:20d} {c_n:20d} {c_p:20.2f}% {t_p:20.2f}%\n".format(
+        c=wildcards.contract, s=wildcards.sample, r_n=wc_raw_data//4, p_n=wc_panda_data//4, c_n=wc_clean_data//4,
+        c_p=wc_clean_data/wc_panda_data*100, t_p=wc_clean_data/wc_raw_data*100)
+        print(stat_line)
+        O = open(output[0], "w")
+        O.write(stat_line)
+
