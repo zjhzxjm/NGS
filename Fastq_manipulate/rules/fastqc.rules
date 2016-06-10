@@ -1,1 +1,23 @@
-rule run_fastqc
+rule merge_samples:
+    input:
+        expand("QC/{dir}/high_quality.fq", dir=DIRS)
+    params:
+        prefix = "QC/{contract}",
+        job_name = "MeSa",
+        cluster = "-cwd -l vf=500M -e logs/ -o logs/"
+    output:
+        "QC/{contract}/{contract}.clean.fq"
+    shell:
+        "cat {params.prefix}/*/high_quality.fq > {output}"
+
+
+rule run_fastqc:
+    input:
+        "QC/{contract}/{contract}.clean.fq"
+    params:
+        job_name = "FaQc",
+        cluster = "-cwd -l vf=1G -e logs/ -o logs/"
+    output:
+        "QC/{contract}/{contract}.clean_fastqc.html"
+    shell:
+        BIN + "fastqc {input}"

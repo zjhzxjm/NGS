@@ -1,6 +1,9 @@
 
-rule rm_filtered_unalign:
-    input:
+rule rm_split:
+    params:
+        "split/"
+    output:
+        "rm_split.done"
 
 rule gzip_file:
     input:

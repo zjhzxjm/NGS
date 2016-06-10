@@ -6,16 +6,75 @@ rule stat_pandaseq:
         raw_data = "Split/{contract}/{sample}/" + LIBRARY + ".R1.fastq",
         panda_data = "QC/{contract}/{sample}/pandaseq.fq",
         clean_data = "QC/{contract}/{sample}/high_quality.fq"
+    params:
+        job_name = "StPa",
+        cluster = "-cwd -l vf=500M -e logs/ -o logs/"
     output:
         "QC/{contract}/{sample}/stat"
     run:
-        wc_raw_data = int(os.popen("wc -l {0}".format(input.raw_data)).read().strip()[0])
-        wc_panda_data = int(os.popen("wc -l {0}".format(input.panda_data)).read().strip()[0])
-        wc_clean_data = int(os.popen("wc -l {0}".format(input.clean_data)).read().strip()[0])
-        stat_line = "{c:20s} {s:20s} {r_n:20d} {p_n:20d} {c_n:20d} {c_p:20.2f}% {t_p:20.2f}%\n".format(
-        c=wildcards.contract, s=wildcards.sample, r_n=wc_raw_data//4, p_n=wc_panda_data//4, c_n=wc_clean_data//4,
-        c_p=wc_clean_data/wc_panda_data*100, t_p=wc_clean_data/wc_raw_data*100)
-        print(stat_line)
+        wc_raw_data = int(os.popen("wc -l {0}".format(input.raw_data)).read().strip().split()[0])
+        wc_panda_data = int(os.popen("wc -l {0}".format(input.panda_data)).read().strip().split()[0])
+        wc_clean_data = int(os.popen("wc -l {0}".format(input.clean_data)).read().strip().split()[0])
+        stat_line = "{c:20s}  {s:10s}  {r_n:10d}  {p_n:10d}  {c_n:10d}  ".format(
+            c=wildcards.contract, s=wildcards.sample, r_n=wc_raw_data//4, p_n=wc_panda_data//4, c_n=wc_clean_data//4)
+        if wc_raw_data != 0 and wc_panda_data != 0:
+            stat_line += "{c_p:9.2f}%  {t_p:9.2f}%\n".format(c_p=wc_clean_data/wc_panda_data*100,
+            t_p=wc_clean_data/wc_raw_data*100)
+        else:
+            stat_line += "{c_p:10d}  {t_p:10d}\n".format(c_p=0, t_p=0)
+        if wc_raw_data < wc_panda_data:
+            print(os.popen("wc -l {0}".format(input.raw_data)).read().strip())
+            print(wc_raw_data)
+            print(wc_raw_data//4)
+            print(stat_line)
         O = open(output[0], "w")
         O.write(stat_line)
 
+
+rule report:
+    input:
+        stat_files = expand("QC/{dir}/stat", dir = DIRS),
+        T1 = expand("QC/{contract}/{contract}.clean_fastqc.html", contract=CONTRACTS),
+        unalign_fq = "Split/Unalign/" + LIBRARY + ".R1.fastq"
+    output:
+        LIBRARY + ".report.html"
+    run:
+        num_contract = len(CONTRACTS)
+        num_sample = len(SAMPLES)
+        wc_unalign_fq = int(os.popen("wc -l {0}".format(input.unalign_fq)).read().strip().split()[0])
+
+        table = ""
+        sum_raw = 0
+        for file in input.stat_files:
+            with open(file) as F:
+                for line in F:
+                    sum_raw += int(line.split()[2])
+                    table += line
+        table = table.strip()
+        unalign_ratio = "{0:.2f}%".format(wc_unalign_fq/(wc_unalign_fq+sum_raw*4)*100)
+        report("""
+        {LIBRARY} Data QC Workflow Report
+        ===========================================================================================
+
+        Introduction:
+        -------------
+        This flow contains {num_contract} contracts and {num_sample} samples in total. Reads were split to the each sample,
+        assembled by PandaSeq, removed with the low average quality below 20.
+
+        FastQC Report:
+        --------------
+        FastQC report for each contract(see: FastQC_Reports_)
+
+        Data statistics:
+        ----------------
+        Unalign ratio: {unalign_ratio}
+
+        Data statistics table:
+
+        ====================  ==========  ==========  ==========  ==========  ==========  ==========
+        Contract              Sample      Raw reads   Pand reads  HQ reads    HQ ratio    Total ratio
+        ====================  ==========  ==========  ==========  ==========  ==========  ==========
+        {table}
+        ====================  ==========  ==========  ==========  ==========  ==========  ==========
+
+        """, output[0], metadata="Author: Junming Xu (xujm@realbio.cn)", FastQC_Reports=input.T1)

@@ -15,7 +15,7 @@ rule run_fastqfilter:
         job_name = "FaFi",
         cluster = "-cwd -l vf=500M -e logs/ -o logs/"
     shell:
-        PYTHON_BIN + " /home/xujm/bin/.self/Fastq_manipulate/rules/fastqfilter.py"
+        BIN + "python /home/xujm/bin/.self/Fastq_manipulate/rules/fastqfilter.py"
          " -i {input}"
          " -o {output}"
          " -q {params.qmin}"

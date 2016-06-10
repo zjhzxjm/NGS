@@ -16,7 +16,7 @@ with open(SAM_BARCODE_INFO) as in_handle:
         CONTRACTS.append(line.split()[0])
         SAMPLES.append(line.split()[1])
         DIRS.append(line.split()[0] + "/" + line.split()[1])
-
+CONTRACTS = list(set(CONTRACTS))
 
 def iter_all_strings():
     size=2
@@ -41,8 +41,8 @@ rule merge_split:
         cluster = "-cwd -l vf=500M -e logs/ -o logs/"
     output:
         "Split/{dir}/" + LIBRARY + ".{pair}.fastq"
-    run:
-        shell("cat {params.prefix}.* > {output}")
+    shell:
+        "cat {params.prefix}.* > {output}"
 
 
 rule split_barcode:
@@ -52,11 +52,11 @@ rule split_barcode:
         read1 = "split/" + LIBRARY + ".R1.fastq.{suffix}",
         read2 = "split/" + LIBRARY + ".R2.fastq.{suffix}",
         job_name = "SpBa",
-        cluster = "-cwd -l vf=500M -e logs/ -o logs/"
+        cluster = "-cwd -l vf=1G -e logs/ -o logs/"
     output:
         touch("split/Split/split_barcode.{suffix}.done")
     shell:
-        PYTHON_BIN + " ~/bin/.self/Fastq_manipulate/split_barcode.py"
+        BIN + "python ~/bin/.self/Fastq_manipulate/split_barcode.py"
         " -a {params.read1}"
         " -b {params.read2}"
         " -s {input[2]}"

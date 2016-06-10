@@ -41,7 +41,7 @@ if __name__ == '__main__':
     else:
         qmin = 30
 
-
+    sample_name = " " + out.split("/")[-2]
     fq_iter = SeqIO.parse(open(fq), "fastq")
     O_fq = open(out, "w")
     while True:
@@ -50,6 +50,7 @@ if __name__ == '__main__':
             logging.debug(type(mean(record.letter_annotations["phred_quality"])))
             if qmin > mean(record.letter_annotations["phred_quality"]):
                 continue
+            record.description += sample_name
             O_fq.write(record.format("fastq"))
         except StopIteration:
             break
