@@ -73,8 +73,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
     phone = args.phone
     hosts = ['nas-0-1', 'nas-0-2', 'nas-0-3', 'nas-0-4', 'nas-0-5', 'nas-0-6', 'nas-0-7', 'nas-0-8', 'nas-0-t',
-                 'data-0-1', 'data-0-2', 'data-0-3', 'data-0-4', 'data-0-6', 'data-0-7',
-                 'nas-1-1']
+             'data-0-1', 'data-0-2', 'data-0-3', 'data-0-4', 'data-0-6', 'data-0-7',
+             'nas-1-1']
     ex_temp_max = 45
     in_temp_max = 30
     sms_done_file = '/data_center_01/home/xujm/logs/sms.done'
