@@ -48,25 +48,17 @@ class SmsTool:
 class IpmiTool:
     def __init__(self, hostname):
         self.hostname = hostname
-        logging.debug(self.hostname)
 
-    def get_inlet_temp(self):
-        handle = os.popen('rocks run host {0} "ipmitool -c sdr type temperature"'.format(self.hostname))
+    def get_temp(self):
+        handle = os.popen('/opt/rocks/bin/rocks run host {0} "ipmitool -c sdr type temperature"'.format(self.hostname))
         for i in handle:
             if re.search('^FP', i) or re.search('^Inlet', i):
                 logging.debug('inlet line {0}'.format(i))
-                temp = int(i.split(',')[1])
-                break
-        return temp
-
-    def get_exhaust_temp(self):
-        handle = os.popen('rocks run host {0} "ipmitool -c sdr type temperature"'.format(self.hostname))
-        for i in handle:
-            if re.search('^MB', i) or re.search('^Exhaust', i):
+                in_temp = int(i.split(',')[1])
+            elif re.search('^MB', i) or re.search('^Exhaust', i):
                 logging.debug('exhaust line {0}'.format(i))
-                temp = int(i.split(',')[1])
-                break
-        return temp
+                ex_temp = int(i.split(',')[1])
+        return {'in_temp': in_temp, 'ex_temp': ex_temp}
 
 
 if __name__ == '__main__':
@@ -84,14 +76,19 @@ if __name__ == '__main__':
             format="[%(asctime)s]%(name)s:%(levelname)s:%(message)s",
             filename='debug.log'
         )
+    else:
+        logging.basicConfig(
+            level=logging.INFO,
+            format="[%(asctime)s]%(name)s:%(levelname)s:%(message)s",
+            filename='/data_center_01/home/xujm/logs/TempMoniInfo.log'
+        )
 
     for host in hosts:
         obj_ipmi = IpmiTool(host)
-        ex_temp = obj_ipmi.get_exhaust_temp()
-        in_temp = obj_ipmi.get_inlet_temp()
-        if ex_temp >= ex_temp_max or in_temp >= in_temp_max:
+        d_temp = obj_ipmi.get_temp()
+        if d_temp['ex_temp'] >= ex_temp_max or d_temp['in_temp'] >= in_temp_max:
             if not os.path.exists(sms_done_file):
-                obj_sms = SmsTool(phone, host, {'ex_temp': ex_temp, 'in_temp': in_temp})
+                obj_sms = SmsTool(phone, host, d_temp)
                 recode = obj_sms.temp_warn()
                 if recode:
                     logging.debug('touch sms.done ok: {0}'.format(recode))
@@ -99,7 +96,7 @@ if __name__ == '__main__':
                     break
                 else:
                     logging.debug('SMS not send')
-            logging.debug('Temp:{0} - {1} - {2}'.format(host, in_temp, ex_temp))
+            logging.info('Temp:{0} - {1} - {2}'.format(host, d_temp['in_temp'], d_temp['ex_temp']))
         else:
             recode = subprocess.call(['rm', sms_done_file])
             logging.debug('rm sms.done return code: {0}'.format(recode))
