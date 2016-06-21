@@ -1,18 +1,17 @@
-#!/data_center_01/home/xujm/soft/Anaconda/anaconda3/bin python
+# -*- coding: utf-8 -*-
 """
 Author: xujm@realbio.cn
 Ver:1.0
 init
 """
 
-# -*- coding: utf-8 -*- \#
 import os
 import re
 import subprocess
 import json
 import argparse
 import logging
-import top
+import top.api
 import settings
 
 parser = argparse.ArgumentParser(description="")
@@ -23,25 +22,28 @@ parser.add_argument('--version', action='version', version='1.0')
 
 class SmsTool:
     def __init__(self, phone, hostname, d_temp):
-        self.phone = phone
+        self.phone = phone.strip()
         self.hostname = hostname
         self.d_temp = d_temp
 
     def temp_warn(self):
         appkey = settings.ALIDAYU_APPKEY
         secret = settings.ALIDAYU_SECRET
+        logging.debug('sms config: {0} {1}, in_temp {2}'.format(appkey, secret, self.d_temp['in_temp']))
         req = top.api.AlibabaAliqinFcSmsNumSendRequest()
         req.set_app_info(top.appinfo(appkey, secret))
         # req.extend = "123456"
         req.sms_type = "normal"
         req.sms_free_sign_name = "集群运维"
-        req.sms_param = json.dumps({'hostname': self.hostname, 'in_temp': self.d_temp['in_temp'], 'ex_temp': self.d_temp['ex_temp']})
+        req.sms_param = json.dumps({'hostname': self.hostname, 'in_temp': str(self.d_temp['in_temp']),
+                                    'ex_temp': str(self.d_temp['ex_temp'])})
         req.rec_num = self.phone
-        req.sms_template_code = "SMS_10840631"
+        req.sms_template_code = "SMS_10845500"
         try:
             resp = req.getResponse()
             return 1
         except Exception as e:
+            logging.debug('sms error {0}'.format(e))
             return 0
 
 
