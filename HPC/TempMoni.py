@@ -34,7 +34,7 @@ class SmsTool:
         req.set_app_info(top.appinfo(appkey, secret))
         # req.extend = "123456"
         req.sms_type = "normal"
-        req.sms_free_sign_name = "集群运维"
+        req.sms_free_sign_name = "锐翌集群"
         req.sms_param = json.dumps({'hostname': self.hostname, 'in_temp': str(self.d_temp['in_temp']),
                                     'ex_temp': str(self.d_temp['ex_temp'])})
         req.rec_num = self.phone
